@@ -20,6 +20,12 @@
         <mapping resource="UserRolesEntity.hbm.xml"/>
         <mapping class="entity.dbEntity.UserEntity"/>
         <mapping resource="UsersEntity.hbm.xml"/>
+        <mapping class="entity.dbEntity.LeaguesEntity"/>
+        <mapping class="entity.dbEntity.MatchesEntity"/>
+        <mapping class="entity.dbEntity.PlayersEntity"/>
+        <mapping class="entity.dbEntity.ResultsEntity"/>
+        <mapping class="entity.dbEntity.UserRolesEntity"/>
+        <mapping class="entity.dbEntity.UsersEntity"/>
         <!-- <property name="connection.username"/> -->
         <!-- <property name="connection.password"/> -->
 

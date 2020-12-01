@@ -1,27 +1,11 @@
 package entity.dbEntity;
 
-import entity.StringResult;
-
 import javax.persistence.*;
 import java.util.Collection;
 
-
-@NamedQueries({
-        @NamedQuery(name = "Result.byParams",
-                query = "From ResultEntity result " +
-                        "WHERE score = :score " +
-                        "and set1 = :set1 " +
-                        "and set2 = :set2 " +
-                        "and set3 = :set3 " +
-                        "and set4 = :set4 " +
-                        "and set5 = :set5 ")
-})
-
-
-
 @Entity
 @Table(name = "Results", schema = "bigtennis", catalog = "")
-public class ResultEntity {
+public class ResultsEntity {
     private int id;
     private String score;
     private String set1;
@@ -29,7 +13,7 @@ public class ResultEntity {
     private String set3;
     private String set4;
     private String set5;
-    private Collection<MatchEntity> matchById;
+    private Collection<MatchesEntity> matchesById;
 
     @Id
     @Column(name = "id", nullable = false)
@@ -101,23 +85,12 @@ public class ResultEntity {
         this.set5 = set5;
     }
 
-
-    @OneToMany(mappedBy = "result")
-    public Collection<MatchEntity> getMatchById() {
-        return matchById;
-    }
-
-    public void setMatchId(Collection<MatchEntity> matchById) {
-        this.matchById = matchById;
-    }
-
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        ResultEntity that = (ResultEntity) o;
+        ResultsEntity that = (ResultsEntity) o;
 
         if (id != that.id) return false;
         if (score != null ? !score.equals(that.score) : that.score != null) return false;
@@ -128,10 +101,6 @@ public class ResultEntity {
         if (set5 != null ? !set5.equals(that.set5) : that.set5 != null) return false;
 
         return true;
-    }
-
-    public String[] setsToArrString() {
-        return new String[]{set1,set2,set3,set4,set5};
     }
 
     @Override
@@ -146,23 +115,12 @@ public class ResultEntity {
         return result;
     }
 
-    public void setAll(StringResult params) {
-        String score = params.getScore();
-
-        String set1 = params.getSet1();
-        String set2 = params.getSet2();
-        String set3 = params.getSet3();
-        String set4 = params.getSet4();
-        String set5 = params.getSet5();
-
-
-        setScore(score);
-        setSet1(set1);
-        setSet2(set2);
-        setSet3(set3);
-        setSet4(set4);
-        setSet5(set5);
-
+    @OneToMany(mappedBy = "resultsByResult")
+    public Collection<MatchesEntity> getMatchesById() {
+        return matchesById;
     }
 
+    public void setMatchesById(Collection<MatchesEntity> matchesById) {
+        this.matchesById = matchesById;
+    }
 }

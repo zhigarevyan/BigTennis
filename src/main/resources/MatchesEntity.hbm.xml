@@ -4,24 +4,42 @@
     "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
 
-    <class name="entity.dbEntity.MatchEntity" table="Matches" schema="bigtennis">
+    <class name="entity.dbEntity.MatchesEntity" table="Matches" schema="bigtennis">
         <id name="id">
             <column name="id" sql-type="int"/>
         </id>
+        <property name="player1">
+            <column name="player1" sql-type="int"/>
+        </property>
+        <property name="player2">
+            <column name="player2" sql-type="int"/>
+        </property>
+        <property name="result">
+            <column name="result" sql-type="int"/>
+        </property>
         <property name="date">
             <column name="date" sql-type="varchar(16)" length="16"/>
         </property>
-        <many-to-one name="player1" class="entity.dbEntity.PlayerEntity">
+        <property name="league">
+            <column name="league" sql-type="int"/>
+        </property>
+        <property name="courtType">
+            <column name="court_type" sql-type="int" not-null="true"/>
+        </property>
+        <many-to-one name="playersByPlayer1" class="entity.dbEntity.PlayersEntity">
             <column name="player1"/>
         </many-to-one>
-        <many-to-one name="player2" class="entity.dbEntity.PlayerEntity">
+        <many-to-one name="playersByPlayer2" class="entity.dbEntity.PlayersEntity">
             <column name="player2"/>
         </many-to-one>
-        <many-to-one name="result" class="entity.dbEntity.ResultEntity">
+        <many-to-one name="resultsByResult" class="entity.dbEntity.ResultsEntity">
             <column name="result"/>
         </many-to-one>
-        <many-to-one name="league" class="entity.dbEntity.LeagueEntity">
+        <many-to-one name="leaguesByLeague" class="entity.dbEntity.LeaguesEntity">
             <column name="league"/>
+        </many-to-one>
+        <many-to-one name="courtTypesByCourtType" class="entity.dbEntity.CourtTypesEntity">
+            <column name="court_type" not-null="true"/>
         </many-to-one>
     </class>
 </hibernate-mapping>

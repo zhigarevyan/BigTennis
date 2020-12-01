@@ -4,11 +4,12 @@ import javax.persistence.*;
 import java.util.Collection;
 
 @Entity
-@Table(name = "CourtTypes", schema = "bigtennis", catalog = "")
-public class CourtTypesEntity {
+@Table(name = "Players", schema = "bigtennis", catalog = "")
+public class PlayersEntity {
     private int id;
     private String name;
     private Collection<MatchesEntity> matchesById;
+    private Collection<MatchesEntity> matchesById_0;
 
     @Id
     @Column(name = "id", nullable = false)
@@ -35,7 +36,7 @@ public class CourtTypesEntity {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        CourtTypesEntity that = (CourtTypesEntity) o;
+        PlayersEntity that = (PlayersEntity) o;
 
         if (id != that.id) return false;
         if (name != null ? !name.equals(that.name) : that.name != null) return false;
@@ -50,12 +51,21 @@ public class CourtTypesEntity {
         return result;
     }
 
-    @OneToMany(mappedBy = "courtTypesByCourtType")
+    @OneToMany(mappedBy = "playersByPlayer1")
     public Collection<MatchesEntity> getMatchesById() {
         return matchesById;
     }
 
     public void setMatchesById(Collection<MatchesEntity> matchesById) {
         this.matchesById = matchesById;
+    }
+
+    @OneToMany(mappedBy = "playersByPlayer2")
+    public Collection<MatchesEntity> getMatchesById_0() {
+        return matchesById_0;
+    }
+
+    public void setMatchesById_0(Collection<MatchesEntity> matchesById_0) {
+        this.matchesById_0 = matchesById_0;
     }
 }

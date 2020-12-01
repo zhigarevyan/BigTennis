@@ -1,5 +1,7 @@
-package entity;
+package dao;
 
+import entity.SeleniumMatch;
+import entity.SeleniumMatchList;
 import entity.StringResult;
 import org.openqa.selenium.WebElement;
 
@@ -102,7 +104,6 @@ public class SeleniumMatchBuilder {
                 stringResult.setSet(index,set);
                 index++;
             }
-
         }
         return stringResult;
     }

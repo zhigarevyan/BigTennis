@@ -1,7 +1,8 @@
-package dao;
+package controller;
 
-import entity.SeleniumMatchList;
-import dao.exception.SeleniumInitException;
+import controller.entity.SeleniumMatchBuilder;
+import controller.entity.SeleniumMatchList;
+import controller.exception.SeleniumInitException;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.TimeoutException;
@@ -11,7 +12,6 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.interactions.Actions;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import static java.lang.Thread.sleep;
@@ -41,7 +41,7 @@ public class SeleniumController {
         ChromeDriver driver = init();
         SeleniumMatchList seleniumMatchList = new SeleniumMatchList();
         WebElementFactory webElementFactory = new WebElementFactory(driver);
-        //DataController dataController = DataController.getInstance();
+        DataController dataController = DataController.getInstance();
 
         driver.get("https://1xstavka.ru/results/");
         WebElement nastolkaButton = webElementFactory.getNastolkaButton();
@@ -79,8 +79,8 @@ public class SeleniumController {
                 performClick(applyDate, driver);
 
                 seleniumMatchList = loadLeagues(webElementFactory);
-                //dataController.insertMatches(seleniumMatchList);
-                //logger.trace("Вставлено " + seleniumMatchList.size() + " матчей");
+                dataController.insertMatches(seleniumMatchList);
+                logger.trace("Вставлено " + seleniumMatchList.size() + " матчей");
             }
 
             performClick(calendar, driver);
@@ -148,11 +148,6 @@ public class SeleniumController {
 
     public static void main(String[] args) {
         SeleniumController seleniumController = new SeleniumController();
-
-        List<String> leaguesList = new ArrayList<>();
-        leaguesList.add("Daily Aqua Tour");
-        leaguesList.add("Daily Pro Tour");
-        seleniumController.setLeagues(leaguesList);
         try {
             seleniumController.getNewMatches();
         } catch (SeleniumInitException e) {

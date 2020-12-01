@@ -103,6 +103,10 @@ public class ResultEntity {
         return true;
     }
 
+    public String[] setsToArrString() {
+        return new String[]{set1,set2,set3,set4,set5};
+    }
+
     @Override
     public int hashCode() {
         int result = id;

@@ -9,8 +9,6 @@ public class StringResult {
     private String set3 = "null";
     private String set4 = "null";
     private String set5 = "null";
-    private String set6 = "null";
-    private String set7 = "null";
 
     public String getScore() {
         return score;
@@ -60,22 +58,6 @@ public class StringResult {
         this.set5 = set5;
     }
 
-    public String getSet6() {
-        return set6;
-    }
-
-    public void setSet6(String set6) {
-        this.set6 = set6;
-    }
-
-    public String getSet7() {
-        return set7;
-    }
-
-    public void setSet7(String set7) {
-        this.set7 = set7;
-    }
-
     public void setSet(int setNum, String result) {
         switch (setNum){
             case 1: this.set1 = result; break;
@@ -83,8 +65,6 @@ public class StringResult {
             case 3: this.set3 = result; break;
             case 4: this.set4 = result; break;
             case 5: this.set5 = result; break;
-            case 6: this.set6 = result; break;
-            case 7: this.set7 = result; break;
         }
     }
 
@@ -97,8 +77,6 @@ public class StringResult {
                 ", set3='" + set3 + '\'' +
                 ", set4='" + set4 + '\'' +
                 ", set5='" + set5 + '\'' +
-                ", set6='" + set6 + '\'' +
-                ", set7='" + set7 + '\'' +
                 '}';
     }
 }

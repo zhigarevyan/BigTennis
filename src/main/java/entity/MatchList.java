@@ -1,13 +1,13 @@
 package entity;
 
-import controller.connection.entity.impl.TransferElement;
 import entity.dbEntity.MatchEntity;
 
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class MatchList extends TransferElement {
+public class MatchList {
+    //public class MatchList extends TransferElement {
 
     private ArrayList<Match> matchList;
     private Delimiter delimiter;

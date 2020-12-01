@@ -4,6 +4,8 @@ import entity.StringResult;
 import org.openqa.selenium.WebElement;
 
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class SeleniumMatchBuilder {
 
@@ -71,22 +73,37 @@ public class SeleniumMatchBuilder {
         return cleanPlayerNames;
     }
 
-    private StringResult scoreToDBForm(String score) {
-        StringResult stringResult = new StringResult();
-        String clearScore = "";
-        String[] listOfScores;
-        score = score.replaceFirst(" ", ",");
-        for (char ch : score.toCharArray()) {
-            if (ch != '(' && ch != ')') {
-                clearScore += ch;
+    private StringResult scoreToDBForm(String rawString) {
+        final String REGEXP_SCORE = "^(\\d+:\\d+)";
+        final String REGEXP_SETS = "\\((\\d+:\\d+,?)+\\)";
+        final String REGEXP_SET = "\\d+:\\d+";
+        final StringResult stringResult = new StringResult();
+
+        final Pattern scorePattern = Pattern.compile(REGEXP_SCORE);
+        final Pattern setsPattern = Pattern.compile(REGEXP_SETS);
+        final Pattern setPattern = Pattern.compile(REGEXP_SET);
+
+        Matcher scoreMatcher = scorePattern.matcher(rawString);
+        Matcher setsMatcher = setsPattern.matcher(rawString);
+        Matcher setMatcher;
+
+        String sets;
+
+        if (scoreMatcher.find() && setsMatcher.find()) {
+            int index = 0;
+
+            stringResult.setScore(scoreMatcher.group());
+            sets = setsMatcher.group();
+
+            setMatcher = setPattern.matcher(sets);
+
+            while(setMatcher.find()) {
+                String set = setMatcher.group();
+                stringResult.setSet(index,set);
+                index++;
             }
-        }
-        listOfScores = clearScore.split(",");
-        stringResult.setScore(listOfScores[0]);
-        for (int i = 0; i < listOfScores.length; i++) {
-            stringResult.setSet(i, listOfScores[i]);
+
         }
         return stringResult;
     }
-
 }

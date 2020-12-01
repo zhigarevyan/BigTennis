@@ -31,6 +31,10 @@ public class LeagueService {
         return leagueDao.findAll();
     }
 
+    public LeagueEntity getOrNewByName(String name) {
+        return new LeagueEntity();
+    }
+
     public LeagueEntity byName(String name) {
         List<LeagueEntity> leaguesList = leagueDao.byName(name);
         if (leaguesList.size() == 0) {

@@ -14,9 +14,10 @@ public class WebElementFactory {
 
     private final ChromeDriver driver;
 
-    private final String NASTOLKA_BUTTON_XPATH = "//*[@id=\"router_app\"]/div/div[2]/div/div/div[1]/div/section/ul/li[5]/a";
     private final String SEARCHBOX_CLASS = "//*[@id=\"searchGames\"]";
     private final String MATCHBOX_CLASS = "c-games__row_light";
+    private final String LEAGUES_CLASS = "c-games__name";
+    private final String NASTOLKA_BUTTON_XPATH = "//*[@id=\"router_app\"]/div/div[2]/div/div/div[1]/div/section/ul/li[5]/a";
     private final String CALENDAR_XPATH = "//*[@id=\"router_app\"]/div/div[2]/div/div/div[2]/div[2]/div/div/div[2]/div/div[1]/div[1]";
     private final String BUTTON_PREV_MONTH_XPATH = "//*[@id=\"router_app\"]/div/div[2]/div/div/div[2]/div[2]/div/div/div[2]/div/div[1]/div[2]/header/span[1]";
     private final String APPLY_DATE_BUTTON_XPATH = "//*[@id=\"router_app\"]/div/div[2]/div/div/div[2]/div[2]/div/div/div[5]/div";
@@ -53,6 +54,10 @@ public class WebElementFactory {
 
     public List<WebElement> getMatchList() {
         return driver.findElements(By.className(MATCHBOX_CLASS));
+    }
+
+    public List<WebElement> getLeaguesList() {
+        return driver.findElements(By.className(LEAGUES_CLASS));
     }
 
     public List<WebElement> getDayButtons() {

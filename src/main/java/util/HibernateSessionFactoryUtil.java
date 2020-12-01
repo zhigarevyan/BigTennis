@@ -1,5 +1,6 @@
 package util;
 
+import entity.dbEntity.*;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
@@ -18,9 +19,8 @@ public class HibernateSessionFactoryUtil {
                 configuration.addAnnotatedClass(PlayerEntity.class);
                 configuration.addAnnotatedClass(LeagueEntity.class);
                 configuration.addAnnotatedClass(ResultEntity.class);
-                configuration.addAnnotatedClass(MatchesUpdatesEntity.class);
-                configuration.addAnnotatedClass(AppusersEntity.class);
-                configuration.addAnnotatedClass(UnregUsersEntity.class);
+                configuration.addAnnotatedClass(UserEntity.class);
+                configuration.addAnnotatedClass(UserRoleEntity.class);
                 StandardServiceRegistryBuilder builder = new StandardServiceRegistryBuilder().applySettings(configuration.getProperties());
                 sessionFactory = configuration.buildSessionFactory(builder.build());
 

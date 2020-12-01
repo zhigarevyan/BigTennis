@@ -1,8 +1,8 @@
 package entity;
 
 import controller.connection.entity.impl.TransferElement;
-import entity.dbEntity.MatchesLEntity;
-import util.WinR;
+import entity.dbEntity.MatchEntity;
+
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,9 +34,7 @@ public class MatchList extends TransferElement {
         return playerWinsQuantity;
     }
 
-    public double getWinR(int playerNum) {
-        return WinR.calc(playerWins(playerNum), size());
-    }
+
 
     //region GSC
 
@@ -58,9 +56,9 @@ public class MatchList extends TransferElement {
         return matchList;
     }
 
-    public MatchList(List<MatchesLEntity> listMatchEntity) {
+    public MatchList(List<MatchEntity> listMatchEntity) {
         matchList = new ArrayList<>();
-        for (MatchesLEntity matchEntity : listMatchEntity) {
+        for (MatchEntity matchEntity : listMatchEntity) {
             matchList.add(new Match(matchEntity));
         }
     }
@@ -84,7 +82,7 @@ public class MatchList extends TransferElement {
         }
     }
 
-    @Override
+/*    @Override
     public String toString() {
         StringBuilder resultSB = new StringBuilder();
         if (size() != 0) {
@@ -98,6 +96,6 @@ public class MatchList extends TransferElement {
             }
         }
         return resultSB.toString();
-    }
+    }*/
     //endregion
 }

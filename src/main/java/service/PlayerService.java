@@ -1,6 +1,7 @@
 package service;
 
 import dao.PlayerDAO;
+import entity.dbEntity.PlayerEntity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,7 +30,7 @@ public class PlayerService {
 
     public List<String> all() {
         ArrayList<String> playerNames = new ArrayList<>();
-        for(PlayersEntity player : playerDao.findAll()){
+        for(PlayerEntity player : playerDao.findAll()){
             playerNames.add(player.getName());
         }
         return playerNames;

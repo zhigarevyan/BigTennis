@@ -1,6 +1,9 @@
 package service;
 
 import dao.LeagueDAO;
+import entity.dbEntity.LeagueEntity;
+
+import java.util.List;
 
 public class LeagueService {
     private LeagueDAO leagueDao = new LeagueDAO();

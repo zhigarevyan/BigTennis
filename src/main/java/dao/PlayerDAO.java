@@ -1,5 +1,6 @@
 package dao;
 
+import entity.dbEntity.PlayerEntity;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import util.HibernateSessionFactoryUtil;

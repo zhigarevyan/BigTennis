@@ -1,6 +1,8 @@
 package service;
 
 import dao.ResultDAO;
+import entity.StringResult;
+import entity.dbEntity.ResultEntity;
 
 import java.util.List;
 

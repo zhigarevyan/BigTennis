@@ -1,6 +1,8 @@
 package entity;
 
-import entity.dbEntity.MatchesLEntity;
+
+
+import entity.dbEntity.MatchEntity;
 import util.DateFormater;
 
 import java.io.Serializable;
@@ -32,7 +34,7 @@ public class Match implements Serializable {
 
     //region GSC
 
-    public Match(MatchesLEntity match) {
+    public Match(MatchEntity match) {
         this.date = match.getDate();
         this.player1 = match.getPlayer1().getName();
         this.player2 = match.getPlayer2().getName();

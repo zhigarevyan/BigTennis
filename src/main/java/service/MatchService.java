@@ -1,6 +1,11 @@
 package service;
 
 import dao.MatchDAO;
+import entity.MatchList;
+import entity.dbEntity.LeagueEntity;
+import entity.dbEntity.MatchEntity;
+import entity.dbEntity.PlayerEntity;
+import entity.dbEntity.ResultEntity;
 
 import java.util.List;
 
@@ -41,7 +46,6 @@ public class MatchService {
 
     public MatchList get2PlMatches(int quantity, String p1name, String p2name, String league) {
         List<MatchEntity> listMLEntity = matchDao.get2PlMatches(quantity, p1name, p2name, league);
-        checkWinRs(listMLEntity);
         listMLEntity = matchDao.get2PlMatches(quantity, p1name, p2name, league);
 
         MatchList matchList = new MatchList(listMLEntity);

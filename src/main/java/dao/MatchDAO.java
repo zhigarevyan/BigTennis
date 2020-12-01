@@ -1,5 +1,9 @@
 package dao;
 
+import entity.dbEntity.LeagueEntity;
+import entity.dbEntity.MatchEntity;
+import entity.dbEntity.PlayerEntity;
+import entity.dbEntity.ResultEntity;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import util.HibernateSessionFactoryUtil;

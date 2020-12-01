@@ -33,5 +33,14 @@ public class UserService {
         return userDAO.findAll();
     }
 
+    public boolean checkAccess(String mac){
+        for(UserEntity user : userDAO.findAll()){
+            if(user.getKey().equals(mac)){
+                return true;
+            }
+        }
+        return false;
+    }
+
 
 }

@@ -1,16 +1,16 @@
 package controller;
 
-import controller.entity.SeleniumMatch;
-import controller.entity.SeleniumMatchList;
+import entity.SeleniumMatch;
+import entity.SeleniumMatchList;
 import entity.MatchList;
 import entity.StringResult;
 import entity.StringUser;
+import entity.dbEntity.LeagueEntity;
+import entity.dbEntity.PlayerEntity;
 import entity.dbEntity.ResultEntity;
+import entity.dbEntity.UserEntity;
 import org.apache.log4j.Logger;
-import service.LeagueService;
-import service.MatchService;
-import service.PlayerService;
-import service.ResultService;
+import service.*;
 
 import javax.persistence.PersistenceException;
 import java.util.ArrayList;
@@ -25,8 +25,8 @@ public class DataController {
     PlayerService playerService = new PlayerService();
     ResultService resultService = new ResultService();
     LeagueService leagueService = new LeagueService();
-    AppuserService appuserService = new AppuserService();
-    UnregUsersService unregUsersService = new UnregUsersService();
+    UserService userService = new UserService();
+
 
     public static DataController getInstance() {
         if (instance == null) {
@@ -40,10 +40,10 @@ public class DataController {
     }
 
     public void insertMatch(String player1, String player2, StringResult result, String date, String league) {
-        PlayersEntity player1Entity = playerService.getOrNewByName(player1);
-        PlayersEntity player2Entity = playerService.getOrNewByName(player2);
+        PlayerEntity player1Entity = playerService.getOrNewByName(player1);
+        PlayerEntity player2Entity = playerService.getOrNewByName(player2);
         ResultEntity resultEntity = resultService.getOrNewByParams(result);
-        LeaguesEntity leaguesEntity = leagueService.byName(league);
+        LeagueEntity leaguesEntity = leagueService.byName(league);
 
         matchService.insertIgnore(player1Entity, player2Entity, resultEntity, date, leaguesEntity);
 
@@ -52,8 +52,8 @@ public class DataController {
     public List<String> getLeagues() {
         List<String> leagueList = new ArrayList<>();
 
-        List<LeaguesEntity> leaguesEntityList = leagueService.all();
-        for(LeaguesEntity leaguesEntity: leaguesEntityList) {
+        List<LeagueEntity> leaguesEntityList = leagueService.all();
+        for(LeagueEntity leaguesEntity: leaguesEntityList) {
             leagueList.add(leaguesEntity.getName());
         }
         return leagueList;
@@ -74,15 +74,15 @@ public class DataController {
     public List<String> getUsers(){
         List<String> userList = new ArrayList<>();
 
-        List<AppusersEntity> appUserList = appuserService.all();
-        for(AppusersEntity appusersEntity: appUserList) {
-            userList.add(appusersEntity.getUsername());
+        List<UserEntity> appUserList = userService.all();
+        for(UserEntity userEntity: appUserList) {
+            userList.add(userEntity.getName());
         }
         return userList;
     }
 
     public boolean checkUserAccess(String mac){
-        return appuserService.checkAccess(mac);
+        return userService.checkAccess(mac);
     }
 
     public String getLastMatchDate(){
@@ -95,10 +95,10 @@ public class DataController {
         try {
 
             for (SeleniumMatch seleniumMatch : seleniumMatchList.getMatchList()) {
-                PlayersEntity player1Entity = playerService.getOrNewByName(seleniumMatch.getPlayer1());
-                PlayersEntity player2Entity = playerService.getOrNewByName(seleniumMatch.getPlayer2());
+                PlayerEntity player1Entity = playerService.getOrNewByName(seleniumMatch.getPlayer1());
+                PlayerEntity player2Entity = playerService.getOrNewByName(seleniumMatch.getPlayer2());
                 ResultEntity resultEntity = resultService.getOrNewByParams(seleniumMatch.getResult());
-                LeaguesEntity leaguesEntity = leagueService.byName(seleniumMatch.getLeague());
+                LeagueEntity leaguesEntity = leagueService.byName(seleniumMatch.getLeague());
 
                 matchService.insertIgnore(player1Entity, player2Entity, resultEntity, seleniumMatch.getDate(), leaguesEntity);
             }
@@ -108,32 +108,7 @@ public class DataController {
     }
 
 
-    public boolean addUnregisteredUser(String nickname, String android_id){
-        if(unregUsersService.isNicknameExistAlready(nickname)){
-            UnregUsersEntity usersEntity = new UnregUsersEntity();
-            usersEntity.setNickname(nickname);
-            usersEntity.setUserId(android_id);
-            unregUsersService.save(usersEntity);
-            return true;
-        }
-        else
-            return false;
-    }
 
-
-    public List<StringUser> getUnregisteredUsers(){
-        List<StringUser> unregList = new ArrayList<>();
-
-        List<UnregUsersEntity> dbList = unregUsersService.all();
-
-        for(UnregUsersEntity unregUserEntity : dbList){
-            unregList.add(new StringUser(unregUserEntity.getNickname(),unregUserEntity.getUserId()));
-        }
-
-        return unregList;
-
-
-    }
 
 
 

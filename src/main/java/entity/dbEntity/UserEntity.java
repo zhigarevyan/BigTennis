@@ -2,12 +2,16 @@ package entity.dbEntity;
 
 import javax.persistence.*;
 
+
+
+
 @Entity
 @Table(name = "Users", schema = "bigtennis", catalog = "")
 public class UserEntity {
     private int id;
     private String name;
     private UserRoleEntity userRolesByRole;
+    private String key;
 
     @Id
     @Column(name = "id", nullable = false)
@@ -18,6 +22,17 @@ public class UserEntity {
     public void setId(int id) {
         this.id = id;
     }
+
+    @Id
+    @Column(name = "key", nullable = false)
+    public String getKey() {
+        return key;
+    }
+
+    public void setKey(String key) {
+        this.key = key;
+    }
+
 
     @Basic
     @Column(name = "name", nullable = false, length = 45)

@@ -14,6 +14,12 @@ public class ResultDAO {
         return HibernateSessionFactoryUtil.getSessionFactory().openSession().get(ResultEntity.class, id);
     }
 
+    public static void main(String[] args) {
+        ResultDAO r = new ResultDAO();
+        System.out.println(r.findAll());
+
+    }
+
     public void save(ResultEntity result) {
         Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
         Transaction tx1 = session.beginTransaction();

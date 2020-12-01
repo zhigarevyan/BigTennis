@@ -4,6 +4,20 @@ import entity.StringResult;
 
 import javax.persistence.*;
 
+
+@NamedQueries({
+        @NamedQuery(name = "Result.byParams",
+                query = "From ResultEntity result " +
+                        "WHERE score = :score " +
+                        "and set1 = :set1 " +
+                        "and set2 = :set2 " +
+                        "and set3 = :set3 " +
+                        "and set4 = :set4 " +
+                        "and set5 = :set5 ")
+})
+
+
+
 @Entity
 @Table(name = "Results", schema = "bigtennis", catalog = "")
 public class ResultEntity {

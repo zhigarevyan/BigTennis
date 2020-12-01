@@ -32,7 +32,15 @@ public class LeagueService {
     }
 
     public LeagueEntity getOrNewByName(String name) {
-        return new LeagueEntity();
+        LeagueEntity league = byName(name);
+        if (league == null) {
+            LeagueEntity newLeague = new LeagueEntity();
+
+            newLeague.setName(name);
+            save(newLeague);
+            return byName(name);
+        }
+        return league;
     }
 
     public LeagueEntity byName(String name) {

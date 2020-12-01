@@ -2,6 +2,16 @@ package entity.dbEntity;
 
 import javax.persistence.*;
 
+@NamedQueries({
+
+        @NamedQuery(name = "Player.byName",
+                query = "From PlayerEntity players " +
+                        "WHERE name = :name ")
+
+})
+
+
+
 @Entity
 @Table(name = "Players", schema = "bigtennis", catalog = "")
 public class PlayerEntity {

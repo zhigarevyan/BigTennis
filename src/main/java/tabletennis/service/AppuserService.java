@@ -1,7 +1,7 @@
-package service;
+package tabletennis.service;
 
-import dao.AppuserDao;
-import entity.dbEntity.AppusersEntity;
+import tabletennis.dao.AppuserDao;
+import tabletennis.entity.dbEntity.AppusersEntity;
 
 import java.util.List;
 

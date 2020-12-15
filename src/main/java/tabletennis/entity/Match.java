@@ -1,6 +1,6 @@
-package entity;
+package tabletennis.entity;
 
-import entity.dbEntity.MatchesLEntity;
+import tabletennis.entity.dbEntity.MatchesLEntity;
 import util.DateFormater;
 
 import java.io.Serializable;

@@ -1,6 +1,6 @@
-package dao;
+package tabletennis.dao;
 
-import entity.dbEntity.UnregUsersEntity;
+import tabletennis.entity.dbEntity.UnregUsersEntity;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import util.HibernateSessionFactoryUtil;

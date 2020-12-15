@@ -1,6 +1,6 @@
-package dao;
+package tabletennis.dao;
 
-import entity.dbEntity.MatchesUpdatesEntity;
+import tabletennis.entity.dbEntity.MatchesUpdatesEntity;
 import util.HibernateSessionFactoryUtil;
 import org.hibernate.Session;
 import org.hibernate.Transaction;

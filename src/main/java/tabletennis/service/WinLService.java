@@ -1,7 +1,7 @@
-package service;
+package tabletennis.service;
 
-import dao.WinLDao;
-import entity.dbEntity.WinLsEntity;
+import tabletennis.dao.WinLDao;
+import tabletennis.entity.dbEntity.WinLsEntity;
 
 import java.util.List;
 

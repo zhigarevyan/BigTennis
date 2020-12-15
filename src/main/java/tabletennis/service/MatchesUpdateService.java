@@ -1,7 +1,7 @@
-package service;
+package tabletennis.service;
 
-import dao.MatchesUpdateDao;
-import entity.dbEntity.MatchesUpdatesEntity;
+import tabletennis.dao.MatchesUpdateDao;
+import tabletennis.entity.dbEntity.MatchesUpdatesEntity;
 
 import java.util.List;
 

@@ -1,8 +1,8 @@
-package dao;
+package tabletennis.dao;
 
 import controller.connection.ApplicationController;
-import entity.dbEntity.ResultEntity;
-import entity.StringResult;
+import tabletennis.entity.dbEntity.ResultEntity;
+import tabletennis.entity.StringResult;
 import org.apache.log4j.Logger;
 import util.HibernateSessionFactoryUtil;
 import org.hibernate.Session;

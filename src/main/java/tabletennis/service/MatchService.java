@@ -1,12 +1,12 @@
-package service;
+package tabletennis.service;
 
-import dao.MatchDao;
-import entity.dbEntity.LeaguesEntity;
-import entity.dbEntity.MatchesLEntity;
+import tabletennis.dao.MatchDao;
+import tabletennis.entity.dbEntity.LeaguesEntity;
+import tabletennis.entity.dbEntity.MatchesLEntity;
 import util.DateFormater;
-import entity.MatchList;
-import entity.dbEntity.PlayersEntity;
-import entity.dbEntity.ResultEntity;
+import tabletennis.entity.MatchList;
+import tabletennis.entity.dbEntity.PlayersEntity;
+import tabletennis.entity.dbEntity.ResultEntity;
 
 import java.util.List;
 

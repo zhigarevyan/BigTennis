@@ -1,4 +1,4 @@
-package entity;
+package tabletennis.entity;
 
 public class StringResult {
 

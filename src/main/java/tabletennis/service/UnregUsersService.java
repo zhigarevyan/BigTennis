@@ -1,9 +1,9 @@
-package service;
+package tabletennis.service;
 
-import dao.AppuserDao;
-import dao.UnregUsersDAO;
-import entity.dbEntity.AppusersEntity;
-import entity.dbEntity.UnregUsersEntity;
+import tabletennis.dao.AppuserDao;
+import tabletennis.dao.UnregUsersDAO;
+import tabletennis.entity.dbEntity.AppusersEntity;
+import tabletennis.entity.dbEntity.UnregUsersEntity;
 
 import java.util.List;
 

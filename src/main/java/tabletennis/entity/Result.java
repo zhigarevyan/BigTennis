@@ -1,6 +1,6 @@
-package entity;
+package tabletennis.entity;
 
-import entity.dbEntity.ResultEntity;
+import tabletennis.entity.dbEntity.ResultEntity;
 
 import java.io.Serializable;
 

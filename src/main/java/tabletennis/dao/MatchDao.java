@@ -1,9 +1,9 @@
-package dao;
+package tabletennis.dao;
 
-import entity.dbEntity.LeaguesEntity;
-import entity.dbEntity.MatchesLEntity;
-import entity.dbEntity.PlayersEntity;
-import entity.dbEntity.ResultEntity;
+import tabletennis.entity.dbEntity.LeaguesEntity;
+import tabletennis.entity.dbEntity.MatchesLEntity;
+import tabletennis.entity.dbEntity.PlayersEntity;
+import tabletennis.entity.dbEntity.ResultEntity;
 import util.HibernateSessionFactoryUtil;
 //import jdk.jfr.Name;
 import org.hibernate.Session;

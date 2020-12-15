@@ -1,7 +1,7 @@
-package service;
+package tabletennis.service;
 
-import dao.LeagueDao;
-import entity.dbEntity.LeaguesEntity;
+import tabletennis.dao.LeagueDao;
+import tabletennis.entity.dbEntity.LeaguesEntity;
 
 import java.util.List;
 

@@ -2,7 +2,7 @@ package tabletennis.entity.dbEntity;
 
 import javax.persistence.*;
 import java.util.Collection;
-import entity.StringResult;
+import tabletennis.entity.StringResult;
 
 @NamedQueries({
         @NamedQuery(name = "Result.byParams",

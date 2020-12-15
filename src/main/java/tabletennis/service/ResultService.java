@@ -1,8 +1,8 @@
-package service;
+package tabletennis.service;
 
-import dao.ResultDao;
-import entity.dbEntity.ResultEntity;
-import entity.StringResult;
+import tabletennis.dao.ResultDao;
+import tabletennis.entity.dbEntity.ResultEntity;
+import tabletennis.entity.StringResult;
 
 import java.util.List;
 

@@ -1,16 +1,15 @@
 package controller;
 
-import entity.SeleniumMatch;
-import entity.SeleniumMatchList;
-import entity.MatchList;
-import entity.StringResult;
-import entity.StringUser;
-import entity.dbEntity.LeagueEntity;
-import entity.dbEntity.PlayerEntity;
-import entity.dbEntity.ResultEntity;
-import entity.dbEntity.UserEntity;
+import bigtennis.entity.SeleniumMatch;
+import bigtennis.entity.SeleniumMatchList;
+import bigtennis.entity.MatchList;
+import bigtennis.entity.StringResult;
+import bigtennis.entity.dbEntity.LeagueEntity;
+import bigtennis.entity.dbEntity.PlayerEntity;
+import bigtennis.entity.dbEntity.ResultEntity;
+import bigtennis.entity.dbEntity.UserEntity;
 import org.apache.log4j.Logger;
-import service.*;
+import bigtennis.service.*;
 
 import javax.persistence.PersistenceException;
 import java.util.ArrayList;

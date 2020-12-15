@@ -4,7 +4,7 @@
     "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
 
-    <class name="entity.dbEntity.ResultsEntity" table="Results" schema="bigtennis">
+    <class name="bigtennis.entity.dbEntity.ResultEntity" table="Results" schema="bigtennis">
         <id name="id">
             <column name="id" sql-type="int"/>
         </id>
@@ -26,11 +26,5 @@
         <property name="set5">
             <column name="set5" sql-type="varchar(5)" length="5" not-null="true"/>
         </property>
-        <set name="matchesById" inverse="true">
-            <key>
-                <column name="result"/>
-            </key>
-            <one-to-many not-found="ignore" class="entity.dbEntity.MatchesEntity"/>
-        </set>
     </class>
 </hibernate-mapping>

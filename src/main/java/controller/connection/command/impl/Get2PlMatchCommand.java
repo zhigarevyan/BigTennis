@@ -1,7 +1,7 @@
 package controller.connection.command.impl;
 
 import controller.DataController;
-import entity.MatchList;
+import bigtennis.entity.MatchList;
 
 public class Get2PlMatchCommand extends BasicCommand {
 

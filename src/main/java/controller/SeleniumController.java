@@ -1,8 +1,9 @@
 package controller;
 
-import controller.entity.SeleniumMatchBuilder;
-import controller.entity.SeleniumMatchList;
+
 import controller.exception.SeleniumInitException;
+import bigtennis.dao.SeleniumMatchBuilder;
+import bigtennis.entity.SeleniumMatchList;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.TimeoutException;

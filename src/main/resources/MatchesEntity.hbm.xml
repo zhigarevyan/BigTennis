@@ -4,27 +4,24 @@
     "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
 
-    <class name="entity.dbEntity.MatchEntity" table="Matches" schema="bigtennis">
+    <class name="bigtennis.entity.dbEntity.MatchEntity" table="Matches" schema="bigtennis">
         <id name="id">
             <column name="id" sql-type="int"/>
         </id>
         <property name="date">
             <column name="date" sql-type="varchar(16)" length="16"/>
         </property>
-        <many-to-one name="player1" class="entity.dbEntity.PlayerEntity">
+        <many-to-one name="player1" class="bigtennis.entity.dbEntity.PlayerEntity">
             <column name="player1"/>
         </many-to-one>
-        <many-to-one name="player2" class="entity.dbEntity.PlayerEntity">
+        <many-to-one name="player2" class="bigtennis.entity.dbEntity.PlayerEntity">
             <column name="player2"/>
         </many-to-one>
-        <many-to-one name="result" class="entity.dbEntity.ResultEntity">
+        <many-to-one name="result" class="bigtennis.entity.dbEntity.ResultEntity">
             <column name="result"/>
         </many-to-one>
-        <many-to-one name="league" class="entity.dbEntity.LeagueEntity">
+        <many-to-one name="league" class="bigtennis.entity.dbEntity.LeagueEntity">
             <column name="league"/>
-        </many-to-one>
-        <many-to-one name="courtType" class="entity.dbEntity.CourtTypeEntity">
-            <column name="court_type"/>
         </many-to-one>
     </class>
 </hibernate-mapping>

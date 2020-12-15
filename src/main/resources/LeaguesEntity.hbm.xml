@@ -4,7 +4,7 @@
     "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
 
-    <class name="entity.dbEntity.LeagueEntity" table="Leagues" schema="bigtennis">
+    <class name="bigtennis.entity.dbEntity.LeagueEntity" table="Leagues" schema="bigtennis">
         <id name="id">
             <column name="id" sql-type="int"/>
         </id>

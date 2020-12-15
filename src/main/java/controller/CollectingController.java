@@ -1,7 +1,7 @@
 package controller;
 
-import dao.exception.SeleniumInitException;
-import dao.SeleniumController;
+import bigtennis.dao.exception.SeleniumInitException;
+import bigtennis.dao.SeleniumController;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 

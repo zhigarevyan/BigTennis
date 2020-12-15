@@ -7,5 +7,11 @@
       <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
       <jdbc-url>jdbc:mysql://178.154.224.83:3306/bigtennis</jdbc-url>
     </data-source>
+    <data-source source="LOCAL" name="tabbletennis@178.154.224.83" uuid="d43b2bef-e90d-4ed0-b6db-e904623c18e2">
+      <driver-ref>mysql.8</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://178.154.224.83:3306/bazabaka</jdbc-url>
+    </data-source>
   </component>
 </project>

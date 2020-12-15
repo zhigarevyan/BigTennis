@@ -1,6 +1,6 @@
 package util;
 
-import entity.dbEntity.*;
+import bigtennis.entity.dbEntity.*;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;

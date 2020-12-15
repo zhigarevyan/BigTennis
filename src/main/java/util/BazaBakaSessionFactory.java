@@ -1,6 +1,6 @@
 package util;
 
-import entity.dbEntity.*;
+import bigtennis.entity.dbEntity.*;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
@@ -12,33 +12,33 @@ public class BazaBakaSessionFactory {
 
     private BazaBakaSessionFactory() {}
 
-//    public static SessionFactory getTableTennisFactory() {
-//        if (tableTennisFactory == null) {
-//            try {
-//                Configuration configuration = new Configuration();
-//                configuration.configure("table_tennis.cfg.xml");
-//                configuration.addAnnotatedClass(MatchesLEntity.class);
-//                configuration.addAnnotatedClass(PlayersEntity.class);
-//                configuration.addAnnotatedClass(LeaguesEntity.class);
-//                configuration.addAnnotatedClass(ResultEntity.class);
-//                configuration.addAnnotatedClass(WinLsEntity.class);
-//                configuration.addAnnotatedClass(MatchesUpdatesEntity.class);
-//                configuration.addAnnotatedClass(AppusersEntity.class);
-//                configuration.addAnnotatedClass(UnregUsersEntity.class);
-//                tableTennisFactory = configuration.buildSessionFactory();
-//
-//            } catch (Exception e) {
-//                System.out.println("Исключение!" + e);
-//            }
-//        }
-//        return tableTennisFactory;
-//    }
+    public static SessionFactory getTableTennisFactory() {
+        if (tableTennisFactory == null) {
+            try {
+                Configuration configuration = new Configuration();
+                configuration.configure("tabletennis/table_tennis.cfg.xml");
+                configuration.addAnnotatedClass(tabletennis.entity.dbEntity.MatchesLEntity.class);
+                configuration.addAnnotatedClass(tabletennis.entity.dbEntity.PlayersEntity.class);
+                configuration.addAnnotatedClass(tabletennis.entity.dbEntity.LeaguesEntity.class);
+                configuration.addAnnotatedClass(tabletennis.entity.dbEntity.ResultEntity.class);
+                configuration.addAnnotatedClass(tabletennis.entity.dbEntity.WinLsEntity.class);
+                configuration.addAnnotatedClass(tabletennis.entity.dbEntity.MatchesUpdatesEntity.class);
+                configuration.addAnnotatedClass(tabletennis.entity.dbEntity.AppusersEntity.class);
+                configuration.addAnnotatedClass(tabletennis.entity.dbEntity.UnregUsersEntity.class);
+                tableTennisFactory = configuration.buildSessionFactory();
+
+            } catch (Exception e) {
+                System.out.println("Исключение!" + e);
+            }
+        }
+        return tableTennisFactory;
+    }
 
     public static SessionFactory getBigTennisFactory() {
         if (bigTennisFactory == null) {
             try {
                 Configuration configuration = new Configuration();
-                configuration.configure("/big_tennis.cfg.xml");
+                configuration.configure("/bigtennis/big_tennis.cfg.xml");
                 configuration.addAnnotatedClass(MatchEntity.class);
                 configuration.addAnnotatedClass(PlayerEntity.class);
                 configuration.addAnnotatedClass(LeagueEntity.class);

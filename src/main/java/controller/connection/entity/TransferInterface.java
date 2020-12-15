@@ -3,7 +3,7 @@ package controller.connection.entity;
 import controller.connection.entity.impl.TransferBoolean;
 import controller.connection.entity.impl.TransferString;
 import controller.connection.entity.impl.TransferStringList;
-import entity.MatchList;
+import bigtennis.entity.MatchList;
 
 import java.io.Serializable;
 

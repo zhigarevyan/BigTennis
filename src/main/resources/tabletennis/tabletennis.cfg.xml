@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+    <session-factory>
+        <property name="connection.url">jdbc:mysql://178.154.224.83:3306/bazabaka</property>
+        <!--        <property name="connection.url">jdbc:mysql://localhost:3306/bazabaka</property>-->
+        <!--        <property name="connection.url">jdbc:mysql://178.154.224.83:3306/bazabaka</property>-->
+        <property name="connection.username">baker</property>
+        <property name="connection.password">BazaBaker1</property>
+        <property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+        <property name="hibernate.show_sql">true</property>
+        <mapping class="tabletennis.entity.dbEntity.AppusersEntity"/>
+        <mapping resource="tabletennis/AppusersEntity.hbm.xml"/>
+        <mapping resource="tabletennis/WinLsEntity.hbm.xml"/>
+        <mapping class="tabletennis.entity.dbEntity.WinLsEntity"/>
+        <mapping resource="tabletennis/LeaguesEntity.hbm.xml"/>
+        <mapping class="tabletennis.entity.dbEntity.LeaguesEntity"/>
+        <mapping resource="tabletennis/MatchesLEntity.hbm.xml"/>
+        <mapping class="tabletennis.entity.dbEntity.MatchesLEntity"/>
+        <mapping resource="tabletennis/MatchesUpdatesEntity.hbm.xml"/>
+        <mapping class="tabletennis.entity.dbEntity.MatchesUpdatesEntity"/>
+        <mapping resource="tabletennis/PlayersEntity.hbm.xml"/>
+        <mapping class="tabletennis.entity.dbEntity.PlayersEntity"/>
+        <mapping resource="tabletennis/ResultEntity.hbm.xml"/>
+        <mapping class="tabletennis.entity.dbEntity.ResultEntity"/>
+        <mapping resource="tabletennis/UnregUsersEntity.hbm.xml"/>
+        <mapping class="tabletennis.entity.dbEntity.UnregUsersEntity"/>
+        <mapping class="tabletennis.entity.dbEntity.AndroidIdEntity"/>
+        <mapping class="tabletennis.entity.dbEntity.RoleEntity"/>
+        <!-- DB schema will be updated if needed -->
+        <!--        <property name="hibernate.hbm2ddl.auto">update</property>-->
+    </session-factory>
+</hibernate-configuration>

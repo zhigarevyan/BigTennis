@@ -4,10 +4,14 @@
     <facet type="hibernate" name="Hibernate">
       <configuration>
         <datasource-map>
+          <unit-entry name="bigtennis:bigtennis.cfg.xml" value="7a067275-04ab-49dc-89da-a10b572b08d8" />
           <unit-entry name="hibernate.cfg.xml" value="f81f8254-b334-4fef-bd8d-57ec659ac133" />
+          <unit-entry name="tabletennis:tabletennis.cfg.xml" value="d43b2bef-e90d-4ed0-b6db-e904623c18e2" />
         </datasource-map>
         <naming-strategy-map />
         <deploymentDescriptor name="hibernate.cfg.xml" url="file://$MODULE_DIR$/src/main/java/hibernate.cfg.xml" />
+        <deploymentDescriptor name="hibernate.cfg.xml" url="file://$MODULE_DIR$/src/main/resources/bigtennis/bigtennis.cfg.xml" />
+        <deploymentDescriptor name="hibernate.cfg.xml" url="file://$MODULE_DIR$/src/main/resources/tabletennis/tabletennis.cfg.xml" />
       </configuration>
     </facet>
   </component>

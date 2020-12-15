@@ -3,7 +3,6 @@ package entity.dbEntity;
 import entity.StringResult;
 
 import javax.persistence.*;
-import java.util.Collection;
 
 
 @NamedQueries({
@@ -29,7 +28,6 @@ public class ResultEntity {
     private String set3;
     private String set4;
     private String set5;
-    private Collection<MatchEntity> matchById;
 
     @Id
     @Column(name = "id", nullable = false)
@@ -100,17 +98,6 @@ public class ResultEntity {
     public void setSet5(String set5) {
         this.set5 = set5;
     }
-
-
-    @OneToMany(mappedBy = "result")
-    public Collection<MatchEntity> getMatchById() {
-        return matchById;
-    }
-
-    public void setMatchId(Collection<MatchEntity> matchById) {
-        this.matchById = matchById;
-    }
-
 
     @Override
     public boolean equals(Object o) {

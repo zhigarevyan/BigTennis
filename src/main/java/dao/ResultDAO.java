@@ -4,7 +4,6 @@ import entity.StringResult;
 import entity.dbEntity.ResultEntity;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
-import util.BazaBakaSessionFactory;
 import util.HibernateSessionFactoryUtil;
 
 import java.util.List;
@@ -12,7 +11,7 @@ import java.util.List;
 public class ResultDAO {
 
     public ResultEntity findById(int id) {
-        return BazaBakaSessionFactory.getBigTennisFactory().openSession().get(ResultEntity.class, id);
+        return HibernateSessionFactoryUtil.getSessionFactory().openSession().get(ResultEntity.class, id);
     }
 
     public static void main(String[] args) {
@@ -22,7 +21,7 @@ public class ResultDAO {
     }
 
     public void save(ResultEntity result) {
-        Session session = BazaBakaSessionFactory.getBigTennisFactory().openSession();
+        Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
         Transaction tx1 = session.beginTransaction();
         session.save(result);
         tx1.commit();
@@ -30,7 +29,7 @@ public class ResultDAO {
     }
 
     public void update(ResultEntity result) {
-        Session session = BazaBakaSessionFactory.getBigTennisFactory().openSession();
+        Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
         Transaction tx1 = session.beginTransaction();
         session.update(result);
         tx1.commit();
@@ -38,7 +37,7 @@ public class ResultDAO {
     }
 
     public void delete(ResultEntity result) {
-        Session session = BazaBakaSessionFactory.getBigTennisFactory().openSession();
+        Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
         Transaction tx1 = session.beginTransaction();
         session.delete(result);
         tx1.commit();
@@ -46,12 +45,12 @@ public class ResultDAO {
     }
 
     public List<ResultEntity> findAll() {
-        List<ResultEntity> results = (List<ResultEntity>) BazaBakaSessionFactory.getBigTennisFactory().openSession().createQuery("From ResultEntity ").list();
+        List<ResultEntity> results = (List<ResultEntity>) HibernateSessionFactoryUtil.getSessionFactory().openSession().createQuery("From ResultEntity ").list();
         return results;
     }
 
     public List<ResultEntity> byParams(StringResult params) {
-        Session session = BazaBakaSessionFactory.getBigTennisFactory().openSession();
+        Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
 
         String score = params.getScore();
 

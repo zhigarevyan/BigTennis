@@ -1,7 +1,6 @@
 package entity.dbEntity;
 
 import javax.persistence.*;
-import java.util.Collection;
 
 @NamedQueries({
 
@@ -15,8 +14,6 @@ import java.util.Collection;
 public class PlayerEntity {
     private int id;
     private String name;
-    private Collection<MatchEntity> matchesByPlayer1;
-    private Collection<MatchEntity> matchesByPlayer2;
 
     @Id
     @Column(name = "id", nullable = false)
@@ -49,24 +46,6 @@ public class PlayerEntity {
         if (name != null ? !name.equals(that.name) : that.name != null) return false;
 
         return true;
-    }
-
-    @OneToMany(mappedBy = "player1")
-    public Collection<MatchEntity> getMatchesByPlayer1() {
-        return matchesByPlayer1;
-    }
-
-    public void setMatchesByPlayer1(Collection<MatchEntity> matchesLSByIdplayers) {
-        this.matchesByPlayer1 = matchesLSByIdplayers;
-    }
-
-    @OneToMany(mappedBy = "player2")
-    public Collection<MatchEntity> getMatchesByPlayer2() {
-        return matchesByPlayer2;
-    }
-
-    public void setMatchesByPlayer2(Collection<MatchEntity> matchesLSByIdplayers_0) {
-        this.matchesByPlayer2 = matchesLSByIdplayers_0;
     }
 
     @Override

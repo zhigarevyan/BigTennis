@@ -3,7 +3,6 @@ package dao;
 import entity.dbEntity.UserRoleEntity;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
-import util.BazaBakaSessionFactory;
 import util.HibernateSessionFactoryUtil;
 
 import java.util.List;
@@ -11,11 +10,11 @@ import java.util.List;
 public class UserRoleDAO {
 
     public UserRoleEntity findById(int id) {
-        return BazaBakaSessionFactory.getBigTennisFactory().openSession().get(UserRoleEntity.class, id);
+        return HibernateSessionFactoryUtil.getSessionFactory().openSession().get(UserRoleEntity.class, id);
     }
 
     public void save(UserRoleEntity role) {
-        Session session = BazaBakaSessionFactory.getBigTennisFactory().openSession();
+        Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
         Transaction tx1 = session.beginTransaction();
         session.save(role);
         tx1.commit();
@@ -23,7 +22,7 @@ public class UserRoleDAO {
     }
 
     public void update(UserRoleEntity role) {
-        Session session = BazaBakaSessionFactory.getBigTennisFactory().openSession();
+        Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
         Transaction tx1 = session.beginTransaction();
         session.update(role);
         tx1.commit();
@@ -31,7 +30,7 @@ public class UserRoleDAO {
     }
 
     public void delete(UserRoleEntity role) {
-        Session session = BazaBakaSessionFactory.getBigTennisFactory().openSession();
+        Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
         Transaction tx1 = session.beginTransaction();
         session.delete(role);
         tx1.commit();
@@ -39,7 +38,7 @@ public class UserRoleDAO {
     }
 
     public List<UserRoleEntity> findAll() {
-        List<UserRoleEntity> roles = (List<UserRoleEntity>) BazaBakaSessionFactory.getBigTennisFactory().openSession().createQuery("From UserRoleEntity ").list();
+        List<UserRoleEntity> roles = (List<UserRoleEntity>) HibernateSessionFactoryUtil.getSessionFactory().openSession().createQuery("From UserRoleEntity ").list();
         return roles;
     }
 

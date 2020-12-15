@@ -1,7 +1,6 @@
 package entity.dbEntity;
 
 import javax.persistence.*;
-import java.util.Collection;
 
 @NamedQueries({
 
@@ -15,7 +14,6 @@ import java.util.Collection;
 public class CourtTypeEntity {
     private int id;
     private String name;
-    private Collection<MatchesEntity> matchesById;
 
     @Id
     @Column(name = "id", nullable = false)
@@ -55,14 +53,5 @@ public class CourtTypeEntity {
         int result = id;
         result = 31 * result + (name != null ? name.hashCode() : 0);
         return result;
-    }
-
-    @OneToMany(mappedBy = "courtTypesByCourtType")
-    public Collection<MatchesEntity> getMatchesById() {
-        return matchesById;
-    }
-
-    public void setMatchesById(Collection<MatchesEntity> matchesById) {
-        this.matchesById = matchesById;
     }
 }

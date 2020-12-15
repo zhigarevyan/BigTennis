@@ -1,4 +1,4 @@
-package controller.connection.command.impl;
+package bigtennis.impl;
 
 import controller.DataController;
 import bigtennis.entity.MatchList;

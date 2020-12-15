@@ -1,4 +1,4 @@
-package controller.connection.command.impl;
+package bigtennis.impl;
 
 import controller.DataController;
 import controller.connection.entity.impl.TransferBoolean;

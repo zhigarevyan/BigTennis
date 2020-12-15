@@ -16,7 +16,7 @@ public class BazaBakaSessionFactory {
         if (tableTennisFactory == null) {
             try {
                 Configuration configuration = new Configuration();
-                configuration.configure("tabletennis/table_tennis.cfg.xml");
+                configuration.configure("tabletennis/tabletennis.cfg.xml");
                 configuration.addAnnotatedClass(tabletennis.entity.dbEntity.MatchesLEntity.class);
                 configuration.addAnnotatedClass(tabletennis.entity.dbEntity.PlayersEntity.class);
                 configuration.addAnnotatedClass(tabletennis.entity.dbEntity.LeaguesEntity.class);
@@ -38,7 +38,7 @@ public class BazaBakaSessionFactory {
         if (bigTennisFactory == null) {
             try {
                 Configuration configuration = new Configuration();
-                configuration.configure("/bigtennis/big_tennis.cfg.xml");
+                configuration.configure("bigtennis/bigtennis.cfg.xml");
                 configuration.addAnnotatedClass(MatchEntity.class);
                 configuration.addAnnotatedClass(PlayerEntity.class);
                 configuration.addAnnotatedClass(LeagueEntity.class);

@@ -1,20 +1,20 @@
 package tabletennis.dao;
 
-import tabletennis.entity.dbEntity.AppusersEntity;
-import util.HibernateSessionFactoryUtil;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import tabletennis.entity.dbEntity.AppusersEntity;
+import util.BazaBakaSessionFactory;
 
 import java.util.List;
 
 public class AppuserDao {
 
     public AppusersEntity findById(int id) {
-        return HibernateSessionFactoryUtil.getSessionFactory().openSession().get(AppusersEntity.class, id);
+        return BazaBakaSessionFactory.getTableTennisFactory().openSession().get(AppusersEntity.class, id);
     }
 
     public void save(AppusersEntity appuser) {
-        Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
+        Session session = BazaBakaSessionFactory.getTableTennisFactory().openSession();
         Transaction tx1 = session.beginTransaction();
         session.save(appuser);
         tx1.commit();
@@ -22,7 +22,7 @@ public class AppuserDao {
     }
 
     public void update(AppusersEntity appuser) {
-        Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
+        Session session = BazaBakaSessionFactory.getTableTennisFactory().openSession();
         Transaction tx1 = session.beginTransaction();
         session.update(appuser);
         tx1.commit();
@@ -30,7 +30,7 @@ public class AppuserDao {
     }
 
     public void delete(AppusersEntity appuser) {
-        Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
+        Session session = BazaBakaSessionFactory.getTableTennisFactory().openSession();
         Transaction tx1 = session.beginTransaction();
         session.delete(appuser);
         tx1.commit();
@@ -38,7 +38,7 @@ public class AppuserDao {
     }
 
     public List<AppusersEntity> findAll() {
-        List<AppusersEntity> appusers = (List<AppusersEntity>) HibernateSessionFactoryUtil.getSessionFactory().openSession().createQuery("From AppusersEntity ").list();
+        List<AppusersEntity> appusers = (List<AppusersEntity>) BazaBakaSessionFactory.getTableTennisFactory().openSession().createQuery("From AppusersEntity ").list();
         return appusers;
     }
 

@@ -1,21 +1,20 @@
 package tabletennis.dao;
 
-import tabletennis.entity.dbEntity.UnregUsersEntity;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
-import util.HibernateSessionFactoryUtil;
+import tabletennis.entity.dbEntity.UnregUsersEntity;
+import util.BazaBakaSessionFactory;
 
 import java.util.List;
-import java.util.logging.Logger;
 
 public class UnregUsersDAO {
 
     public UnregUsersEntity findById(int id) {
-        return HibernateSessionFactoryUtil.getSessionFactory().openSession().get(UnregUsersEntity.class, id);
+        return BazaBakaSessionFactory.getTableTennisFactory().openSession().get(UnregUsersEntity.class, id);
     }
 
     public void save(UnregUsersEntity appuser) {
-        Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
+        Session session = BazaBakaSessionFactory.getTableTennisFactory().openSession();
         Transaction tx1 = session.beginTransaction();
         session.save(appuser);
         tx1.commit();
@@ -23,7 +22,7 @@ public class UnregUsersDAO {
     }
 
     public void update(UnregUsersEntity appuser) {
-        Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
+        Session session = BazaBakaSessionFactory.getTableTennisFactory().openSession();
         Transaction tx1 = session.beginTransaction();
         session.update(appuser);
         tx1.commit();
@@ -31,7 +30,7 @@ public class UnregUsersDAO {
     }
 
     public void delete(UnregUsersEntity appuser) {
-        Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
+        Session session = BazaBakaSessionFactory.getTableTennisFactory().openSession();
         Transaction tx1 = session.beginTransaction();
         session.delete(appuser);
         tx1.commit();
@@ -39,7 +38,7 @@ public class UnregUsersDAO {
     }
 
     public List<UnregUsersEntity> findAll() {
-        List<UnregUsersEntity> unregUsers = (List<UnregUsersEntity>) HibernateSessionFactoryUtil.getSessionFactory().openSession().createQuery("From UnregUsersEntity ",UnregUsersEntity.class).list();
+        List<UnregUsersEntity> unregUsers = (List<UnregUsersEntity>) BazaBakaSessionFactory.getTableTennisFactory().openSession().createQuery("From UnregUsersEntity ",UnregUsersEntity.class).list();
         return unregUsers;
     }
 }

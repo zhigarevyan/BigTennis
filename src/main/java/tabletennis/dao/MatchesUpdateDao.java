@@ -1,20 +1,20 @@
 package tabletennis.dao;
 
-import tabletennis.entity.dbEntity.MatchesUpdatesEntity;
-import util.HibernateSessionFactoryUtil;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import tabletennis.entity.dbEntity.MatchesUpdatesEntity;
+import util.BazaBakaSessionFactory;
 
 import java.util.List;
 
 public class MatchesUpdateDao {
 
     public MatchesUpdatesEntity findById(int id) {
-        return HibernateSessionFactoryUtil.getSessionFactory().openSession().get(MatchesUpdatesEntity.class, id);
+        return BazaBakaSessionFactory.getTableTennisFactory().openSession().get(MatchesUpdatesEntity.class, id);
     }
 
     public void save(MatchesUpdatesEntity matchesUpdate) {
-        Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
+        Session session = BazaBakaSessionFactory.getTableTennisFactory().openSession();
         Transaction tx1 = session.beginTransaction();
         session.save(matchesUpdate);
         tx1.commit();
@@ -22,7 +22,7 @@ public class MatchesUpdateDao {
     }
 
     public void update(MatchesUpdatesEntity matchesUpdate) {
-        Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
+        Session session = BazaBakaSessionFactory.getTableTennisFactory().openSession();
         Transaction tx1 = session.beginTransaction();
         session.update(matchesUpdate);
         tx1.commit();
@@ -30,7 +30,7 @@ public class MatchesUpdateDao {
     }
 
     public void delete(MatchesUpdatesEntity matchesUpdate) {
-        Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
+        Session session = BazaBakaSessionFactory.getTableTennisFactory().openSession();
         Transaction tx1 = session.beginTransaction();
         session.delete(matchesUpdate);
         tx1.commit();
@@ -38,7 +38,7 @@ public class MatchesUpdateDao {
     }
 
     public List<MatchesUpdatesEntity> findAll() {
-        List<MatchesUpdatesEntity> matchesUpdates = (List<MatchesUpdatesEntity>) HibernateSessionFactoryUtil.getSessionFactory().openSession().createQuery("From MatchesUpdatesEntity ").list();
+        List<MatchesUpdatesEntity> matchesUpdates = (List<MatchesUpdatesEntity>) BazaBakaSessionFactory.getTableTennisFactory().openSession().createQuery("From MatchesUpdatesEntity ").list();
         return matchesUpdates;
     }
 

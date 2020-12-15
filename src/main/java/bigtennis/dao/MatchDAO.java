@@ -3,18 +3,18 @@ package bigtennis.dao;
 import bigtennis.entity.dbEntity.*;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
-import util.HibernateSessionFactoryUtil;
+import util.BazaBakaSessionFactory;
 
 import java.util.List;
 
 public class MatchDAO {
 
     public MatchEntity findById(int id) {
-        return HibernateSessionFactoryUtil.getSessionFactory().openSession().get(MatchEntity.class, id);
+        return BazaBakaSessionFactory.getBigTennisFactory().openSession().get(MatchEntity.class, id);
     }
 
     public void save(MatchEntity match) {
-        Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
+        Session session = BazaBakaSessionFactory.getBigTennisFactory().openSession();
         Transaction tx1 = session.beginTransaction();
         session.save(match);
         tx1.commit();
@@ -22,7 +22,7 @@ public class MatchDAO {
     }
 
     public void update(MatchEntity match) {
-        Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
+        Session session = BazaBakaSessionFactory.getBigTennisFactory().openSession();
         Transaction tx1 = session.beginTransaction();
         session.update(match);
         tx1.commit();
@@ -30,7 +30,7 @@ public class MatchDAO {
     }
 
     public void delete(MatchEntity match) {
-        Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
+        Session session = BazaBakaSessionFactory.getBigTennisFactory().openSession();
         Transaction tx1 = session.beginTransaction();
         session.delete(match);
         tx1.commit();
@@ -38,7 +38,7 @@ public class MatchDAO {
     }
 
     public List<MatchEntity> get2PlMatches(int quantity, String p1name, String p2name, String league, String courtType) {
-        Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
+        Session session = BazaBakaSessionFactory.getBigTennisFactory().openSession();
         return session.createNamedQuery("Match.get2PlMatches")
                 .setParameter("p1name",p1name)
                 .setParameter("p2name",p2name)
@@ -49,7 +49,7 @@ public class MatchDAO {
     }
 
     public List<MatchEntity> getPlMatches(int quantity, String p1name, String league, String courtType) {
-        Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
+        Session session = BazaBakaSessionFactory.getBigTennisFactory().openSession();
         return session.createNamedQuery("Match.getPlMatches")
                 .setParameter("p1name",p1name)
                 .setParameter("league",league+"%")
@@ -59,7 +59,7 @@ public class MatchDAO {
     }
 
     public List<MatchEntity> byParams(String p1name, String p2name, String score, String set1, String set2, String set3, String set4, String set5, String date, String league, String courtType) {
-        Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
+        Session session = BazaBakaSessionFactory.getBigTennisFactory().openSession();
         return session.createNamedQuery("Match.byParams")
                 .setParameter("p1name",p1name)
                 .setParameter("p2name",p2name)
@@ -77,7 +77,7 @@ public class MatchDAO {
 
 
     public List<MatchEntity> getLastMatches(int quantity, String league, String courtType) {
-        Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
+        Session session = BazaBakaSessionFactory.getBigTennisFactory().openSession();
         //return session.createQuery(GET_LAST_MATCHES_BY_QUANTITY).setMaxResults(quantity).list();
         return session.createNamedQuery("Match.getMatches")
                 .setMaxResults(quantity)
@@ -88,7 +88,7 @@ public class MatchDAO {
 
 
     public List<MatchEntity> byId(PlayerEntity player1, PlayerEntity player2, ResultEntity result, String date, LeagueEntity league, CourtTypeEntity courtType) {
-        Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
+        Session session = BazaBakaSessionFactory.getBigTennisFactory().openSession();
         int a = 5;
         return session.createNamedQuery("Match.byId")
                 .setParameter("p1id", player1)
@@ -104,7 +104,7 @@ public class MatchDAO {
 
 
     public List<MatchEntity> findAll() {
-        List<MatchEntity> matches = (List<MatchEntity>) HibernateSessionFactoryUtil.getSessionFactory().openSession().createQuery("From MatchEntity ").list();
+        List<MatchEntity> matches = (List<MatchEntity>) BazaBakaSessionFactory.getBigTennisFactory().openSession().createQuery("From MatchEntity ").list();
         return matches;
     }
 

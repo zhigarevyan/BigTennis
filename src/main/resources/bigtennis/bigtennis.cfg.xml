@@ -4,25 +4,26 @@
         "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
     <session-factory>
+        <property name="connection.provider_class">org.hibernate.c3p0.internal.C3P0ConnectionProvider</property>
         <property name="connection.url">jdbc:mysql://178.154.224.83:3306/bigtennis</property>
         <property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>
         <property name="connection.username">baker</property>
         <property name="connection.password">BazaBaker1</property>
         <property name="hibernate.show_sql">true</property>
         <mapping class="bigtennis.entity.dbEntity.CourtTypeEntity"/>
-        <mapping resource="bigtennis/CourtTypesEntity.hbm.xmlty.hbm.xml"/>
+        <mapping resource="bigtennis/CourtTypesEntity.hbm.xml"/>
         <mapping class="bigtennis.entity.dbEntity.LeagueEntity"/>
-        <mapping resource="bigtennis/LeaguesEntity.hbm.xmlty.hbm.xml"/>
+        <mapping resource="bigtennis/LeaguesEntity.hbm.xml"/>
         <mapping class="bigtennis.entity.dbEntity.MatchEntity"/>
-        <mapping resource="bigtennis/MatchesEntity.hbm.xmlty.hbm.xml"/>
+        <mapping resource="bigtennis/MatchesEntity.hbm.xml"/>
         <mapping class="bigtennis.entity.dbEntity.PlayerEntity"/>
-        <mapping resource="bigtennis/PlayersEntity.hbm.xmlty.hbm.xml"/>
+        <mapping resource="bigtennis/PlayersEntity.hbm.xml"/>
         <mapping class="bigtennis.entity.dbEntity.ResultEntity"/>
-        <mapping resource="bigtennis/ResultsEntity.hbm.xmlty.hbm.xml"/>
+        <mapping resource="bigtennis/ResultsEntity.hbm.xml"/>
         <mapping class="bigtennis.entity.dbEntity.UserRoleEntity"/>
-        <mapping resource="bigtennis/UserRolesEntity.hbm.xmlty.hbm.xml"/>
+        <mapping resource="bigtennis/UserRolesEntity.hbm.xml"/>
         <mapping class="bigtennis.entity.dbEntity.UserEntity"/>
-        <mapping resource="bigtennis/UsersEntity.hbm.xmlty.hbm.xml"/>
+        <mapping resource="bigtennis/UsersEntity.hbm.xml"/>
         <!-- <property name="connection.username"/> -->
         <!-- <property name="connection.password"/> -->
 

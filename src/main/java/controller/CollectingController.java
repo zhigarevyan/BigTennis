@@ -70,9 +70,9 @@ public class CollectingController implements Runnable {
         @Override
         public void run() {
             try {
-                seleniumController.getMatchesByDate(3);
+                //seleniumController.getMatchesByDate(3);
                 //seleniumController.setLeagues(dataController.getLeagues());
-                //dataController.insertMatches(seleniumController.getNewMatches());
+                dataController.insertMatches(seleniumController.getNewMatches());
             } catch (SeleniumInitException seleniumInitException) {
                 logger.error("Хром не был запущен. Ожидание следующей итерации", seleniumInitException);
             } catch (InterruptedException interruptedException) {

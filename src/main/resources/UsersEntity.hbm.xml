@@ -4,14 +4,20 @@
     "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
 
-    <class name="bigtennis.entity.dbEntity.UserEntity" table="Users" schema="bigtennis">
+    <class name="entity.dbEntity.UsersEntity" table="Users" schema="bigtennis">
         <id name="id">
             <column name="id" sql-type="int"/>
         </id>
         <property name="name">
             <column name="name" sql-type="varchar(45)" length="45"/>
         </property>
-        <many-to-one name="userRolesByRole" class="bigtennis.entity.dbEntity.UserRoleEntity">
+        <property name="key">
+            <column name="key" sql-type="varchar(45)" length="45"/>
+        </property>
+        <property name="role">
+            <column name="role" sql-type="int"/>
+        </property>
+        <many-to-one name="userRolesByRole" class="entity.dbEntity.UserRolesEntity">
             <column name="role"/>
         </many-to-one>
     </class>

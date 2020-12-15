@@ -1,6 +1,7 @@
 package controller;
 
-import controller.exception.SeleniumInitException;
+import dao.exception.SeleniumInitException;
+import dao.SeleniumController;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
@@ -69,10 +70,9 @@ public class CollectingController implements Runnable {
         @Override
         public void run() {
             try {
-                seleniumController.setLeagues(dataController.getLeagues());
-/*                dataController.insertMatches(seleniumController.
-                        getNewMatches());*/
-                seleniumController.getMatchesByDate(1);
+                //seleniumController.getMatchesByDate(3);
+                //seleniumController.setLeagues(dataController.getLeagues());
+                dataController.insertMatches(seleniumController.getNewMatches());
             } catch (SeleniumInitException seleniumInitException) {
                 logger.error("Хром не был запущен. Ожидание следующей итерации", seleniumInitException);
             } catch (InterruptedException interruptedException) {

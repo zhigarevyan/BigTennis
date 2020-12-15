@@ -1,7 +1,7 @@
 package controller.connection.command.impl;
 
 import controller.DataController;
-import bigtennis.entity.MatchList;
+import entity.MatchList;
 
 public class GetPlMatchCommand extends BasicCommand {
 
@@ -11,7 +11,8 @@ public class GetPlMatchCommand extends BasicCommand {
         return dataController.getPlayerMatches(
                 Integer.parseInt(getParameter("quantity")),
                 getParameter("playerName"),
-                getParameter("league"));
+                getParameter("league"),
+                getParameter("courtType"));
     }
 
 }

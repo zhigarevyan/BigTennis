@@ -1,15 +1,13 @@
 package controller;
 
-import bigtennis.entity.SeleniumMatch;
-import bigtennis.entity.SeleniumMatchList;
-import bigtennis.entity.MatchList;
-import bigtennis.entity.StringResult;
-import bigtennis.entity.dbEntity.LeagueEntity;
-import bigtennis.entity.dbEntity.PlayerEntity;
-import bigtennis.entity.dbEntity.ResultEntity;
-import bigtennis.entity.dbEntity.UserEntity;
+import entity.SeleniumMatch;
+import entity.SeleniumMatchList;
+import entity.MatchList;
+import entity.StringResult;
+import entity.StringUser;
+import entity.dbEntity.*;
 import org.apache.log4j.Logger;
-import bigtennis.service.*;
+import service.*;
 
 import javax.persistence.PersistenceException;
 import java.util.ArrayList;
@@ -25,7 +23,7 @@ public class DataController {
     ResultService resultService = new ResultService();
     LeagueService leagueService = new LeagueService();
     UserService userService = new UserService();
-
+    CourtTypeService courtTypeService = new CourtTypeService();
 
     public static DataController getInstance() {
         if (instance == null) {
@@ -38,13 +36,14 @@ public class DataController {
     private DataController() {
     }
 
-    public void insertMatch(String player1, String player2, StringResult result, String date, String league) {
+    public void insertMatch(String player1, String player2, StringResult result, String date, String league, String courtType) {
         PlayerEntity player1Entity = playerService.getOrNewByName(player1);
         PlayerEntity player2Entity = playerService.getOrNewByName(player2);
         ResultEntity resultEntity = resultService.getOrNewByParams(result);
         LeagueEntity leaguesEntity = leagueService.byName(league);
+        CourtTypeEntity courtTypeEntity = courtTypeService.byName(courtType);
 
-        matchService.insertIgnore(player1Entity, player2Entity, resultEntity, date, leaguesEntity);
+        matchService.insertIgnore(player1Entity, player2Entity, resultEntity, date, leaguesEntity, courtTypeEntity);
 
     }
 
@@ -58,12 +57,12 @@ public class DataController {
         return leagueList;
     }
 
-    public MatchList getPlayerMatches(int quantity, String name, String league){
-        return matchService.getPlMatches(quantity,name,league);
+    public MatchList getPlayerMatches(int quantity, String name, String league, String courtType){
+        return matchService.getPlMatches(quantity,name,league, courtType);
     }
 
-    public MatchList get2PlayerMatches(int quantity, String p1name, String p2name, String league){
-        return matchService.get2PlMatches(quantity, p1name, p2name, league);
+    public MatchList get2PlayerMatches(int quantity, String p1name, String p2name, String league, String courtType){
+        return matchService.get2PlMatches(quantity, p1name, p2name, league, courtType);
     }
 
     public List<String> getAllPlayerNames(){
@@ -85,25 +84,25 @@ public class DataController {
     }
 
     public String getLastMatchDate(){
-        return matchService.getMatches(1,"").getMatch(0).getDateAndTime();
+        return matchService.getMatches(1,"","").getMatch(0).getDateAndTime();
     }
-
 
     public void insertMatches(SeleniumMatchList seleniumMatchList) {
 
-        try {
 
             for (SeleniumMatch seleniumMatch : seleniumMatchList.getMatchList()) {
-                PlayerEntity player1Entity = playerService.getOrNewByName(seleniumMatch.getPlayer1());
-                PlayerEntity player2Entity = playerService.getOrNewByName(seleniumMatch.getPlayer2());
-                ResultEntity resultEntity = resultService.getOrNewByParams(seleniumMatch.getResult());
-                LeagueEntity leaguesEntity = leagueService.byName(seleniumMatch.getLeague());
+                try {
+                    PlayerEntity player1Entity = playerService.getOrNewByName(seleniumMatch.getPlayer1());
+                    PlayerEntity player2Entity = playerService.getOrNewByName(seleniumMatch.getPlayer2());
+                    ResultEntity resultEntity = resultService.getOrNewByParams(seleniumMatch.getResult());
+                    LeagueEntity leaguesEntity = leagueService.getOrNewByName(seleniumMatch.getLeague());
+                    CourtTypeEntity courtTypeEntity = courtTypeService.getOrNewByName(seleniumMatch.getCourtType());
+                    matchService.insertIgnore(player1Entity, player2Entity, resultEntity, seleniumMatch.getDate(), leaguesEntity, courtTypeEntity);
 
-                matchService.insertIgnore(player1Entity, player2Entity, resultEntity, seleniumMatch.getDate(), leaguesEntity);
+                } catch (PersistenceException e) {
+                    logger.error("Неверные данные пришли в insertMatch", e);
+                }
             }
-        } catch (PersistenceException e) {
-            logger.error("Неверные данные пришли в insertMatch", e);
-        }
     }
 
 

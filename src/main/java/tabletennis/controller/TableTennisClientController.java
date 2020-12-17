@@ -1,6 +1,6 @@
 package tabletennis.controller;
 
-import controller.TransferObjectIO;
+import server.controller.TransferObjectIO;
 import tabletennis.command.CommandBuilder;
 import server.entity.TransferObject;
 

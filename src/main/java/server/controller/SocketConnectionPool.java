@@ -1,6 +1,5 @@
-package controller;
+package server.controller;
 
-import server.ServerController;
 import org.apache.log4j.Logger;
 
 import java.io.IOException;
@@ -14,8 +13,8 @@ public class SocketConnectionPool implements Runnable {
     private static final Logger log = Logger.getLogger(SocketConnectionPool.class);
     private ServerSocket serverSocket;
     private ExecutorService pool;
-    private final int poolSize = 15;
-    private int port = 8030;
+    private static final int poolSize = 15;
+    private static final int port = 8030;
 
     public void turnOn() throws IOException {
         serverSocket = new ServerSocket(port);

@@ -1,4 +1,4 @@
-package server;
+package server.controller;
 
 import server.entity.TransferObject;
 import org.apache.log4j.LogManager;

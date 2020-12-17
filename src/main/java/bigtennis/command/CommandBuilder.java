@@ -1,12 +1,11 @@
 package bigtennis.command;
 
-import server.command.CommandProvider;
 import server.command.impl.BasicCommand;
 
 public class CommandBuilder {
 
     private static CommandBuilder instance;
-    private server.command.CommandProvider commandProvider = new CommandProvider();
+    private CommandProvider commandProvider = new CommandProvider();
 
     private CommandBuilder() {
     }
@@ -44,8 +43,13 @@ public class CommandBuilder {
         return command;
     }
 
-    public BasicCommand getLeaguesCommand() {
+    public BasicCommand getLeagueListCommand() {
         BasicCommand command = commandProvider.getCommand("get_league_list_command");
+        return command;
+    }
+
+    public BasicCommand getCourtListCommand() {
+        BasicCommand command = commandProvider.getCommand("get_court_list_command");
         return command;
     }
 

@@ -56,6 +56,16 @@ public class BigTennisDataController {
         return leagueList;
     }
 
+    public List<String> getCourts() {
+        List<String> courtList = new ArrayList<>();
+
+        List<CourtTypeEntity> courtTypeEntityList = courtTypeService.all();
+        for(CourtTypeEntity courtTypeEntity: courtTypeEntityList) {
+            courtList.add(courtTypeEntity.getName());
+        }
+        return courtList;
+    }
+
     public MatchList getPlayerMatches(int quantity, String name, String league, String courtType){
         return matchService.getPlMatches(quantity,name,league, courtType);
     }

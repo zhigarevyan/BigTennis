@@ -1,17 +1,7 @@
 package tabletennis.entity;
 
-import tabletennis.entity.SeleniumMatch;
-import tabletennis.entity.SeleniumMatchList;
-import tabletennis.entity.Result;
-import entity.StringResult;
 import org.openqa.selenium.WebElement;
-import tabletennis.entity.StringResult;
-
-
-import java.util.ArrayList;
 import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 public class SeleniumMatchBuilder {
 

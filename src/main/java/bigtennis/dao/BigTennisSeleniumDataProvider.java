@@ -3,7 +3,7 @@ package bigtennis.dao;
 import bigtennis.controller.BigTennisDataController;
 import bigtennis.entity.SeleniumMatchBuilder;
 import bigtennis.entity.SeleniumMatchList;
-import bigtennis.dao.exception.SeleniumInitException;
+import server.exception.SeleniumInitException;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.TimeoutException;
@@ -18,24 +18,24 @@ import java.util.List;
 
 import static java.lang.Thread.sleep;
 
-public class SeleniumController {
+public class BigTennisSeleniumDataProvider {
 
-    private static final Logger logger = Logger.getLogger(SeleniumController.class);
+    private static final Logger logger = Logger.getLogger(BigTennisSeleniumDataProvider.class);
     private List<String> leagues;
 
     public SeleniumMatchList getNewMatches() throws SeleniumInitException, InterruptedException {
         ChromeDriver driver = init();
         SeleniumMatchList seleniumMatchList = new SeleniumMatchList();
-        WebElementFactory webElementFactory = new WebElementFactory(driver);
+        WebElementProvider webElementProvider = new WebElementProvider(driver);
         driver.get("https://1xstavka.ru/results/");
 
-        WebElement tennisButton = webElementFactory.getTennisButton();
-        WebElement searchBox = webElementFactory.getSearchBox();
+        WebElement tennisButton = webElementProvider.getTennisButton();
+        WebElement searchBox = webElementProvider.getSearchBox();
         tennisButton.click();
 
-        setLeagues(getLeagues(webElementFactory));
+        setLeagues(getLeagues(webElementProvider));
 
-            seleniumMatchList = loadLeagues(webElementFactory);
+            seleniumMatchList = loadLeagues(webElementProvider);
             Thread.sleep(500);
         driver.quit();
         return seleniumMatchList;
@@ -44,21 +44,21 @@ public class SeleniumController {
     public void getMatchesByDate(int monthQuantity) throws SeleniumInitException, InterruptedException {
         ChromeDriver driver = init();
         SeleniumMatchList seleniumMatchList = new SeleniumMatchList();
-        WebElementFactory webElementFactory = new WebElementFactory(driver);
+        WebElementProvider webElementProvider = new WebElementProvider(driver);
         BigTennisDataController dataController = BigTennisDataController.getInstance();
 
         driver.get("https://1xstavka.ru/results/");
-        WebElement nastolkaButton = webElementFactory.getTennisButton();
+        WebElement nastolkaButton = webElementProvider.getTennisButton();
         nastolkaButton.click();
 
         boolean firstMonth = true;
 
         while (monthQuantity >= 0) {
-            WebElement calendar = webElementFactory.getCalendar();
-            WebElement freeSpace = webElementFactory.getFreeSpace();
-            WebElement prevMonth = webElementFactory.getPrevMonthButton();
-            WebElement applyDate = webElementFactory.getApplyDateButton();
-            List<WebElement> daysToGet = webElementFactory.getDayButtons();
+            WebElement calendar = webElementProvider.getCalendar();
+            WebElement freeSpace = webElementProvider.getFreeSpace();
+            WebElement prevMonth = webElementProvider.getPrevMonthButton();
+            WebElement applyDate = webElementProvider.getApplyDateButton();
+            List<WebElement> daysToGet = webElementProvider.getDayButtons();
 
             if (firstMonth) {
                 daysToGet.remove(daysToGet.size() - 1); //убрать нажатие на сегодняшний день
@@ -73,7 +73,7 @@ public class SeleniumController {
                 performClick(lastDay, driver);
                 //try-catch в случае, если произойдет ошибка иксбета. Рефреш страницы-возврат к текущему дню. Дописать на другие месяцы. Сработает только на 1 ошибку подряд.
                 try {
-                    webElementFactory.waitUntilMatchesLoaded(); //just wait, baby
+                    webElementProvider.waitUntilMatchesLoaded(); //just wait, baby
                 } catch (TimeoutException e) {
                     performClick(applyDate, driver);
                     performClick(applyDate, driver);
@@ -82,8 +82,8 @@ public class SeleniumController {
                 performClick(applyDate, driver);
                 performClick(applyDate, driver);
 
-                setLeagues(getLeagues(webElementFactory));
-                seleniumMatchList = loadLeagues(webElementFactory);
+                setLeagues(getLeagues(webElementProvider));
+                seleniumMatchList = loadLeagues(webElementProvider);
                 dataController.insertMatches(seleniumMatchList);
                 logger.info("Вставлено " + seleniumMatchList.size() + " матчей");
             }
@@ -96,15 +96,15 @@ public class SeleniumController {
         driver.quit();
     }
 
-    private SeleniumMatchList loadLeagues(WebElementFactory webElementFactory) throws InterruptedException {
+    private SeleniumMatchList loadLeagues(WebElementProvider webElementProvider) throws InterruptedException {
         SeleniumMatchBuilder seleniumMatchBuilder = new SeleniumMatchBuilder();
         SeleniumMatchList seleniumMatchList = new SeleniumMatchList();
 
         for (String leagueName : leagues) {
-            WebElement searchBox = webElementFactory.getSearchBox();
+            WebElement searchBox = webElementProvider.getSearchBox();
             searchBox.sendKeys(leagueName);
             searchBox.sendKeys(Keys.ENTER);
-            List<WebElement> matchList = webElementFactory.getMatchList();
+            List<WebElement> matchList = webElementProvider.getMatchList();
             seleniumMatchList.addAll(seleniumMatchBuilder.getSeleniumMatchList(matchList, leagueName));
             sleep(1000);
 
@@ -148,9 +148,9 @@ public class SeleniumController {
         this.leagues = leagues;
     }
 
-    private List<String> getLeagues(WebElementFactory webElementFactory) {
+    private List<String> getLeagues(WebElementProvider webElementProvider) {
         List<String> leaguesList = new ArrayList<>();
-        List<WebElement> elementList = webElementFactory.getLeaguesList();
+        List<WebElement> elementList = webElementProvider.getLeaguesList();
 
         for (WebElement element : elementList) {
             leaguesList.add(element.getAttribute("innerText"));

@@ -1,4 +1,4 @@
-package controller;
+package server.controller;
 
 import server.entity.TransferObject;
 

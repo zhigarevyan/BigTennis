@@ -1,14 +1,16 @@
-package controller;
+package server;
 
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
+import server.controller.CollectingController;
+import server.controller.SocketConnectionPool;
 
 import java.lang.management.ManagementFactory;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-public class ServerController {
-    private static final Logger logger = LogManager.getLogger(ServerController.class);
+public class ServerStarter {
+    private static final Logger logger = LogManager.getLogger(ServerStarter.class);
     private static ExecutorService pool;
 
 

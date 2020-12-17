@@ -1,4 +1,4 @@
-package bigtennis.dao.exception;
+package server.exception;
 
 public class SeleniumInitException extends Exception {
 

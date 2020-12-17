@@ -1,5 +1,6 @@
 package controller;
 
+import bigtennis.controller.BigTennisDataController;
 import bigtennis.dao.exception.SeleniumInitException;
 import bigtennis.dao.SeleniumController;
 import org.apache.log4j.LogManager;
@@ -13,7 +14,7 @@ public class CollectingController implements Runnable {
     private static final CollectingController instance = new CollectingController();
     private static final Logger logger = LogManager.getLogger(CollectingController.class);
     private final SeleniumController seleniumController = new SeleniumController();
-    private final DataController dataController = DataController.getInstance();
+    private final BigTennisDataController dataController = BigTennisDataController.getInstance();
     private final SeleniumTask task = new SeleniumTask();
 
     public static CollectingController getInstance() {

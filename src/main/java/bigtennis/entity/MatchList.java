@@ -1,6 +1,6 @@
 package bigtennis.entity;
 
-import controller.connection.entity.impl.TransferElement;
+import server.entity.impl.TransferElement;
 import bigtennis.entity.dbEntity.MatchEntity;
 
 

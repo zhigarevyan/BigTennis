@@ -18,7 +18,7 @@ public class ServerController {
         logger.info(ManagementFactory.getRuntimeMXBean().getName());
         pool = Executors.newFixedThreadPool(2);
 
-        pool.execute(new ConnectionsController());
+        pool.execute(new SocketConnectionPool());
         pool.execute(CollectingController.getInstance());
 
     }

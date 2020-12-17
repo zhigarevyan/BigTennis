@@ -1,11 +1,8 @@
 package tabletennis.entity;
 
-import controller.connection.entity.TransferInterface;
-import controller.connection.entity.impl.TransferElement;
+import server.entity.impl.TransferElement;
 import tabletennis.entity.dbEntity.MatchesLEntity;
-import tabletennis.entity.WinR;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 

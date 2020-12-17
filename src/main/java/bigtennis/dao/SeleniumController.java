@@ -1,6 +1,7 @@
 package bigtennis.dao;
 
-import controller.DataController;
+import bigtennis.controller.BigTennisDataController;
+import bigtennis.entity.SeleniumMatchBuilder;
 import bigtennis.entity.SeleniumMatchList;
 import bigtennis.dao.exception.SeleniumInitException;
 import org.apache.log4j.Logger;
@@ -44,7 +45,7 @@ public class SeleniumController {
         ChromeDriver driver = init();
         SeleniumMatchList seleniumMatchList = new SeleniumMatchList();
         WebElementFactory webElementFactory = new WebElementFactory(driver);
-        DataController dataController = DataController.getInstance();
+        BigTennisDataController dataController = BigTennisDataController.getInstance();
 
         driver.get("https://1xstavka.ru/results/");
         WebElement nastolkaButton = webElementFactory.getTennisButton();

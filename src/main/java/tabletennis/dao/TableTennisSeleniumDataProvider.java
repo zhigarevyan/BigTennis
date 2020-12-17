@@ -129,7 +129,7 @@ public class TableTennisSeleniumDataProvider {
         System.setProperty("webdriver.chrome.driver", "chromedriver");
         ChromeOptions options = new ChromeOptions();
 
-//        options.addArguments("--headless");
+        options.addArguments("--headless");
         options.addArguments("--no-sandbox");
         options.addArguments("--lang=ru");
 

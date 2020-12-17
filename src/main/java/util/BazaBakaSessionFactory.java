@@ -25,8 +25,8 @@ public class BazaBakaSessionFactory {
                 configuration.addAnnotatedClass(tabletennis.entity.dbEntity.MatchesUpdatesEntity.class);
                 configuration.addAnnotatedClass(tabletennis.entity.dbEntity.AppusersEntity.class);
                 configuration.addAnnotatedClass(tabletennis.entity.dbEntity.UnregUsersEntity.class);
-                tableTennisFactory = configuration.buildSessionFactory();
-
+                StandardServiceRegistryBuilder builder = new StandardServiceRegistryBuilder().applySettings(configuration.getProperties());
+                tableTennisFactory = configuration.buildSessionFactory(builder.build());
             } catch (Exception e) {
                 System.out.println("Исключение!" + e);
             }

@@ -54,8 +54,8 @@ public class TableTennisClientController {
         transferObject.addCommand(commandBuilder.sendNicknameCommand(nickname, android_id));
     }
 
-    public void getLeagues() {
-        transferObject.addCommand(commandBuilder.getLeaguesCommand());
+    public void getLeagueList() {
+        transferObject.addCommand(commandBuilder.getLeagueListCommand());
     }
 
     public void checkUserAccess(String user_id) {

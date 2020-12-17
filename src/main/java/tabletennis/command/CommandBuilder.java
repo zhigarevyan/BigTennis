@@ -112,7 +112,7 @@ public class CommandBuilder {
         return command;
     }
 
-    public BasicCommand getLeaguesCommand() {
+    public BasicCommand getLeagueListCommand() {
         BasicCommand command = commandProvider.getCommand("get_league_list_command");
         return command;
     }

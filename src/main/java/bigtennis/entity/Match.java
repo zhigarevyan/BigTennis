@@ -38,6 +38,7 @@ public class Match implements Serializable {
         this.player2 = match.getPlayer2().getName();
         this.result = new Result(match.getResult());
         this.league = match.getLeague().getName();
+        this.courtType = match.getCourtType().getName();
     }
 
     public String getDate() {
@@ -73,7 +74,7 @@ public class Match implements Serializable {
     }
 
     public void setCourtType(String courtType) {
-        this.courtType = courtType;
+            this.courtType = courtType;
     }
 
     //endregion

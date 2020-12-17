@@ -3,6 +3,7 @@ package bigtennis.command;
 public enum CommandName {
     GET_2_PL_MATCH_COMMAND,
     GET_PL_MATCH_COMMAND,
+    GET_PL_MATCH2_COMMAND,
     GET_COURT_LIST_COMMAND,
     GET_PLAYER_LIST_COMMAND,
     GET_LEAGUE_LIST_COMMAND,

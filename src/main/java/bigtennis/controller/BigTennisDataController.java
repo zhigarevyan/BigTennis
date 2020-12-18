@@ -89,12 +89,14 @@ public class BigTennisDataController {
         return userList;
     }
 
-    public void signUp(String nickname, String androidID) {
-
+    public void signUp(String nickname, String key) {
+        UserEntity userEntity = new UserEntity();
+        userEntity.setKey(key);
+        userEntity.set
     }
 
     public User getUser(String key) {
-        User user = userService.byKey(key);
+        return userService.byKey(key);
     }
 
     public boolean checkUserAccess(String mac){

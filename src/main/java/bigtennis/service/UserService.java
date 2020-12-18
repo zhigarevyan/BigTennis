@@ -1,6 +1,7 @@
 package bigtennis.service;
 
 import bigtennis.dao.UserDAO;
+import bigtennis.entity.User;
 import bigtennis.entity.dbEntity.LeagueEntity;
 import bigtennis.entity.dbEntity.UserEntity;
 import bigtennis.entity.dbEntity.UserRoleEntity;
@@ -9,7 +10,7 @@ import java.util.List;
 
 public class UserService {
 
-    private UserDAO userDAO = new UserDAO();
+    private static final UserDAO userDAO = new UserDAO();
 
     public UserService() {
     }
@@ -43,12 +44,12 @@ public class UserService {
         return false;
     }
 
-    public UserEntity byKey(String key) {
+    public User byKey(String key) {
         List<UserEntity> userEntityList = userDAO.byKey(key);
         if (userEntityList.size() == 0) {
             return null;
         }
-        return userEntityList.get(0);
+        return new User(userEntityList.get(0));
     }
 
 

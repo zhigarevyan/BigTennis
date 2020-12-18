@@ -1,5 +1,6 @@
 package bigtennis.command;
 
+import server.command.Command;
 import server.command.impl.BasicCommand;
 
 public class CommandBuilder {
@@ -79,11 +80,17 @@ public class CommandBuilder {
         return command;
     }
 
-    public BasicCommand sendNicknameCommand(String nickname, String android_id){
+    public BasicCommand sendNicknameCommand(String nickname, String androidID){
         BasicCommand command = commandProvider.getCommand("SEND_NICKNAME_COMMAND");
         command.putParameter("nickname",nickname);
-        command.putParameter("android_id",android_id);
+        command.putParameter("android_id",androidID);
         return command;
     }
 
+    public Command signUpCommand(String nickname, String androidID) {
+        BasicCommand command = commandProvider.getCommand("sign_up_command");
+        command.putParameter("nickname",nickname);
+        command.putParameter("android_id",androidID);
+        return command;
+    }
 }

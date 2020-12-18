@@ -1,9 +1,10 @@
 package bigtennis.controller;
 
-import bigtennis.entity.SeleniumMatch;
-import bigtennis.entity.SeleniumMatchList;
+import bigtennis.entity.User;
+import bigtennis.entity.selenium.SeleniumMatch;
+import bigtennis.entity.selenium.SeleniumMatchList;
 import bigtennis.entity.MatchList;
-import bigtennis.entity.StringResult;
+import bigtennis.entity.selenium.StringResult;
 import bigtennis.entity.dbEntity.*;
 import org.apache.log4j.Logger;
 import bigtennis.service.*;
@@ -86,6 +87,14 @@ public class BigTennisDataController {
             userList.add(userEntity.getName());
         }
         return userList;
+    }
+
+    public void signUp(String nickname, String androidID) {
+
+    }
+
+    public User getUser(String key) {
+        User user = userService.byKey(key);
     }
 
     public boolean checkUserAccess(String mac){

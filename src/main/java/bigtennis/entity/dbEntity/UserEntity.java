@@ -2,6 +2,14 @@ package bigtennis.entity.dbEntity;
 
 import javax.persistence.*;
 
+@NamedQueries({
+        @NamedQuery(name = "User.byKey",
+                query = "From UserEntity user " +
+                        "LEFT JOIN fetch UserRoleEntity.id role " +
+                        "WHERE user.key = :key ")
+})
+
+
 @Entity
 @Table(name = "Users", schema = "bigtennis", catalog = "")
 public class UserEntity {
@@ -68,4 +76,11 @@ public class UserEntity {
     public void setUserRolesByRole(UserRoleEntity userRolesByRole) {
         this.userRolesByRole = userRolesByRole;
     }
+
 }
+
+
+
+
+
+

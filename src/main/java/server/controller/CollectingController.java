@@ -75,8 +75,8 @@ public class CollectingController implements Runnable {
         @Override
         public void run() {
             try {
-                loadTableTennis();
                 loadBigTennis();
+                loadTableTennis();
             } catch (SeleniumInitException seleniumInitException) {
                 logger.error("Хром не был запущен. Ожидание следующей итерации", seleniumInitException);
             } catch (InterruptedException interruptedException) {

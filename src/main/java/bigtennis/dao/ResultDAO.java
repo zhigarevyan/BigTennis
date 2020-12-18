@@ -1,6 +1,6 @@
 package bigtennis.dao;
 
-import bigtennis.entity.StringResult;
+import bigtennis.entity.selenium.StringResult;
 import bigtennis.entity.dbEntity.ResultEntity;
 import org.hibernate.Session;
 import org.hibernate.Transaction;

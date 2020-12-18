@@ -44,7 +44,7 @@ public class LeagueDAO {
 
     public List<LeagueEntity> byName(String name) {
         Session session = BazaBakaSessionFactory.getBigTennisFactory().openSession();
-        return session.createNamedQuery("League.byName")
+        return session.createNamedQuery("RawLeagueData.byName")
                 .setParameter("name", name)
                 .getResultList();
     }

@@ -1,6 +1,6 @@
 package bigtennis.entity.dbEntity;
 
-import bigtennis.entity.StringResult;
+import bigtennis.entity.selenium.StringResult;
 
 import javax.persistence.*;
 

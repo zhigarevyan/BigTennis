@@ -1,5 +1,6 @@
 package bigtennis.dao;
 
+import bigtennis.entity.dbEntity.LeagueEntity;
 import bigtennis.entity.dbEntity.UserRoleEntity;
 import org.hibernate.Session;
 import org.hibernate.Transaction;

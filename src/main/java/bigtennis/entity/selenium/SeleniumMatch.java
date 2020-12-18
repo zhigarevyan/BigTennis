@@ -1,4 +1,4 @@
-package bigtennis.entity;
+package bigtennis.entity.selenium;
 
 public class SeleniumMatch {
 

@@ -1,6 +1,7 @@
 package bigtennis.dao;
 
 import bigtennis.entity.dbEntity.UserEntity;
+import bigtennis.entity.dbEntity.UserRoleEntity;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import util.BazaBakaSessionFactory;
@@ -41,5 +42,13 @@ public class UserDAO {
         List<UserEntity> appusers = (List<UserEntity>) BazaBakaSessionFactory.getBigTennisFactory().openSession().createQuery("From UserEntity ").list();
         return appusers;
     }
+
+    public List<UserEntity> byKey(String key) {
+        Session session = BazaBakaSessionFactory.getBigTennisFactory().openSession();
+        return session.createNamedQuery("User.byKey")
+                .setParameter("key", key)
+                .getResultList();
+    }
+
 
 }

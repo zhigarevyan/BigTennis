@@ -1,4 +1,4 @@
-package bigtennis.entity;
+package bigtennis.entity.selenium;
 
 import java.util.ArrayList;
 import java.util.List;

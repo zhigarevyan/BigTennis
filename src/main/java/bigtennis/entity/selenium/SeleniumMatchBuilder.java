@@ -1,8 +1,5 @@
-package bigtennis.entity;
+package bigtennis.entity.selenium;
 
-import bigtennis.entity.SeleniumMatch;
-import bigtennis.entity.SeleniumMatchList;
-import bigtennis.entity.StringResult;
 import org.openqa.selenium.WebElement;
 
 import java.util.ArrayList;
@@ -130,7 +127,7 @@ public class SeleniumMatchBuilder {
         String sets;
 
         if (scoreMatcher.find() && setsMatcher.find()) {
-            int index = 0;
+            int index = 1;
 
             stringResult.setScore(scoreMatcher.group());
             sets = setsMatcher.group();

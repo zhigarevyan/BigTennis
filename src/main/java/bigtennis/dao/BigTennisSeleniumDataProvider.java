@@ -1,8 +1,10 @@
 package bigtennis.dao;
 
 import bigtennis.controller.BigTennisDataController;
-import bigtennis.entity.SeleniumMatchBuilder;
-import bigtennis.entity.SeleniumMatchList;
+import bigtennis.entity.selenium.RawLeagueData;
+import bigtennis.entity.selenium.RawLeagueList;
+import bigtennis.entity.selenium.SeleniumMatchBuilder;
+import bigtennis.entity.selenium.SeleniumMatchList;
 import server.exception.SeleniumInitException;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.Keys;
@@ -25,18 +27,16 @@ public class BigTennisSeleniumDataProvider {
 
     public SeleniumMatchList getNewMatches() throws SeleniumInitException, InterruptedException {
         ChromeDriver driver = init();
-        SeleniumMatchList seleniumMatchList = new SeleniumMatchList();
+        SeleniumMatchList seleniumMatchList;
         WebElementProvider webElementProvider = new WebElementProvider(driver);
         driver.get("https://1xstavka.ru/results/");
 
-        WebElement tennisButton = webElementProvider.getTennisButton();
-        WebElement searchBox = webElementProvider.getSearchBox();
-        tennisButton.click();
+        webElementProvider.getTennisButton().click();
+        webElementProvider.getExpandAllMatchesButton().click();
 
-        setLeagues(getLeagues(webElementProvider));
+        seleniumMatchList = getSeleniumMatchList(webElementProvider);
 
-            seleniumMatchList = loadLeagues(webElementProvider);
-            Thread.sleep(500);
+        Thread.sleep(500);
         driver.quit();
         return seleniumMatchList;
     }
@@ -82,8 +82,10 @@ public class BigTennisSeleniumDataProvider {
                 performClick(applyDate, driver);
                 performClick(applyDate, driver);
 
-                setLeagues(getLeagues(webElementProvider));
-                seleniumMatchList = loadLeagues(webElementProvider);
+                WebElement expandAllMatches = webElementProvider.getExpandAllMatchesButton();
+                expandAllMatches.click();
+
+                seleniumMatchList = getSeleniumMatchList(webElementProvider);
                 dataController.insertMatches(seleniumMatchList);
                 logger.info("Вставлено " + seleniumMatchList.size() + " матчей");
             }
@@ -96,22 +98,17 @@ public class BigTennisSeleniumDataProvider {
         driver.quit();
     }
 
-    private SeleniumMatchList loadLeagues(WebElementProvider webElementProvider) throws InterruptedException {
+    public SeleniumMatchList getSeleniumMatchList(WebElementProvider webElementProvider) {
+
         SeleniumMatchBuilder seleniumMatchBuilder = new SeleniumMatchBuilder();
         SeleniumMatchList seleniumMatchList = new SeleniumMatchList();
 
-        for (String leagueName : leagues) {
-            WebElement searchBox = webElementProvider.getSearchBox();
-            searchBox.sendKeys(leagueName);
-            searchBox.sendKeys(Keys.ENTER);
-            List<WebElement> matchList = webElementProvider.getMatchList();
-            seleniumMatchList.addAll(seleniumMatchBuilder.getSeleniumMatchList(matchList, leagueName));
-            sleep(1000);
+        List<WebElement> rawLeagueDataList = webElementProvider.getRawLeagueDataList();
+        RawLeagueList rawLeagueList = new RawLeagueList(rawLeagueDataList);
 
-            searchBox.sendKeys("\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b");
+        for (RawLeagueData rawLeagueData : rawLeagueList.getRawLeagueDataList()) {
+            seleniumMatchList.addAll(seleniumMatchBuilder.getSeleniumMatchList(rawLeagueData.getRawMatchDataList(), rawLeagueData.getName()));
         }
-
-        logger.info("Отсканированно матчей: " + seleniumMatchList.size());
 
         return seleniumMatchList;
     }
@@ -142,43 +139,6 @@ public class BigTennisSeleniumDataProvider {
         } catch (RuntimeException e) {
             throw new SeleniumInitException("Error init chrome", e);
         }
-    }
-
-    public void setLeagues(List<String> leagues) {
-        this.leagues = leagues;
-    }
-
-    private List<String> getLeagues(WebElementProvider webElementProvider) {
-        List<String> leaguesList = new ArrayList<>();
-        List<WebElement> elementList = webElementProvider.getLeaguesList();
-
-        for (WebElement element : elementList) {
-            leaguesList.add(element.getAttribute("innerText"));
-        }
-
-        return filterLeagues(leaguesList);
-    }
-
-    private List<String> filterLeagues(List<String> leagueList) {
-        List<String> resultList = new ArrayList<>();
-        List<String> explitedWordList = new ArrayList<>();
-
-        explitedWordList.add("Специальные ставки");
-        explitedWordList.add("Пары");
-        explitedWordList.add("Cyber");
-
-        for(String league : leagueList) {
-            boolean founded = false;
-            for(String explitedWord : explitedWordList) {
-                if(league.contains(explitedWord)) {
-                    founded = true;
-                }
-            }
-            if(!founded) {
-                resultList.add(league);
-            }
-        }
-        return resultList;
     }
 
 }

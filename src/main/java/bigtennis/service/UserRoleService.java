@@ -1,6 +1,8 @@
 package bigtennis.service;
 
 import bigtennis.dao.UserRoleDAO;
+import bigtennis.entity.Role;
+import bigtennis.entity.dbEntity.UserEntity;
 import bigtennis.entity.dbEntity.UserRoleEntity;
 
 import java.util.List;
@@ -12,8 +14,12 @@ public class UserRoleService {
     public UserRoleService() {
     }
 
-    public UserRoleEntity byId(int id) {
+    public UserRoleEntity getEntitybyId(int id) {
         return userRoleDAO.findById(id);
+    }
+
+    public Role byID(int id) {
+        return new Role(getEntitybyId(id));
     }
 
     public void save(UserRoleEntity role) {
@@ -31,6 +37,5 @@ public class UserRoleService {
     public List<UserRoleEntity> all() {
         return userRoleDAO.findAll();
     }
-
 
 }

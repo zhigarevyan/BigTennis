@@ -1,7 +1,7 @@
 package bigtennis.service;
 
 import bigtennis.dao.ResultDAO;
-import bigtennis.entity.StringResult;
+import bigtennis.entity.selenium.StringResult;
 import bigtennis.entity.dbEntity.ResultEntity;
 
 import java.util.List;

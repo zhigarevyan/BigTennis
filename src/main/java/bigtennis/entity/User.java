@@ -1,5 +1,7 @@
 package bigtennis.entity;
 
+import bigtennis.entity.dbEntity.UserEntity;
+
 public class User {
     private String name;
     private String key;
@@ -9,6 +11,12 @@ public class User {
         this.name = name;
         this.key = key;
         this.role = role;
+    }
+
+    public User(UserEntity userEntity) {
+        name = userEntity.getName();
+        key = userEntity.getKey();
+        role = new Role(userEntity.getUserRolesByRole());
     }
 
     public String getName() {

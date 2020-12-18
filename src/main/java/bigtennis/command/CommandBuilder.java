@@ -93,4 +93,10 @@ public class CommandBuilder {
         command.putParameter("android_id",androidID);
         return command;
     }
+
+    public Command getUserCommand(String key) {
+        BasicCommand command = commandProvider.getCommand("get_user_command");
+        command.putParameter("key",key);
+        return command;
+    }
 }

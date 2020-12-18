@@ -1,12 +1,14 @@
 package util;
 
 import bigtennis.entity.dbEntity.*;
+import org.hibernate.HibernateException;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
 
 
 public class BazaBakaSessionFactory {
+
     private static SessionFactory tableTennisFactory;
     private static SessionFactory bigTennisFactory;
 
@@ -48,7 +50,7 @@ public class BazaBakaSessionFactory {
                 configuration.addAnnotatedClass(CourtTypeEntity.class);
                 StandardServiceRegistryBuilder builder = new StandardServiceRegistryBuilder().applySettings(configuration.getProperties());
                 bigTennisFactory = configuration.buildSessionFactory(builder.build());
-            } catch (Exception e) {
+            } catch (HibernateException e) {
                 System.out.println("Исключение!" + e);
             }
         }

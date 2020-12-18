@@ -47,7 +47,7 @@ public class UserService {
     public User byKey(String key) {
         List<UserEntity> userEntityList = userDAO.byKey(key);
         if (userEntityList.size() == 0) {
-            return null;
+            return new User("Unregistered",null,null);
         }
         return new User(userEntityList.get(0));
     }

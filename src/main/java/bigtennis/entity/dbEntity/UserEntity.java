@@ -5,10 +5,8 @@ import javax.persistence.*;
 @NamedQueries({
         @NamedQuery(name = "User.byKey",
                 query = "From UserEntity user " +
-                        "LEFT JOIN fetch UserRoleEntity.id role " +
                         "WHERE user.key = :key ")
 })
-
 
 @Entity
 @Table(name = "Users", schema = "bigtennis", catalog = "")

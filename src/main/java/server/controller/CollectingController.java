@@ -61,7 +61,7 @@ public class CollectingController implements Runnable {
         }
 
         private void loadtableTennisFor(int monthQuantity) throws SeleniumInitException, InterruptedException {
-            tableTennisSeleniumDataProvider.getMatchesByDate(1);
+            tableTennisSeleniumDataProvider.getMatchesByDate(monthQuantity);
         }
 
         private void loadBigTennis() throws SeleniumInitException, InterruptedException {
@@ -77,6 +77,7 @@ public class CollectingController implements Runnable {
             try {
                 loadBigTennis();
                 loadTableTennis();
+                //loadBigTableTennisFor(4);
             } catch (SeleniumInitException seleniumInitException) {
                 logger.error("Хром не был запущен. Ожидание следующей итерации", seleniumInitException);
             } catch (InterruptedException interruptedException) {

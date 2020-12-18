@@ -18,6 +18,7 @@ public class TableTennisDataController {
     private static final Logger logger = org.apache.log4j.LogManager.getLogger(TableTennisDataController.class);
 
     private static TableTennisDataController instance;
+
     MatchService matchService = new MatchService();
     PlayerService playerService = new PlayerService();
     ResultService resultService = new ResultService();

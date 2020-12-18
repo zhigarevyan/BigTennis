@@ -1,5 +1,7 @@
 package tabletennis.controller;
 
+import bigtennis.controller.BigTennisClientController;
+import bigtennis.entity.MatchList;
 import server.controller.TransferObjectIO;
 import tabletennis.command.CommandBuilder;
 import server.entity.TransferObject;
@@ -86,4 +88,5 @@ public class TableTennisClientController {
         close();
         return transferObject;
     }
+
 }

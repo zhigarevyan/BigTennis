@@ -2,7 +2,11 @@ package bigtennis.entity;
 
 import bigtennis.entity.dbEntity.UserRoleEntity;
 
-public class Role {
+import java.io.Serializable;
+
+public class Role implements Serializable {
+
+    private static final long serialVersionUID = 1L;
 
     private int id;
     private String name;

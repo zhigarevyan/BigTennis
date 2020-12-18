@@ -1,11 +1,12 @@
 package bigtennis.entity.dbEntity;
 
 import javax.persistence.*;
+import java.util.Objects;
 
 @NamedQueries({
         @NamedQuery(name = "User.byKey",
                 query = "From UserEntity user " +
-                        "WHERE user.key = :key ")
+                        "WHERE user.deviceID = :key ")
 })
 
 @Entity
@@ -14,7 +15,7 @@ public class UserEntity {
     private int id;
     private String name;
     private UserRoleEntity userRolesByRole;
-    private String key;
+    private String deviceID;
 
     @Id
     @Column(name = "id", nullable = false)
@@ -26,13 +27,13 @@ public class UserEntity {
         this.id = id;
     }
 
-    @Column(name = "key", nullable = false)
-    public String getKey() {
-        return key;
+    @Column(name = "device_id", nullable = false)
+    public String getDeviceID() {
+        return deviceID;
     }
 
-    public void setKey(String key) {
-        this.key = key;
+    public void setDeviceID(String key) {
+        this.deviceID = key;
     }
 
     @Basic
@@ -49,20 +50,16 @@ public class UserEntity {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-
         UserEntity that = (UserEntity) o;
-
-        if (id != that.id) return false;
-        if (name != null ? !name.equals(that.name) : that.name != null) return false;
-
-        return true;
+        return id == that.id &&
+                Objects.equals(name, that.name) &&
+                Objects.equals(userRolesByRole, that.userRolesByRole) &&
+                Objects.equals(deviceID, that.deviceID);
     }
 
     @Override
     public int hashCode() {
-        int result = id;
-        result = 31 * result + (name != null ? name.hashCode() : 0);
-        return result;
+        return Objects.hash(id, name, userRolesByRole, deviceID);
     }
 
     @ManyToOne

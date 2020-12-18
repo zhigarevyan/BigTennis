@@ -6,18 +6,18 @@ import server.entity.impl.TransferElement;
 public class User extends TransferElement {
 
     private String name;
-    private String key;
+    private String deviceID;
     private Role role;
 
-    public User(String name, String key, Role role) {
+    public User(String name, String deviceID, Role role) {
         this.name = name;
-        this.key = key;
+        this.deviceID = deviceID;
         this.role = role;
     }
 
     public User(UserEntity userEntity) {
         name = userEntity.getName();
-        key = userEntity.getKey();
+        deviceID = userEntity.getDeviceID();
         role = new Role(userEntity.getUserRolesByRole());
     }
 
@@ -29,12 +29,12 @@ public class User extends TransferElement {
         this.name = name;
     }
 
-    public String getKey() {
-        return key;
+    public String getDeviceID() {
+        return deviceID;
     }
 
-    public void setKey(String key) {
-        this.key = key;
+    public void setDeviceID(String deviceID) {
+        this.deviceID = deviceID;
     }
 
     public Role getRole() {

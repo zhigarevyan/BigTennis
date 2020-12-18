@@ -84,16 +84,8 @@ public class BigTennisClientController {
     public static void main(String[] args) throws IOException, ClassNotFoundException, InterruptedException {
         BigTennisClientController controller = new BigTennisClientController();
         controller.init();
-        controller.getPlayersMatches(10,"Анней Ласка","","");
-        controller.get2PlayersMatches(10,"Анней Ласка","Жан Скиндер","","");
-        controller.getUser("id");
+        controller.signup("user","id");
         TransferObject transferObject = controller.execute();
-        MatchList matchList = transferObject.get(0).getAsBigTennisMatchList();
-        MatchList matchList2 = transferObject.get(1).getAsBigTennisMatchList();
-        User user = transferObject.get(2).getAsUser();
-        System.out.println(matchList);
-        System.out.println(matchList2);
-        System.out.println(user);
     }
 
 }

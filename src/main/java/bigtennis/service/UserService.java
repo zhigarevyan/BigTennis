@@ -2,9 +2,7 @@ package bigtennis.service;
 
 import bigtennis.dao.UserDAO;
 import bigtennis.entity.User;
-import bigtennis.entity.dbEntity.LeagueEntity;
 import bigtennis.entity.dbEntity.UserEntity;
-import bigtennis.entity.dbEntity.UserRoleEntity;
 
 import java.util.List;
 
@@ -37,7 +35,7 @@ public class UserService {
 
     public boolean checkAccess(String mac){
         for(UserEntity user : userDAO.findAll()){
-            if(user.getKey().equals(mac)){
+            if(user.getDeviceID().equals(mac)){
                 return true;
             }
         }

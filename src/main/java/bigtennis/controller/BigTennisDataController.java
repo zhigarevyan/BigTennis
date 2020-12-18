@@ -94,7 +94,7 @@ public class BigTennisDataController {
         final int UNREG_USER_ID = 4;
         UserEntity userEntity = new UserEntity();
         userEntity.setName(nickname);
-        userEntity.setKey(key);
+        userEntity.setDeviceID(key);
         UserRoleEntity unregUserRoleEntity = userRoleService.getEntitybyId(UNREG_USER_ID);
         userEntity.setUserRolesByRole(unregUserRoleEntity);
 

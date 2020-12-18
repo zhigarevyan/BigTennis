@@ -27,4 +27,5 @@ public class Role {
         this.id = userRoleEntity.getId();
         this.name = userRoleEntity.getName();
     }
+
 }

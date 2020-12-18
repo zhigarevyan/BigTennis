@@ -1,8 +1,10 @@
 package bigtennis.entity;
 
 import bigtennis.entity.dbEntity.UserEntity;
+import server.entity.impl.TransferElement;
 
-public class User {
+public class User extends TransferElement {
+
     private String name;
     private String key;
     private Role role;

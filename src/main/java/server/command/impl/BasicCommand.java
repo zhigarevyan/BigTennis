@@ -5,7 +5,7 @@ import server.entity.impl.TransferElement;
 
 import java.util.HashMap;
 
-public class BasicCommand implements Command {
+public abstract class BasicCommand implements Command {
 
     private static final long serialVersionUID = 1L;
 
@@ -19,6 +19,6 @@ public class BasicCommand implements Command {
         return parameters.get(key);
     }
 
-    public TransferElement execute() {return null;}
+    public abstract TransferElement execute();
 
 }

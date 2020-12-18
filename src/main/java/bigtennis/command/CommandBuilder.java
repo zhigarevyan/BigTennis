@@ -87,10 +87,10 @@ public class CommandBuilder {
         return command;
     }
 
-    public Command signUpCommand(String nickname, String androidID) {
+    public Command signUpCommand(String name, String key) {
         BasicCommand command = commandProvider.getCommand("sign_up_command");
-        command.putParameter("nickname",nickname);
-        command.putParameter("android_id",androidID);
+        command.putParameter("name",name);
+        command.putParameter("key",key);
         return command;
     }
 

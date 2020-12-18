@@ -23,6 +23,7 @@ public class BigTennisDataController {
     ResultService resultService = new ResultService();
     LeagueService leagueService = new LeagueService();
     UserService userService = new UserService();
+    UserRoleService userRoleService = new UserRoleService();
     CourtTypeService courtTypeService = new CourtTypeService();
 
     public static BigTennisDataController getInstance() {
@@ -90,10 +91,14 @@ public class BigTennisDataController {
     }
 
     public void signUp(String nickname, String key) {
+        final int UNREG_USER_ID = 4;
         UserEntity userEntity = new UserEntity();
         userEntity.setName(nickname);
         userEntity.setKey(key);
-        userEntity.set
+        UserRoleEntity unregUserRoleEntity = userRoleService.getEntitybyId(UNREG_USER_ID);
+        userEntity.setUserRolesByRole(unregUserRoleEntity);
+
+        userService.save(userEntity);
     }
 
     public User getUser(String key) {

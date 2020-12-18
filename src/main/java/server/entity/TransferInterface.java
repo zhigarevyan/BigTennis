@@ -1,5 +1,6 @@
 package server.entity;
 
+import bigtennis.entity.User;
 import server.entity.impl.TransferBoolean;
 import server.entity.impl.TransferString;
 import server.entity.impl.TransferStringList;
@@ -14,6 +15,10 @@ public interface TransferInterface extends Serializable {
 
     default bigtennis.entity.MatchList getAsBigTennisMatchList() {
         return (bigtennis.entity.MatchList) this;
+    }
+
+    default User getAsUser() {
+        return (User) this;
     }
 
     default TransferBoolean getAsAccess() {

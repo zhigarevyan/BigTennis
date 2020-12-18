@@ -91,6 +91,7 @@ public class BigTennisDataController {
 
     public void signUp(String nickname, String key) {
         UserEntity userEntity = new UserEntity();
+        userEntity.setName(nickname);
         userEntity.setKey(key);
         userEntity.set
     }

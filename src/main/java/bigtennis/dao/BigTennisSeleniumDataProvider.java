@@ -32,6 +32,7 @@ public class BigTennisSeleniumDataProvider {
         driver.get("https://1xstavka.ru/results/");
 
         webElementProvider.getTennisButton().click();
+        webElementProvider.waitUntilMatchesLoaded();
         webElementProvider.getExpandAllMatchesButton().click();
 
         seleniumMatchList = getSeleniumMatchList(webElementProvider);
@@ -48,8 +49,8 @@ public class BigTennisSeleniumDataProvider {
         BigTennisDataController dataController = BigTennisDataController.getInstance();
 
         driver.get("https://1xstavka.ru/results/");
-        WebElement nastolkaButton = webElementProvider.getTennisButton();
-        nastolkaButton.click();
+        WebElement tennisButton = webElementProvider.getTennisButton();
+        tennisButton.click();
 
         boolean firstMonth = true;
 
@@ -82,12 +83,13 @@ public class BigTennisSeleniumDataProvider {
                 performClick(applyDate, driver);
                 performClick(applyDate, driver);
 
-                WebElement expandAllMatches = webElementProvider.getExpandAllMatchesButton();
-                expandAllMatches.click();
+                webElementProvider.getExpandAllMatchesButton().click();
 
                 seleniumMatchList = getSeleniumMatchList(webElementProvider);
                 dataController.insertMatches(seleniumMatchList);
                 logger.info("Вставлено " + seleniumMatchList.size() + " матчей");
+
+                webElementProvider.getExpandAllMatchesButton().click();
             }
 
             performClick(calendar, driver);
@@ -130,7 +132,7 @@ public class BigTennisSeleniumDataProvider {
         System.setProperty("webdriver.chrome.driver", "chromedriver");
         ChromeOptions options = new ChromeOptions();
 
-        options.addArguments("--headless");
+        //options.addArguments("--headless");
         options.addArguments("--no-sandbox");
         options.addArguments("--lang=ru");
 

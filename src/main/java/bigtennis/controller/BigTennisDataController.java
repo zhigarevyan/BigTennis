@@ -124,7 +124,6 @@ public class BigTennisDataController {
                     LeagueEntity leaguesEntity = leagueService.getOrNewByName(seleniumMatch.getLeague());
                     CourtTypeEntity courtTypeEntity = courtTypeService.getOrNewByName(seleniumMatch.getCourtType());
                     matchService.insertIgnore(player1Entity, player2Entity, resultEntity, seleniumMatch.getDate(), leaguesEntity, courtTypeEntity);
-
                 } catch (PersistenceException e) {
                     logger.error("Неверные данные пришли в insertMatch", e);
                 }

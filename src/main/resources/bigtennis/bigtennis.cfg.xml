@@ -4,10 +4,10 @@
         "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
     <session-factory>
-<!--        <property name="show_sql">true</property>-->
-<!--        <property name="connection.url">jdbc:mysql://178.154.224.83:3306/bigtennis</property>-->
+        <property name="show_sql">true</property>
+        <property name="connection.url">jdbc:mysql://178.154.224.83:3306/bigtennis</property>
         <property name="connection.provider_class">org.hibernate.c3p0.internal.C3P0ConnectionProvider</property>
-        <property name="connection.url">jdbc:mysql://localhost:3306/bigtennis</property>
+<!--        <property name="connection.url">jdbc:mysql://localhost:3306/bigtennis</property>-->
         <property name="connection.username">baker</property>
         <property name="connection.password">BazaBaker1</property>
         <property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>

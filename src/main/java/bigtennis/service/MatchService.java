@@ -72,22 +72,32 @@ public class MatchService {
         return matchesLList.get(0);
     }
 
+    public MatchEntity byId(int player1, int player2, ResultEntity result, String date, int league, int courtType) {
+        List<MatchEntity> matchesLList = matchDao.byId(player1, player2, result, date, league, courtType);
+        if (matchesLList.size() == 0) {
+            return null;
+        }
+        return matchesLList.get(0);
+    }
+
     public void insertIgnore(PlayerEntity player1, PlayerEntity player2, ResultEntity result, String date, LeagueEntity league, CourtTypeEntity courtType) {
         MatchEntity match = byId(player1, player2, result, date, league, courtType);
+        //MatchEntity match = byId(player1.getId(), player2.getId(), result, date, league.getId(), courtType.getId());
 
         if (match == null) {
-            MatchEntity newMatch = new MatchEntity();
+                MatchEntity newMatch = new MatchEntity();
 
-            newMatch.setPlayer1(player1);
-            newMatch.setPlayer2(player2);
-            newMatch.setLeague(league);
-            newMatch.setResult(result);
-            newMatch.setDate(date);
-            newMatch.setCourtType(courtType);
+                newMatch.setPlayer1(player1);
+                newMatch.setPlayer2(player2);
+                newMatch.setLeague(league);
+                newMatch.setResult(result);
+                newMatch.setDate(date);
+                newMatch.setCourtType(courtType);
+                save(newMatch);
 
-            save(newMatch);
         }
     }
+
 
 
 }

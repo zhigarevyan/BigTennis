@@ -12,17 +12,24 @@ public class Delimiter implements Serializable {
     private int delimQuantity;
 
     private void initMatchListByQuantity(MatchList matchList) {
-        int matchesLeftQuantity = matchList.size();
-        int offsetIndex = 0;
+        int matchesLeft = matchList.size();
+
+        int steps = matchesLeft / delimQuantity;
+        int offsetIndex;
         int endIndex;
-        do {
-            endIndex = delimQuantity - 1 + offsetIndex;
 
+        for (int index = 0; index < steps; index++) {
+            offsetIndex = delimQuantity * index;
+            endIndex = offsetIndex + delimQuantity - 1;
             matchListByQuantity.add(new MatchList(matchList, offsetIndex, endIndex));
+        }
+        int left = matchesLeft % delimQuantity; //9
 
-            offsetIndex += delimQuantity;
-            matchesLeftQuantity -= delimQuantity;
-        } while (matchesLeftQuantity > 0);
+        if(left>0) {
+            offsetIndex = delimQuantity * steps;
+            endIndex = offsetIndex+left-1;
+            matchListByQuantity.add(new MatchList(matchList, offsetIndex, endIndex));
+        }
     }
 
     private void initMatchListByDate(MatchList matchList) {

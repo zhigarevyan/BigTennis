@@ -2,13 +2,18 @@ package bigtennis.service;
 
 import bigtennis.dao.CourtTypeDAO;
 import bigtennis.entity.dbEntity.CourtTypeEntity;
+import bigtennis.entity.dbEntity.PlayerEntity;
 
+import java.util.HashMap;
 import java.util.List;
 
 public class CourtTypeService {
     private CourtTypeDAO courtTypeDAO = new CourtTypeDAO();
 
+    private HashMap<String, CourtTypeEntity> courtTypeMap;
+
     public CourtTypeService() {
+        updateCourtTypeMap();
     }
 
     public CourtTypeEntity byId(int id) {
@@ -31,16 +36,29 @@ public class CourtTypeService {
         return courtTypeDAO.findAll();
     }
 
-    public CourtTypeEntity getOrNewByName(String name) {
-        CourtTypeEntity courtType = byName(name);
-        if (courtType == null) {
-            CourtTypeEntity newCourtType = new CourtTypeEntity();
+    private void updateCourtTypeMap() {
+        courtTypeMap = new HashMap<>();
+        List<CourtTypeEntity> courtTypeEntityList = courtTypeDAO.findAll();
 
-            newCourtType.setName(name);
-            save(newCourtType);
-            return byName(name);
+        courtTypeEntityList.forEach(courtTypeEntity -> courtTypeMap.put(courtTypeEntity.getName(),courtTypeEntity));
+    }
+
+    public CourtTypeEntity fromMap(String name) {
+        return courtTypeMap.get(name);
+    }
+
+    public CourtTypeEntity getOrNewByName(String name) {
+        CourtTypeEntity courtType = fromMap(name);
+        if (courtType != null) {
+            return courtType;
         }
-        return courtType;
+        CourtTypeEntity newCourtType = new CourtTypeEntity();
+
+        newCourtType.setName(name);
+        save(newCourtType);
+
+        updateCourtTypeMap();
+        return fromMap(name);
     }
 
     public CourtTypeEntity byName(String name) {

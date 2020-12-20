@@ -61,7 +61,13 @@ public class BigTennisSeleniumDataProvider {
             WebElement applyDate = webElementProvider.getApplyDateButton();
             List<WebElement> daysToGet = webElementProvider.getDayButtons();
 
+
             if (firstMonth) {
+                daysToGet.remove(daysToGet.size() - 1); //убрать нажатие на сегодняшний день
+                daysToGet.remove(daysToGet.size() - 1); //убрать нажатие на сегодняшний день
+                daysToGet.remove(daysToGet.size() - 1); //убрать нажатие на сегодняшний день
+                daysToGet.remove(daysToGet.size() - 1); //убрать нажатие на сегодняшний день
+                daysToGet.remove(daysToGet.size() - 1); //убрать нажатие на сегодняшний день
                 daysToGet.remove(daysToGet.size() - 1); //убрать нажатие на сегодняшний день
                 firstMonth = false;
             }

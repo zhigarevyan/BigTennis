@@ -89,7 +89,6 @@ public class MatchDAO {
 
     public List<MatchEntity> byId(PlayerEntity player1, PlayerEntity player2, ResultEntity result, String date, LeagueEntity league, CourtTypeEntity courtType) {
         Session session = BazaBakaSessionFactory.getBigTennisFactory().openSession();
-        int a = 5;
         return session.createNamedQuery("Match.byId")
                 .setParameter("p1id", player1)
                 .setParameter("p2id", player2)
@@ -97,6 +96,20 @@ public class MatchDAO {
                 .setParameter("date",date)
                 .setParameter("leagueid",league)
                 .setParameter("courtTypeID",courtType)
+                .getResultList();
+    }
+
+    public List<MatchEntity> byId(int player1, int player2, ResultEntity result, String date, int league, int courtType) {
+        final String SQL_GET_MATCH_BY_ID = "SELECT * FROM Matches where (player1 = :p1_id and player2 = :p2_id and result = :match_result and date = :match_date and league = :league_id and court_type = :court_type)";
+        Session session = BazaBakaSessionFactory.getBigTennisFactory().openSession();
+
+        return session.createSQLQuery(SQL_GET_MATCH_BY_ID)
+                .setParameter("p1_id",player1)
+                .setParameter("p2_id",player2)
+                .setParameter("match_result",result.getId())
+                .setParameter("match_date",date)
+                .setParameter("league_id",league)
+                .setParameter("court_type",courtType)
                 .getResultList();
     }
 

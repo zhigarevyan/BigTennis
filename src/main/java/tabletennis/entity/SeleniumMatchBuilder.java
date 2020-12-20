@@ -1,6 +1,8 @@
 package tabletennis.entity;
 
 import org.openqa.selenium.WebElement;
+import tabletennis.dao.WebElementProvider;
+
 import java.util.List;
 
 public class SeleniumMatchBuilder {

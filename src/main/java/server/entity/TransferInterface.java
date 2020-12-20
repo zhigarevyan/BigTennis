@@ -9,6 +9,10 @@ import java.io.Serializable;
 
 public interface TransferInterface extends Serializable {
 
+    default LiveMatch getAsTableTennisLiveMatch() {
+        return (LiveMatch) this;
+    }
+
     default tabletennis.entity.MatchList getAsTableTennisMatchList() {
         return (tabletennis.entity.MatchList) this;
     }

@@ -3,12 +3,17 @@ package bigtennis.service;
 import bigtennis.dao.LeagueDAO;
 import bigtennis.entity.dbEntity.LeagueEntity;
 
+import java.util.HashMap;
 import java.util.List;
 
 public class LeagueService {
     private LeagueDAO leagueDao = new LeagueDAO();
 
+    private HashMap<String, LeagueEntity> leagueMap;
+
+
     public LeagueService() {
+        updateLeagueMap();
     }
 
     public LeagueEntity byId(int id) {
@@ -31,16 +36,30 @@ public class LeagueService {
         return leagueDao.findAll();
     }
 
-    public LeagueEntity getOrNewByName(String name) {
-        LeagueEntity league = byName(name);
-        if (league == null) {
-            LeagueEntity newLeague = new LeagueEntity();
+    public LeagueEntity fromMap(String name) {
+        return leagueMap.get(name);
+    }
 
-            newLeague.setName(name);
-            save(newLeague);
-            return byName(name);
+    private void updateLeagueMap() {
+        leagueMap = new HashMap<>();
+        List<LeagueEntity> leagueEntityList = leagueDao.findAll();
+
+        leagueEntityList.forEach(playerEntity -> leagueMap.put(playerEntity.getName(),playerEntity));
+    }
+
+    public LeagueEntity getOrNewByName(String name) {
+        LeagueEntity league = fromMap(name);
+        if (league != null) {
+            return league;
         }
-        return league;
+
+        LeagueEntity newLeague = new LeagueEntity();
+
+        newLeague.setName(name);
+        save(newLeague);
+
+        updateLeagueMap();
+        return fromMap(name);
     }
 
     public LeagueEntity byName(String name) {

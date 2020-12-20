@@ -84,10 +84,9 @@ public class BigTennisClientController {
     public static void main(String[] args) throws IOException, ClassNotFoundException, InterruptedException {
         BigTennisClientController controller = new BigTennisClientController();
         controller.init();
-        //controller.getUser("nick");
-        controller.signup("user2","id");
-        User user = controller.execute().get(0).getAsUser();
-        System.out.println(user);
+        controller.get2PlayersMatches(10,"Никита Новиков","Дмитрий Орлов","","");
+        MatchList matchList = controller.execute().get(0).getAsBigTennisMatchList();
+        System.out.println(matchList.toString());
     }
 
 }

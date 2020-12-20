@@ -44,8 +44,7 @@ public class BigTennisDataController {
         LeagueEntity leaguesEntity = leagueService.byName(league);
         CourtTypeEntity courtTypeEntity = courtTypeService.byName(courtType);
 
-        matchService.insertIgnore(player1Entity, player2Entity, resultEntity, date, leaguesEntity, courtTypeEntity);
-
+            matchService.insertIgnore(player1Entity, player2Entity, resultEntity, date, leaguesEntity, courtTypeEntity);
     }
 
     public List<String> getLeagues() {
@@ -114,7 +113,6 @@ public class BigTennisDataController {
     }
 
     public void insertMatches(SeleniumMatchList seleniumMatchList) {
-
 
             for (SeleniumMatch seleniumMatch : seleniumMatchList.getMatchList()) {
                 try {

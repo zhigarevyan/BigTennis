@@ -4,12 +4,16 @@ import bigtennis.dao.PlayerDAO;
 import bigtennis.entity.dbEntity.PlayerEntity;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class PlayerService {
-    private PlayerDAO playerDao = new PlayerDAO();
+    private static final PlayerDAO playerDao = new PlayerDAO();
+
+    private HashMap<String, PlayerEntity> playerMap;
 
     public PlayerService() {
+        updatePlayerMap();
     }
 
     public PlayerEntity byId(int id) {
@@ -44,16 +48,29 @@ public class PlayerService {
         return playerList.get(0);
     }
 
-    public PlayerEntity getOrNewByName(String name) {
-        PlayerEntity player = byName(name);
-        if (player == null) {
-            PlayerEntity newPlayer = new PlayerEntity();
-            newPlayer.setName(name);
-            save(newPlayer);
+    public PlayerEntity fromMap(String name) {
+        return playerMap.get(name);
+    }
 
-            return byName(name);
+    private void updatePlayerMap() {
+        playerMap = new HashMap<>();
+        List<PlayerEntity> playerEntityList = playerDao.findAll();
+
+        playerEntityList.forEach(playerEntity -> playerMap.put(playerEntity.getName(),playerEntity));
+    }
+
+    public PlayerEntity getOrNewByName(String name) {
+        PlayerEntity player = fromMap(name);
+        if (player != null) {
+            return player;
         }
-        return player;
+
+        PlayerEntity newPlayer = new PlayerEntity();
+        newPlayer.setName(name);
+        save(newPlayer);
+
+        updatePlayerMap();
+        return fromMap(name);
     }
 
 }

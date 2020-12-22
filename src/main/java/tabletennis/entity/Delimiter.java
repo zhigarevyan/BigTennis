@@ -6,6 +6,8 @@ import java.util.List;
 
 public class Delimiter implements Serializable {
 
+    private static final long serialVersionUID = 1L;
+
     List<MatchList> matchListByDate;
     List<MatchList> matchListByQuantity;
 

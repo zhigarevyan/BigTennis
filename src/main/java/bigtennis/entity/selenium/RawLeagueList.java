@@ -28,6 +28,7 @@ public class RawLeagueList {
         List<String> excludedNames = new ArrayList<>();
         excludedNames.add("Специальные ставки");
         excludedNames.add("Пары");
+        excludedNames.add("Tie break TENS. Women");
         excludedNames.add("Cyber");
         return excludedNames;
     }

@@ -2,7 +2,6 @@ package server.entity;
 
 import tabletennis.entity.MatchList;
 
-import java.io.Serializable;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -21,10 +20,6 @@ public class LiveMatch implements TransferInterface {
     private String p1Sets;
     private String p2Sets;
 
-    private MatchList playersMatchList;
-    private MatchList p1MatchList;
-    private MatchList p2MatchList;
-
     private Offer offer;
 
     public void setScores(String[] scores) {
@@ -39,7 +34,7 @@ public class LiveMatch implements TransferInterface {
     }
 
     private String[] parseScoreLine(String score) {
-        final String DIGIT_REGEXP = "(\\d+)";
+        final String DIGIT_REGEXP = "[(\\d+AА)]"; //А русское и А английское (на всякий) (А для бигТенниса)
         String[] result = new String[2];
 
         Pattern pattern = Pattern.compile(DIGIT_REGEXP);
@@ -53,7 +48,7 @@ public class LiveMatch implements TransferInterface {
         while (matcher.find()) {
             setsString.append(matcher.group()).append(" ");
         }
-        result[1] = setsString.toString();
+        result[1] = setsString.toString().trim();
         return result;
     }
 
@@ -113,30 +108,6 @@ public class LiveMatch implements TransferInterface {
         this.p2Score = p2Score;
     }
 
-    public MatchList getPlayersMatchList() {
-        return playersMatchList;
-    }
-
-    public void setPlayersMatchList(MatchList playersMatchList) {
-        this.playersMatchList = playersMatchList;
-    }
-
-    public MatchList getP1MatchList() {
-        return p1MatchList;
-    }
-
-    public void setP1MatchList(MatchList p1MatchList) {
-        this.p1MatchList = p1MatchList;
-    }
-
-    public MatchList getP2MatchList() {
-        return p2MatchList;
-    }
-
-    public void setP2MatchList(MatchList p2MatchList) {
-        this.p2MatchList = p2MatchList;
-    }
-
     public Offer getOffer() {
         return offer;
     }
@@ -155,9 +126,6 @@ public class LiveMatch implements TransferInterface {
                 ", p2Score='" + p2Score + '\'' +
                 ", p1Sets='" + p1Sets + '\'' +
                 ", p2Sets='" + p2Sets + '\'' +
-                ", playersMatchList=" + playersMatchList +
-                ", p1MatchList=" + p1MatchList +
-                ", p2MatchList=" + p2MatchList +
                 ", offer=" + offer +
                 '}';
     }

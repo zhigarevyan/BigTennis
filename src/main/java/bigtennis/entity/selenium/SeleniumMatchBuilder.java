@@ -9,7 +9,7 @@ import java.util.regex.Pattern;
 
 public class SeleniumMatchBuilder {
 
-    final static String SPLIT_SYMBOL = "/";
+    private final static String SPLIT_SYMBOL = "/";
 
     public SeleniumMatchList getSeleniumMatchList(List<WebElement> matchList, String league) {
         final int DATE_INDEX = 0;

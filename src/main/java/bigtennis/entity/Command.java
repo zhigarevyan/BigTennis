@@ -5,6 +5,8 @@ import java.util.HashMap;
 
 public class Command implements Serializable {
 
+    private static final long serialVersionUID = 1L;
+
     private String command;
     private HashMap<String, String> parameters = new HashMap<>();
 

@@ -27,7 +27,8 @@ public class WebElementProvider {
     private static final String RAW_LEAGUE_DATA_CLASS = "c-games__col";
     private static final String RAW_LEAGUE_IDENTIFY_ATTRIBUTE = "sportid";
     private static final String EXPAND_ALL_MATCHES_BUTTON_XPATH = "//*[@id=\"router_app\"]/div/div[2]/div/div/div[2]/div[2]/div/div/div[9]/div" ;
-        private static final String LEAGUE_NAME_CLASS = "c-games__row c-games__row_can-toggle active";
+    private static final String LEAGUE_NAME_CLASS = "c-games__row c-games__row_can-toggle active";
+    private static final String BIG_TENNIS_MATCH_ELEMENT_CLASS = "c-games__col";
     private static final String PARENT_XPATH = "./..";
 
     public WebElement getTennisButton() {
@@ -36,6 +37,10 @@ public class WebElementProvider {
 
     public void waitUntilMatchesLoaded() {
         generateWait(10).until(ExpectedConditions.visibilityOfElementLocated(By.xpath(MATCHBOX_CLASS)));
+    }
+
+    public void waitUntilLeaguesLoaded() {
+        generateWait(20).until(ExpectedConditions.visibilityOfElementLocated(By.className(BIG_TENNIS_MATCH_ELEMENT_CLASS)));
     }
 
 //    public List<WebElement> getRawLeagueDataList() {

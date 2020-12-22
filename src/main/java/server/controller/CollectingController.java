@@ -2,6 +2,7 @@ package server.controller;
 
 import bigtennis.controller.BigTennisDataController;
 import bigtennis.dao.BigTennisSeleniumDataProvider;
+import bigtennis.entity.selenium.SeleniumMatchList;
 import server.exception.SeleniumInitException;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
@@ -65,7 +66,9 @@ public class CollectingController implements Runnable {
         }
 
         private void loadBigTennis() throws SeleniumInitException, InterruptedException {
-            bigTennisDataController.insertMatches(bigTennisSeleniumDataProvider.getNewMatches());
+            SeleniumMatchList seleniumMatchList = bigTennisSeleniumDataProvider.getNewMatches();
+            logger.info(String.format("Отобрано %d матчей",seleniumMatchList.size()));
+            bigTennisDataController.insertMatches(seleniumMatchList);
         }
 
         private void loadBigTableTennisFor(int monthQuantity) throws SeleniumInitException, InterruptedException {
@@ -75,9 +78,9 @@ public class CollectingController implements Runnable {
         @Override
         public void run() {
             try {
-                //loadBigTennis();
-                //loadTableTennis();
-                loadBigTableTennisFor(4);
+                loadBigTennis();
+                loadTableTennis();
+                //loadBigTableTennisFor(4);
             } catch (SeleniumInitException seleniumInitException) {
                 logger.error("Хром не был запущен. Ожидание следующей итерации", seleniumInitException);
             } catch (InterruptedException interruptedException) {

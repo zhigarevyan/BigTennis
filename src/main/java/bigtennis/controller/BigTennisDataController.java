@@ -113,7 +113,6 @@ public class BigTennisDataController {
     }
 
     public void insertMatches(SeleniumMatchList seleniumMatchList) {
-
             for (SeleniumMatch seleniumMatch : seleniumMatchList.getMatchList()) {
                 try {
                     PlayerEntity player1Entity = playerService.getOrNewByName(seleniumMatch.getPlayer1());
@@ -123,7 +122,7 @@ public class BigTennisDataController {
                     CourtTypeEntity courtTypeEntity = courtTypeService.getOrNewByName(seleniumMatch.getCourtType());
                     matchService.insertIgnore(player1Entity, player2Entity, resultEntity, seleniumMatch.getDate(), leaguesEntity, courtTypeEntity);
                 } catch (PersistenceException e) {
-                    logger.error("Неверные данные пришли в insertMatch", e);
+                    logger.error("Неверные данные пришли в insertMatch \n Данные:\n" + seleniumMatch.toString(), e);
                 }
             }
     }

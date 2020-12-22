@@ -66,7 +66,19 @@ public class SeleniumMatch {
     }
 
     public void setCourtType(String courtType) {
-        this.courtType = courtType;
+        this.courtType = courtType == null ? "-" : courtType;
+    }
+
+    @Override
+    public String toString() {
+        return "SeleniumMatch{" +
+                "player1='" + player1 + '\'' +
+                ", player2='" + player2 + '\'' +
+                ", result=" + result +
+                ", date='" + date + '\'' +
+                ", league='" + league + '\'' +
+                ", courtType='" + courtType + '\'' +
+                '}';
     }
 
     //endregion

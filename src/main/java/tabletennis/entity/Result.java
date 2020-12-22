@@ -6,6 +6,8 @@ import java.io.Serializable;
 
 public class Result implements Serializable {
 
+    private static final long serialVersionUID = 1L;
+
     private int p1Score;
     private int p2Score;
 

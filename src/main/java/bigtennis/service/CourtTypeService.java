@@ -48,6 +48,10 @@ public class CourtTypeService {
     }
 
     public CourtTypeEntity getOrNewByName(String name) {
+        if(name == null) {
+            name = "null";
+        }
+
         CourtTypeEntity courtType = fromMap(name);
         if (courtType != null) {
             return courtType;

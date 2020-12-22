@@ -52,6 +52,10 @@ public class BigTennisClientController {
         transferObject.addCommand(commandBuilder.signUpCommand(nickname,androidID));
     }
 
+    public void getLive() {
+        transferObject.addCommand(commandBuilder.getLiveCommand());
+    }
+
     public void getUser(String key) {
         transferObject.addCommand(commandBuilder.getUserCommand(key));
     }

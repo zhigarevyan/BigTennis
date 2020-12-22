@@ -22,7 +22,7 @@ public class TableTennisDataController {
     MatchService matchService = new MatchService();
     PlayerService playerService = new PlayerService();
     ResultService resultService = new ResultService();
-    LeagueService  leagueService = new LeagueService();
+    LeagueService leagueService = new LeagueService();
     AppuserService appuserService = new AppuserService();
     UnregUsersService unregUsersService = new UnregUsersService();
 
@@ -51,78 +51,76 @@ public class TableTennisDataController {
         List<String> leagueList = new ArrayList<>();
 
         List<LeaguesEntity> leaguesEntityList = leagueService.all();
-        for(LeaguesEntity leaguesEntity: leaguesEntityList) {
+        for (LeaguesEntity leaguesEntity : leaguesEntityList) {
             leagueList.add(leaguesEntity.getName());
         }
         return leagueList;
     }
 
-    public MatchList getPlayerMatches(int quantity, String name, String league){
-        return matchService.getPlMatches(quantity,name,league);
+    public MatchList getPlayerMatches(int quantity, String name, String league) {
+        return matchService.getPlMatches(quantity, name, league);
     }
 
-    public  MatchList get2PlayerMatches(int quantity, String p1name, String p2name, String league){
+    public MatchList get2PlayerMatches(int quantity, String p1name, String p2name, String league) {
         return matchService.get2PlMatches(quantity, p1name, p2name, league);
     }
 
-    public List<String> getAllPlayerNames(){
+    public List<String> getAllPlayerNames() {
         return playerService.all();
     }
 
-    public List<String> getUsers(){
+    public List<String> getUsers() {
         List<String> userList = new ArrayList<>();
 
         List<AppusersEntity> appUserList = appuserService.all();
-        for(AppusersEntity appusersEntity: appUserList) {
+        for (AppusersEntity appusersEntity : appUserList) {
             userList.add(appusersEntity.getUsername());
         }
         return userList;
     }
 
-    public boolean checkUserAccess(String mac){
+    public boolean checkUserAccess(String mac) {
         return appuserService.checkAccess(mac);
     }
 
-    public String getLastMatchDate(){
-        return matchService.getMatches(1,"").getMatch(0).getDateAndTime();
+    public String getLastMatchDate() {
+        return matchService.getMatches(1, "").getMatch(0).getDateAndTime();
     }
 
 
     public void insertMatches(SeleniumMatchList seleniumMatchList) {
-        try {
-
-            for (SeleniumMatch seleniumMatch : seleniumMatchList.getMatchList()) {
+        for (SeleniumMatch seleniumMatch : seleniumMatchList.getMatchList()) {
+            try {
                 PlayersEntity player1Entity = playerService.getOrNewByName(seleniumMatch.getPlayer1());
                 PlayersEntity player2Entity = playerService.getOrNewByName(seleniumMatch.getPlayer2());
                 ResultEntity resultEntity = resultService.getOrNewByParams(seleniumMatch.getResult());
                 LeaguesEntity leaguesEntity = leagueService.byName(seleniumMatch.getLeague());
 
                 matchService.insertIgnore(player1Entity, player2Entity, resultEntity, seleniumMatch.getDate(), leaguesEntity);
+            } catch (PersistenceException e) {
+                logger.error("Неверные данные пришли в insertMatch \n Данные:\n" + seleniumMatch.toString(), e);
             }
-        } catch (PersistenceException e) {
-            logger.error("Неверные данные пришли в insertMatch", e);
         }
     }
 
-    public boolean addUnregisteredUser(String nickname, String android_id){
-        if(unregUsersService.isNicknameExistAlready(nickname)){
+    public boolean addUnregisteredUser(String nickname, String android_id) {
+        if (unregUsersService.isNicknameExistAlready(nickname)) {
             UnregUsersEntity usersEntity = new UnregUsersEntity();
             usersEntity.setNickname(nickname);
             usersEntity.setUserId(android_id);
             unregUsersService.save(usersEntity);
             return true;
-        }
-        else
+        } else
             return false;
     }
 
-    public List<StringUser> getUnregisteredUsers(){
+    public List<StringUser> getUnregisteredUsers() {
         List<StringUser> unregList = new ArrayList<>();
 
         List<UnregUsersEntity> dbList = unregUsersService.all();
 
-        for(UnregUsersEntity unregUserEntity : dbList){
-            unregList.add(new StringUser(unregUserEntity.getNickname(),unregUserEntity.getUserId()));
+        for (UnregUsersEntity unregUserEntity : dbList) {
+            unregList.add(new StringUser(unregUserEntity.getNickname(), unregUserEntity.getUserId()));
         }
 
         return unregList;

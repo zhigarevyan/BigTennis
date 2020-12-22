@@ -99,4 +99,8 @@ public class CommandBuilder {
         command.putParameter("key",key);
         return command;
     }
+
+    public BasicCommand getLiveCommand() {
+        return commandProvider.getCommand("GET_LIVE_COMMAND");
+    }
 }

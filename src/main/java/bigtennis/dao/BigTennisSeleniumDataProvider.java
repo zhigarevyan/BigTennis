@@ -32,7 +32,7 @@ public class BigTennisSeleniumDataProvider {
         driver.get("https://1xstavka.ru/results/");
 
         webElementProvider.getTennisButton().click();
-        webElementProvider.waitUntilMatchesLoaded();
+        webElementProvider.waitUntilLeaguesLoaded();
         webElementProvider.getExpandAllMatchesButton().click();
 
         seleniumMatchList = getSeleniumMatchList(webElementProvider);
@@ -138,7 +138,7 @@ public class BigTennisSeleniumDataProvider {
         System.setProperty("webdriver.chrome.driver", "chromedriver");
         ChromeOptions options = new ChromeOptions();
 
-        //options.addArguments("--headless");
+        options.addArguments("--headless");
         options.addArguments("--no-sandbox");
         options.addArguments("--lang=ru");
 

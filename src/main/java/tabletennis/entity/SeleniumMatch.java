@@ -60,5 +60,16 @@ public class SeleniumMatch {
         this.league = league;
     }
 
+    @Override
+    public String toString() {
+        return "SeleniumMatch{" +
+                "player1='" + player1 + '\'' +
+                ", player2='" + player2 + '\'' +
+                ", result=" + result +
+                ", date='" + date + '\'' +
+                ", league='" + league + '\'' +
+                '}';
+    }
+
     //endregion
 }

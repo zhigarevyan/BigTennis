@@ -24,13 +24,12 @@ public class WebElementProvider {
     private final String MATCHBOX_LIVE_CLASS = "c-events-scoreboard";
     private final String LIVE_LEAGUE_CONTENT_ELEMENT_XPATH = "//*[@id='games_content']/div/div[1]/div/div";
     private final String LIVE_LEAGUE_NAME_ELEMENT_CLASS = "c-events__liga";
-    private final String LIVE_MATCH_ELEMENTS_CLASS = "c-events__item c-events__item_col";
+    private final String LIVE_MATCH_ELEMENTS_CLASS = "c-events__item_col";
     private final String LIVE_PLAYERS_SCORE_CLASS = "c-events-scoreboard__line";
     private final String LIVE_BETS_CLASS = "c-bets";
     private final String NAMEBOX_LIVE_CLASS = "c-events__team";
-    private final String SCORECELL_LIVE_CLASS = "c-events-scoreboard__cell";
 
-    public List<WebElement> getLiveMatchScoreCellList(WebElement matchContent) { return matchContent.findElements(By.className(SCORECELL_LIVE_CLASS));
+    public List<WebElement> getLiveMatchScoreCellList(WebElement matchContent) { return matchContent.findElements(By.className(LIVE_PLAYERS_SCORE_CLASS));
     }
 
     public List<WebElement> getLiveLeagueContentElementList() {
@@ -64,6 +63,10 @@ public class WebElementProvider {
 
     public void waitUntilMatchesLoaded() {
         generateWait(10).until(ExpectedConditions.visibilityOfElementLocated(By.xpath(MATCHBOX_CLASS)));
+    }
+
+    public void waitUntilLiveLoaded() {
+        generateWait(20).until(ExpectedConditions.visibilityOfElementLocated(By.xpath(LIVE_LEAGUE_CONTENT_ELEMENT_XPATH)));
     }
 
     public List<WebElement> getLiveMatchList() {

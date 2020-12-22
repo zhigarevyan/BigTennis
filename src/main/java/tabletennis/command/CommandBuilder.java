@@ -1,5 +1,6 @@
 package tabletennis.command;
 
+import server.command.Command;
 import server.command.impl.BasicCommand;
 
 public class CommandBuilder {
@@ -138,6 +139,10 @@ public class CommandBuilder {
         command.putParameter("nickname",nickname);
         command.putParameter("android_id",android_id);
         return command;
+    }
+
+    public BasicCommand getLiveCommand() {
+        return commandProvider.getCommand("GET_LIVE_COMMAND");
     }
 
 }

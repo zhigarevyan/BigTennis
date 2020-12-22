@@ -34,7 +34,6 @@ public class ServerController implements Runnable {
         } catch (ClassNotFoundException e) {
             logger.error("Некорректный класс пришел",e);
         } finally {
-
             try {
                 if(requestStream != null) {
                     requestStream.close();

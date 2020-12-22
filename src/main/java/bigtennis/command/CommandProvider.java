@@ -22,6 +22,7 @@ public class CommandProvider {
         commands.put(CommandName.GET_USER_LIST_COMMAND, new GetUserListCommand());
         commands.put(CommandName.GET_USER_COMMAND, new GetUserCommand());
         commands.put(CommandName.SIGN_UP_COMMAND, new SignUpCommand());
+        commands.put(CommandName.GET_LIVE_COMMAND, new GetLiveCommand());
     }
 
     public static CommandProvider getInstance() {

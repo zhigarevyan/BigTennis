@@ -1,7 +1,5 @@
 package tabletennis.controller;
 
-import bigtennis.controller.BigTennisClientController;
-import bigtennis.entity.MatchList;
 import server.controller.TransferObjectIO;
 import tabletennis.command.CommandBuilder;
 import server.entity.TransferObject;
@@ -20,40 +18,51 @@ public class TableTennisClientController {
     }
 
     public void getPlayersMatches(int quantity, String playerName, String league) {
-        transferObject.addCommand(commandBuilder.getPlMatchCommand(quantity,playerName,league));
+        transferObject.addCommand(commandBuilder.getPlMatchCommand(quantity, playerName, league));
     }
 
     public void getPlayersMatches2(int quantity, String playerName, String league) {
-        transferObject.addCommand(commandBuilder.getPlMatch2Command(quantity,playerName,league));
+        transferObject.addCommand(commandBuilder.getPlMatch2Command(quantity, playerName, league));
     }
+
     public void getPlayersMatches3(int quantity, String playerName, String league) {
-        transferObject.addCommand(commandBuilder.getPlMatch3Command(quantity,playerName,league));
+        transferObject.addCommand(commandBuilder.getPlMatch3Command(quantity, playerName, league));
     }
+
     public void getPlayersMatches4(int quantity, String playerName, String league) {
-        transferObject.addCommand(commandBuilder.getPlMatch4Command(quantity,playerName,league));
+        transferObject.addCommand(commandBuilder.getPlMatch4Command(quantity, playerName, league));
     }
 
     public void get2PlayersMatches(int quantity, String player1Name, String player2Name, String league) {
-        transferObject.addCommand(commandBuilder.get2PlayersMatchesCommand(quantity,player1Name,player2Name,league));
-    }
-    public void get2PlayersMatches2(int quantity, String player1Name, String player2Name, String league) {
-        transferObject.addCommand(commandBuilder.get2PlayersMatchesCommand2(quantity,player1Name,player2Name,league));
-    }
-    public void get2PlayersMatches3(int quantity, String player1Name, String player2Name, String league) {
-        transferObject.addCommand(commandBuilder.get2PlayersMatchesCommand3(quantity,player1Name,player2Name,league));
-    }
-    public void get2PlayersMatches4(int quantity, String player1Name, String player2Name, String league) {
-        transferObject.addCommand(commandBuilder.get2PlayersMatchesCommand4(quantity,player1Name,player2Name,league));
-    }
-    public void get2PlayersMatches5(int quantity, String player1Name, String player2Name, String league) {
-        transferObject.addCommand(commandBuilder.get2PlayersMatchesCommand5(quantity,player1Name,player2Name,league));
-    }
-    public void get2PlayersMatches6(int quantity, String player1Name, String player2Name, String league) {
-        transferObject.addCommand(commandBuilder.get2PlayersMatchesCommand6(quantity,player1Name,player2Name,league));
+        transferObject.addCommand(commandBuilder.get2PlayersMatchesCommand(quantity, player1Name, player2Name, league));
     }
 
-    public void sendNickname(String nickname, String android_id){
+    public void get2PlayersMatches2(int quantity, String player1Name, String player2Name, String league) {
+        transferObject.addCommand(commandBuilder.get2PlayersMatchesCommand2(quantity, player1Name, player2Name, league));
+    }
+
+    public void get2PlayersMatches3(int quantity, String player1Name, String player2Name, String league) {
+        transferObject.addCommand(commandBuilder.get2PlayersMatchesCommand3(quantity, player1Name, player2Name, league));
+    }
+
+    public void get2PlayersMatches4(int quantity, String player1Name, String player2Name, String league) {
+        transferObject.addCommand(commandBuilder.get2PlayersMatchesCommand4(quantity, player1Name, player2Name, league));
+    }
+
+    public void get2PlayersMatches5(int quantity, String player1Name, String player2Name, String league) {
+        transferObject.addCommand(commandBuilder.get2PlayersMatchesCommand5(quantity, player1Name, player2Name, league));
+    }
+
+    public void get2PlayersMatches6(int quantity, String player1Name, String player2Name, String league) {
+        transferObject.addCommand(commandBuilder.get2PlayersMatchesCommand6(quantity, player1Name, player2Name, league));
+    }
+
+    public void sendNickname(String nickname, String android_id) {
         transferObject.addCommand(commandBuilder.sendNicknameCommand(nickname, android_id));
+    }
+
+    public void getLive() {
+        transferObject.addCommand(commandBuilder.getLiveCommand());
     }
 
     public void getLeagueList() {

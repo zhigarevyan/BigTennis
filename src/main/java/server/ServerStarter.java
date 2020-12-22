@@ -25,7 +25,7 @@ public class ServerStarter {
         pool.execute(new SocketConnectionPool());
         pool.execute(CollectingController.getInstance());
         pool.execute(liveDAOProvider.getTableTennisDAO());
-        pool.execute(liveDAOProvider.getTableTennisDAO());
+        pool.execute(liveDAOProvider.getBigTennisDAO());
     }
 
 

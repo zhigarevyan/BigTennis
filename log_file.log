@@ -46,3 +46,37 @@ Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 8
 Session ID: 7b745604235e96210b88b5d8474edb66|NettyHttpHandler request interrupted
 2021-01-27 00:57:19 INFO  ServerStarter:main 30 - Сервер запущен. v0.15
 2021-01-27 00:57:19 INFO  ServerStarter:main 31 - 72356@pop-os
+2021-01-27 01:56:54 INFO  ServerStarter:main 30 - Сервер запущен. v0.15
+2021-01-27 01:56:54 INFO  ServerStarter:main 31 - 7000@pop-os
+2021-01-27 02:02:48 ERROR LiveDAO:run 96 - UpdateException: Error communicating with the remote browser. It may have died.
+Build info: version: '4.0.0-alpha-5', revision: 'b3a0d621cc'
+System info: host: 'pop-os', ip: '127.0.1.1', os.name: 'Linux', os.arch: 'amd64', os.version: '5.8.0-7630-generic', java.version: '1.8.0_252'
+Driver info: driver.version: RemoteWebDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 87.0.4280.88, chrome: {chromedriverVersion: 87.0.4280.88 (89e2380a3e36c..., userDataDir: /tmp/.com.google.Chrome.Fb5lIV}, goog:chromeOptions: {debuggerAddress: localhost:35943}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: LINUX, platformName: LINUX, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:virtualAuthenticators: true}
+Session ID: 1fec35d9463d46418415ba6ece8a9372|java.net.ConnectException: В соединении отказано: localhost/0:0:0:0:0:0:0:1:23836
+2021-01-27 02:02:48 ERROR LiveDAO:run 116 - CollectException: Error communicating with the remote browser. It may have died.
+Build info: version: '4.0.0-alpha-5', revision: 'b3a0d621cc'
+System info: host: 'pop-os', ip: '127.0.1.1', os.name: 'Linux', os.arch: 'amd64', os.version: '5.8.0-7630-generic', java.version: '1.8.0_252'
+Driver info: driver.version: RemoteWebDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 87.0.4280.88, chrome: {chromedriverVersion: 87.0.4280.88 (89e2380a3e36c..., userDataDir: /tmp/.com.google.Chrome.60DOOr}, goog:chromeOptions: {debuggerAddress: localhost:39323}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: LINUX, platformName: LINUX, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:virtualAuthenticators: true}
+Session ID: 87a53fdbd058cfd5e5ddd420ba0ef5f1|java.net.ConnectException: В соединении отказано: localhost/0:0:0:0:0:0:0:1:28445
+2021-01-27 02:08:50 INFO  ServerStarter:main 30 - Сервер запущен. v0.15
+2021-01-27 02:08:50 INFO  ServerStarter:main 31 - 7924@pop-os
+2021-01-27 02:10:02 INFO  ServerStarter:main 30 - Сервер запущен. v0.15
+2021-01-27 02:10:02 INFO  ServerStarter:main 31 - 8813@pop-os
+2021-01-27 02:11:36 INFO  ServerStarter:main 30 - Сервер запущен. v0.15
+2021-01-27 02:11:36 INFO  ServerStarter:main 31 - 9377@pop-os
+2021-01-27 02:12:16 INFO  ServerStarter:main 30 - Сервер запущен. v0.15
+2021-01-27 02:12:16 INFO  ServerStarter:main 31 - 9716@pop-os
+2021-01-27 02:14:19 ERROR LiveDAO:run 117 - CollectException: Error communicating with the remote browser. It may have died.
+Build info: version: '4.0.0-alpha-5', revision: 'b3a0d621cc'
+System info: host: 'pop-os', ip: '127.0.1.1', os.name: 'Linux', os.arch: 'amd64', os.version: '5.8.0-7630-generic', java.version: '1.8.0_252'
+Driver info: driver.version: RemoteWebDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 87.0.4280.88, chrome: {chromedriverVersion: 87.0.4280.88 (89e2380a3e36c..., userDataDir: /tmp/.com.google.Chrome.2d5cFi}, goog:chromeOptions: {debuggerAddress: localhost:34173}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: LINUX, platformName: LINUX, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:virtualAuthenticators: true}
+Session ID: 4b8737b3299dff8de4eb9857dc33c27f|NettyHttpHandler request interrupted
+2021-01-27 02:16:00 ERROR LiveDAO:run 117 - CollectException: Error communicating with the remote browser. It may have died.
+Build info: version: '4.0.0-alpha-5', revision: 'b3a0d621cc'
+System info: host: 'pop-os', ip: '127.0.1.1', os.name: 'Linux', os.arch: 'amd64', os.version: '5.8.0-7630-generic', java.version: '1.8.0_252'
+Driver info: driver.version: RemoteWebDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 87.0.4280.88, chrome: {chromedriverVersion: 87.0.4280.88 (89e2380a3e36c..., userDataDir: /tmp/.com.google.Chrome.CTwo4s}, goog:chromeOptions: {debuggerAddress: localhost:36775}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: LINUX, platformName: LINUX, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:virtualAuthenticators: true}
+Session ID: 50ef8eb35cc120517099e381d5a6e083|NettyHttpHandler request interrupted

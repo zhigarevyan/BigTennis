@@ -2,6 +2,9 @@ package server.entity;
 
 import tabletennis.entity.MatchList;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -17,54 +20,45 @@ public class LiveMatch implements TransferInterface {
     private String p1Score;
     private String p2Score;
 
-    private String p1Sets;
-    private String p2Sets;
+    private List<String> p1Sets;
+    private List<String> p2Sets;
 
     private Offer offer;
 
+    private static final int SCORE_ELEMENT_INDEX = 0;
+
     public void setScores(String[] scores) {
-        String[] p1Results = parseScoreLine(scores[0]);
-        String[] p2Results = parseScoreLine(scores[1]);
+        List<String> p1Results = parseScoreLine(scores[0]);
+        List<String> p2Results = parseScoreLine(scores[1]);
 
-        p1Score = p1Results[0];
-        p1Sets = p1Results[1];
+        p1Score = p1Results.remove(SCORE_ELEMENT_INDEX);
+        p1Sets = p1Results;
 
-        p2Score = p2Results[0];
-        p2Sets = p2Results[1];
+        p2Score = p2Results.remove(SCORE_ELEMENT_INDEX);
+        p2Sets = p2Results;
     }
 
-    private String[] parseScoreLine(String score) {
-        final String DIGIT_REGEXP = "[(\\d+AА)]"; //А русское и А английское (на всякий) (А для бигТенниса)
-        String[] result = new String[2];
+    private List<String> parseScoreLine(String score) {
+        final String SCORE_ELEMENTS_SPLIT_SYMBOL = "\n";
 
-        Pattern pattern = Pattern.compile(DIGIT_REGEXP);
+        String[] scoreArray = score.split(SCORE_ELEMENTS_SPLIT_SYMBOL);
 
-        Matcher matcher = pattern.matcher(score);
-        StringBuilder setsString = new StringBuilder();
-
-        matcher.find();
-        result[0] = matcher.group();
-
-        while (matcher.find()) {
-            setsString.append(matcher.group()).append(" ");
-        }
-        result[1] = setsString.toString().trim();
-        return result;
+        return new ArrayList<>(Arrays.asList(scoreArray));
     }
 
-    public String getP1Sets() {
+    public List<String> getP1Sets() {
         return p1Sets;
     }
 
-    public void setP1Sets(String p1Sets) {
+    public void setP1Sets(List<String> p1Sets) {
         this.p1Sets = p1Sets;
     }
 
-    public String getP2Sets() {
+    public List<String> getP2Sets() {
         return p2Sets;
     }
 
-    public void setP2Sets(String p2Sets) {
+    public void setP2Sets(List<String> p2Sets) {
         this.p2Sets = p2Sets;
     }
 

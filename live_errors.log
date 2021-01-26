@@ -8,3 +8,21 @@ System info: host: 'pop-os', ip: '127.0.1.1', os.name: 'Linux', os.arch: 'amd64'
 Driver info: driver.version: RemoteWebDriver
 Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 87.0.4280.88, chrome: {chromedriverVersion: 87.0.4280.88 (89e2380a3e36c..., userDataDir: /tmp/.com.google.Chrome.WMCKlj}, goog:chromeOptions: {debuggerAddress: localhost:40135}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: LINUX, platformName: LINUX, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:virtualAuthenticators: true}
 Session ID: 45b9cddbef934b98e9aa0dc6842b281a|java.net.ConnectException: В соединении отказано: localhost/0:0:0:0:0:0:0:1:11529
+2021-01-27 00:49:02 ERROR LiveDAO:run 116 - CollectException: Error communicating with the remote browser. It may have died.
+Build info: version: '4.0.0-alpha-5', revision: 'b3a0d621cc'
+System info: host: 'pop-os', ip: '127.0.1.1', os.name: 'Linux', os.arch: 'amd64', os.version: '5.8.0-7630-generic', java.version: '1.8.0_252'
+Driver info: driver.version: RemoteWebDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 87.0.4280.88, chrome: {chromedriverVersion: 87.0.4280.88 (89e2380a3e36c..., userDataDir: /tmp/.com.google.Chrome.7yC8Cr}, goog:chromeOptions: {debuggerAddress: localhost:43555}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: LINUX, platformName: LINUX, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:virtualAuthenticators: true}
+Session ID: b4b8e8aab5d3a8ba1c6fb7f23cdb7d19|java.net.ConnectException: В соединении отказано: localhost/0:0:0:0:0:0:0:1:1961
+2021-01-27 00:49:02 ERROR LiveDAO:run 96 - UpdateException: Error communicating with the remote browser. It may have died.
+Build info: version: '4.0.0-alpha-5', revision: 'b3a0d621cc'
+System info: host: 'pop-os', ip: '127.0.1.1', os.name: 'Linux', os.arch: 'amd64', os.version: '5.8.0-7630-generic', java.version: '1.8.0_252'
+Driver info: driver.version: RemoteWebDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 87.0.4280.88, chrome: {chromedriverVersion: 87.0.4280.88 (89e2380a3e36c..., userDataDir: /tmp/.com.google.Chrome.7yC8Cr}, goog:chromeOptions: {debuggerAddress: localhost:43555}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: LINUX, platformName: LINUX, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:virtualAuthenticators: true}
+Session ID: b4b8e8aab5d3a8ba1c6fb7f23cdb7d19|java.net.ConnectException: В соединении отказано: localhost/0:0:0:0:0:0:0:1:1961
+2021-01-27 00:57:14 ERROR LiveDAO:run 96 - UpdateException: Error communicating with the remote browser. It may have died.
+Build info: version: '4.0.0-alpha-5', revision: 'b3a0d621cc'
+System info: host: 'pop-os', ip: '127.0.1.1', os.name: 'Linux', os.arch: 'amd64', os.version: '5.8.0-7630-generic', java.version: '1.8.0_252'
+Driver info: driver.version: RemoteWebDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 87.0.4280.88, chrome: {chromedriverVersion: 87.0.4280.88 (89e2380a3e36c..., userDataDir: /tmp/.com.google.Chrome.dZCIrI}, goog:chromeOptions: {debuggerAddress: localhost:42805}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: LINUX, platformName: LINUX, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:virtualAuthenticators: true}
+Session ID: 7b745604235e96210b88b5d8474edb66|NettyHttpHandler request interrupted

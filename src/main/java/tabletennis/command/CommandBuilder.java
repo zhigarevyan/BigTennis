@@ -1,6 +1,5 @@
 package tabletennis.command;
 
-import server.command.Command;
 import server.command.impl.BasicCommand;
 
 public class CommandBuilder {

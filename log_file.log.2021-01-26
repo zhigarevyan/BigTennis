@@ -1,0 +1,99 @@
+2021-01-26 20:14:32 INFO  ServerStarter:main 28 - Сервер запущен. v0.15
+2021-01-26 20:14:32 INFO  ServerStarter:main 29 - 19565@pop-os
+2021-01-26 20:14:33 INFO  MLog:run 191 - MLog clients using log4j logging.
+2021-01-26 20:14:33 INFO  C3P0Registry:banner 248 - Initializing c3p0-0.9.5.5 [built 11-December-2019 22:18:33 -0800; debug? true; trace: 10]
+2021-01-26 20:14:33 INFO  AbstractPoolBackedDataSource:getPoolManager 527 - Initializing c3p0 pool... com.mchange.v2.c3p0.PoolBackedDataSource@325c6473 [ connectionPoolDataSource -> com.mchange.v2.c3p0.WrapperConnectionPoolDataSource@a004574d [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, contextClassLoaderSource -> caller, debugUnreturnedConnectionStackTraces -> false, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, forceSynchronousCheckins -> false, identityToken -> z8kfsxafho6gug1cntmkw|-28afbb57, idleConnectionTestPeriod -> 0, initialPoolSize -> 3, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 0, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 15, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 3, nestedDataSource -> com.mchange.v2.c3p0.DriverManagerDataSource@2563bc6b [ description -> null, driverClass -> null, factoryClassLocation -> null, forceUseNamedDriverClass -> false, identityToken -> z8kfsxafho6gug1cntmkw|-227b3029, jdbcUrl -> jdbc:mysql://localhost:3306/bigtennis, properties -> {user=******, password=******} ], preferredTestQuery -> null, privilegeSpawnedThreads -> false, propertyCycle -> 0, statementCacheNumDeferredCloseThreads -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false; userOverrides: {} ], dataSourceName -> null, extensions -> {}, factoryClassLocation -> null, identityToken -> z8kfsxafho6gug1cntmkw|6e6fca29, numHelperThreads -> 3 ]
+2021-01-26 20:15:11 INFO  ServerStarter:main 28 - Сервер запущен. v0.15
+2021-01-26 20:15:11 INFO  ServerStarter:main 29 - 19651@pop-os
+2021-01-26 20:19:04 INFO  ServerStarter:main 28 - Сервер запущен. v0.15
+2021-01-26 20:19:04 INFO  ServerStarter:main 29 - 20894@pop-os
+2021-01-26 20:22:16 INFO  ServerStarter:main 28 - Сервер запущен. v0.15
+2021-01-26 20:22:16 INFO  ServerStarter:main 29 - 23044@pop-os
+2021-01-26 20:24:23 INFO  ServerStarter:main 28 - Сервер запущен. v0.15
+2021-01-26 20:24:23 INFO  ServerStarter:main 29 - 23900@pop-os
+2021-01-26 20:25:58 INFO  ServerStarter:main 28 - Сервер запущен. v0.15
+2021-01-26 20:25:58 INFO  ServerStarter:main 29 - 25972@pop-os
+2021-01-26 20:27:14 INFO  ServerStarter:main 28 - Сервер запущен. v0.15
+2021-01-26 20:27:14 INFO  ServerStarter:main 29 - 27583@pop-os
+2021-01-26 20:32:24 ERROR LiveDAO:run 50 - Live: Error init chrome 
+ Exception: Supplied function might have stalled
+Build info: version: '4.0.0-alpha-5', revision: 'b3a0d621cc'
+System info: host: 'pop-os', ip: '127.0.1.1', os.name: 'Linux', os.arch: 'amd64', os.version: '5.8.0-7630-generic', java.version: '1.8.0_252'
+Driver info: driver.version: unknown 
+ Caused by: null
+org.openqa.selenium.TimeoutException: Supplied function might have stalled
+Build info: version: '4.0.0-alpha-5', revision: 'b3a0d621cc'
+System info: host: 'pop-os', ip: '127.0.1.1', os.name: 'Linux', os.arch: 'amd64', os.version: '5.8.0-7630-generic', java.version: '1.8.0_252'
+Driver info: driver.version: unknown
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:221)
+	at tabletennis.dao.WebElementProvider.waitUntilLiveLoaded(WebElementProvider.java:69)
+	at server.dao.LiveDAO.run(LiveDAO.java:44)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run$$$capture(FutureTask.java:266)
+	at java.util.concurrent.FutureTask.run(FutureTask.java)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:821)
+Caused by: java.util.concurrent.TimeoutException
+	at java.util.concurrent.CompletableFuture.timedGet(CompletableFuture.java:1784)
+	at java.util.concurrent.CompletableFuture.get(CompletableFuture.java:1928)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:209)
+	... 8 more
+2021-01-26 20:33:09 INFO  ServerStarter:main 28 - Сервер запущен. v0.15
+2021-01-26 20:33:09 INFO  ServerStarter:main 29 - 29291@pop-os
+2021-01-26 20:34:08 INFO  ServerStarter:main 28 - Сервер запущен. v0.15
+2021-01-26 20:34:08 INFO  ServerStarter:main 29 - 29905@pop-os
+2021-01-26 20:38:03 INFO  ServerStarter:main 28 - Сервер запущен. v0.15
+2021-01-26 20:38:03 INFO  ServerStarter:main 29 - 30805@pop-os
+2021-01-26 20:39:47 INFO  ServerStarter:main 28 - Сервер запущен. v0.15
+2021-01-26 20:39:47 INFO  ServerStarter:main 29 - 31634@pop-os
+2021-01-26 20:41:48 INFO  ServerStarter:main 28 - Сервер запущен. v0.15
+2021-01-26 20:41:48 INFO  ServerStarter:main 29 - 32460@pop-os
+2021-01-26 20:45:10 INFO  ServerStarter:main 28 - Сервер запущен. v0.15
+2021-01-26 20:45:10 INFO  ServerStarter:main 29 - 34121@pop-os
+2021-01-26 20:48:04 INFO  ServerStarter:main 28 - Сервер запущен. v0.15
+2021-01-26 20:48:04 INFO  ServerStarter:main 29 - 34966@pop-os
+2021-01-26 20:49:54 INFO  ServerStarter:main 28 - Сервер запущен. v0.15
+2021-01-26 20:49:54 INFO  ServerStarter:main 29 - 35777@pop-os
+2021-01-26 20:54:31 INFO  ServerStarter:main 28 - Сервер запущен. v0.15
+2021-01-26 20:54:31 INFO  ServerStarter:main 29 - 36727@pop-os
+2021-01-26 21:09:51 INFO  ServerStarter:main 28 - Сервер запущен. v0.15
+2021-01-26 21:09:51 INFO  ServerStarter:main 29 - 42857@pop-os
+2021-01-26 21:11:39 INFO  ServerStarter:main 28 - Сервер запущен. v0.15
+2021-01-26 21:11:39 INFO  ServerStarter:main 29 - 43276@pop-os
+2021-01-26 21:28:52 INFO  ServerStarter:main 28 - Сервер запущен. v0.15
+2021-01-26 21:28:52 INFO  ServerStarter:main 29 - 44727@pop-os
+2021-01-26 21:30:59 INFO  ServerStarter:main 28 - Сервер запущен. v0.15
+2021-01-26 21:30:59 INFO  ServerStarter:main 29 - 45195@pop-os
+2021-01-26 21:33:49 INFO  ServerStarter:main 28 - Сервер запущен. v0.15
+2021-01-26 21:33:49 INFO  ServerStarter:main 29 - 45703@pop-os
+2021-01-26 21:35:44 INFO  ServerStarter:main 28 - Сервер запущен. v0.15
+2021-01-26 21:35:44 INFO  ServerStarter:main 29 - 46138@pop-os
+2021-01-26 21:52:27 INFO  ServerStarter:main 28 - Сервер запущен. v0.15
+2021-01-26 21:52:27 INFO  ServerStarter:main 29 - 49627@pop-os
+2021-01-26 22:00:15 INFO  ServerStarter:main 28 - Сервер запущен. v0.15
+2021-01-26 22:00:15 INFO  ServerStarter:main 29 - 50593@pop-os
+2021-01-26 22:10:59 INFO  ServerStarter:main 28 - Сервер запущен. v0.15
+2021-01-26 22:10:59 INFO  ServerStarter:main 29 - 52721@pop-os
+2021-01-26 22:13:49 INFO  ServerStarter:main 28 - Сервер запущен. v0.15
+2021-01-26 22:13:49 INFO  ServerStarter:main 29 - 54108@pop-os
+2021-01-26 22:17:38 INFO  ServerStarter:main 28 - Сервер запущен. v0.15
+2021-01-26 22:17:38 INFO  ServerStarter:main 29 - 55033@pop-os
+2021-01-26 22:22:02 INFO  ServerStarter:main 28 - Сервер запущен. v0.15
+2021-01-26 22:22:02 INFO  ServerStarter:main 29 - 56709@pop-os
+2021-01-26 22:22:13 INFO  ServerStarter:main 28 - Сервер запущен. v0.15
+2021-01-26 22:22:14 INFO  ServerStarter:main 29 - 56949@pop-os
+2021-01-26 22:23:05 INFO  ServerStarter:main 28 - Сервер запущен. v0.15
+2021-01-26 22:23:05 INFO  ServerStarter:main 29 - 57374@pop-os
+2021-01-26 22:35:18 INFO  ServerStarter:main 28 - Сервер запущен. v0.15
+2021-01-26 22:35:18 INFO  ServerStarter:main 29 - 58856@pop-os
+2021-01-26 22:37:08 INFO  ServerStarter:main 28 - Сервер запущен. v0.15
+2021-01-26 22:37:08 INFO  ServerStarter:main 29 - 58986@pop-os
+2021-01-26 22:37:09 INFO  ServerStarter:main 28 - Сервер запущен. v0.15
+2021-01-26 22:37:09 INFO  ServerStarter:main 29 - 59048@pop-os
+2021-01-26 22:38:18 INFO  ServerStarter:main 28 - Сервер запущен. v0.15
+2021-01-26 22:38:18 INFO  ServerStarter:main 29 - 59919@pop-os
+2021-01-26 22:41:19 INFO  ServerStarter:main 28 - Сервер запущен. v0.15
+2021-01-26 22:41:19 INFO  ServerStarter:main 29 - 61154@pop-os
+2021-01-26 22:42:25 INFO  ServerStarter:main 28 - Сервер запущен. v0.15
+2021-01-26 22:42:25 INFO  ServerStarter:main 29 - 61751@pop-os

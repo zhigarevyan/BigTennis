@@ -1,0 +1,346 @@
+2020-12-21 22:09:27 INFO  ServerStarter:main 19 - Сервер запущен. v0.15
+2020-12-21 22:09:27 INFO  ServerStarter:main 20 - 20144@pop-os
+2020-12-21 22:09:29 INFO  MLog:run 191 - MLog clients using log4j logging.
+2020-12-21 22:09:30 INFO  C3P0Registry:banner 248 - Initializing c3p0-0.9.5.5 [built 11-December-2019 22:18:33 -0800; debug? true; trace: 10]
+2020-12-21 22:09:30 INFO  AbstractPoolBackedDataSource:getPoolManager 527 - Initializing c3p0 pool... com.mchange.v2.c3p0.PoolBackedDataSource@76f02763 [ connectionPoolDataSource -> com.mchange.v2.c3p0.WrapperConnectionPoolDataSource@73f21a03 [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, contextClassLoaderSource -> caller, debugUnreturnedConnectionStackTraces -> false, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, forceSynchronousCheckins -> false, identityToken -> z8kfsxae11djo5m1bf1yr8|-701277c0, idleConnectionTestPeriod -> 0, initialPoolSize -> 3, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 0, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 15, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 3, nestedDataSource -> com.mchange.v2.c3p0.DriverManagerDataSource@ccc408e6 [ description -> null, driverClass -> null, factoryClassLocation -> null, forceUseNamedDriverClass -> false, identityToken -> z8kfsxae11djo5m1bf1yr8|-491bdcf5, jdbcUrl -> jdbc:mysql://localhost:3306/bigtennis, properties -> {user=******, password=******} ], preferredTestQuery -> null, privilegeSpawnedThreads -> false, propertyCycle -> 0, statementCacheNumDeferredCloseThreads -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false; userOverrides: {} ], dataSourceName -> null, extensions -> {}, factoryClassLocation -> null, identityToken -> z8kfsxae11djo5m1bf1yr8|7de82732, numHelperThreads -> 3 ]
+2020-12-21 22:10:02 WARN  BasicResourcePool:run 1949 - com.mchange.v2.resourcepool.BasicResourcePool$ScatteredAcquireTask@555b14e -- Acquisition Attempt Failed!!! Clearing pending acquires. While trying to acquire a needed new resource, we failed to succeed more than the maximum number of allowed acquisition attempts (30). Last acquisition attempt exception: 
+java.sql.SQLException: Access denied for user 'baker'@'localhost' (using password: YES)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:129)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:836)
+	at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:456)
+	at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:246)
+	at com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:197)
+	at com.mchange.v2.c3p0.DriverManagerDataSource.getConnection(DriverManagerDataSource.java:175)
+	at com.mchange.v2.c3p0.WrapperConnectionPoolDataSource.getPooledConnection(WrapperConnectionPoolDataSource.java:220)
+	at com.mchange.v2.c3p0.WrapperConnectionPoolDataSource.getPooledConnection(WrapperConnectionPoolDataSource.java:206)
+	at com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager.acquireResource(C3P0PooledConnectionPool.java:203)
+	at com.mchange.v2.resourcepool.BasicResourcePool.doAcquire(BasicResourcePool.java:1176)
+	at com.mchange.v2.resourcepool.BasicResourcePool.doAcquireAndDecrementPendingAcquiresWithinLockOnSuccess(BasicResourcePool.java:1163)
+	at com.mchange.v2.resourcepool.BasicResourcePool.access$700(BasicResourcePool.java:44)
+	at com.mchange.v2.resourcepool.BasicResourcePool$ScatteredAcquireTask.run(BasicResourcePool.java:1908)
+	at com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread.run(ThreadPoolAsynchronousRunner.java:696)
+2020-12-21 22:10:02 WARN  BasicResourcePool:run 1949 - com.mchange.v2.resourcepool.BasicResourcePool$ScatteredAcquireTask@e6559b96 -- Acquisition Attempt Failed!!! Clearing pending acquires. While trying to acquire a needed new resource, we failed to succeed more than the maximum number of allowed acquisition attempts (30). Last acquisition attempt exception: 
+java.sql.SQLException: Access denied for user 'baker'@'localhost' (using password: YES)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:129)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:836)
+	at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:456)
+	at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:246)
+	at com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:197)
+	at com.mchange.v2.c3p0.DriverManagerDataSource.getConnection(DriverManagerDataSource.java:175)
+	at com.mchange.v2.c3p0.WrapperConnectionPoolDataSource.getPooledConnection(WrapperConnectionPoolDataSource.java:220)
+	at com.mchange.v2.c3p0.WrapperConnectionPoolDataSource.getPooledConnection(WrapperConnectionPoolDataSource.java:206)
+	at com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager.acquireResource(C3P0PooledConnectionPool.java:203)
+	at com.mchange.v2.resourcepool.BasicResourcePool.doAcquire(BasicResourcePool.java:1176)
+	at com.mchange.v2.resourcepool.BasicResourcePool.doAcquireAndDecrementPendingAcquiresWithinLockOnSuccess(BasicResourcePool.java:1163)
+	at com.mchange.v2.resourcepool.BasicResourcePool.access$700(BasicResourcePool.java:44)
+	at com.mchange.v2.resourcepool.BasicResourcePool$ScatteredAcquireTask.run(BasicResourcePool.java:1908)
+	at com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread.run(ThreadPoolAsynchronousRunner.java:696)
+2020-12-21 22:10:02 WARN  BasicResourcePool:run 1949 - com.mchange.v2.resourcepool.BasicResourcePool$ScatteredAcquireTask@17ac6a2a -- Acquisition Attempt Failed!!! Clearing pending acquires. While trying to acquire a needed new resource, we failed to succeed more than the maximum number of allowed acquisition attempts (30). Last acquisition attempt exception: 
+java.sql.SQLException: Access denied for user 'baker'@'localhost' (using password: YES)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:129)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:836)
+	at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:456)
+	at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:246)
+	at com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:197)
+	at com.mchange.v2.c3p0.DriverManagerDataSource.getConnection(DriverManagerDataSource.java:175)
+	at com.mchange.v2.c3p0.WrapperConnectionPoolDataSource.getPooledConnection(WrapperConnectionPoolDataSource.java:220)
+	at com.mchange.v2.c3p0.WrapperConnectionPoolDataSource.getPooledConnection(WrapperConnectionPoolDataSource.java:206)
+	at com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager.acquireResource(C3P0PooledConnectionPool.java:203)
+	at com.mchange.v2.resourcepool.BasicResourcePool.doAcquire(BasicResourcePool.java:1176)
+	at com.mchange.v2.resourcepool.BasicResourcePool.doAcquireAndDecrementPendingAcquiresWithinLockOnSuccess(BasicResourcePool.java:1163)
+	at com.mchange.v2.resourcepool.BasicResourcePool.access$700(BasicResourcePool.java:44)
+	at com.mchange.v2.resourcepool.BasicResourcePool$ScatteredAcquireTask.run(BasicResourcePool.java:1908)
+	at com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread.run(ThreadPoolAsynchronousRunner.java:696)
+2020-12-21 22:10:02 WARN  BasicResourcePool:forceKillAcquires 946 - Having failed to acquire a resource, com.mchange.v2.resourcepool.BasicResourcePool@7533b1b0 is interrupting all Threads waiting on a resource to check out. Will try again in response to new client requests.
+2020-12-21 22:10:02 WARN  BasicResourcePool:forceKillAcquires 946 - Having failed to acquire a resource, com.mchange.v2.resourcepool.BasicResourcePool@7533b1b0 is interrupting all Threads waiting on a resource to check out. Will try again in response to new client requests.
+2020-12-21 22:10:02 WARN  BasicResourcePool:forceKillAcquires 946 - Having failed to acquire a resource, com.mchange.v2.resourcepool.BasicResourcePool@7533b1b0 is interrupting all Threads waiting on a resource to check out. Will try again in response to new client requests.
+2020-12-21 22:11:47 INFO  ServerStarter:main 19 - Сервер запущен. v0.15
+2020-12-21 22:11:47 INFO  ServerStarter:main 20 - 20451@pop-os
+2020-12-21 22:11:48 INFO  MLog:run 191 - MLog clients using log4j logging.
+2020-12-21 22:11:49 INFO  C3P0Registry:banner 248 - Initializing c3p0-0.9.5.5 [built 11-December-2019 22:18:33 -0800; debug? true; trace: 10]
+2020-12-21 22:11:49 INFO  AbstractPoolBackedDataSource:getPoolManager 527 - Initializing c3p0 pool... com.mchange.v2.c3p0.PoolBackedDataSource@b0d2182 [ connectionPoolDataSource -> com.mchange.v2.c3p0.WrapperConnectionPoolDataSource@7289dad2 [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, contextClassLoaderSource -> caller, debugUnreturnedConnectionStackTraces -> false, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, forceSynchronousCheckins -> false, identityToken -> z8kfsxae11dmnbpusrp1x|59f8346d, idleConnectionTestPeriod -> 0, initialPoolSize -> 3, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 0, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 15, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 3, nestedDataSource -> com.mchange.v2.c3p0.DriverManagerDataSource@27539caa [ description -> null, driverClass -> null, factoryClassLocation -> null, forceUseNamedDriverClass -> false, identityToken -> z8kfsxae11dmnbpusrp1x|-46cd30b2, jdbcUrl -> jdbc:mysql://178.154.224.83:3306/bigtennis, properties -> {user=******, password=******} ], preferredTestQuery -> null, privilegeSpawnedThreads -> false, propertyCycle -> 0, statementCacheNumDeferredCloseThreads -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false; userOverrides: {} ], dataSourceName -> null, extensions -> {}, factoryClassLocation -> null, identityToken -> z8kfsxae11dmnbpusrp1x|403e8f70, numHelperThreads -> 3 ]
+2020-12-21 22:13:03 ERROR BigTennisDataController:insertMatches 125 - Неверные данные пришли в insertMatch 
+ Данные:
+SeleniumMatch{player1='Игорь Максименко', player2='Игорь Янушкевич', result=StringResult{score='0:2', set1='5:7', set2='5:7', set3='null', set4='null', set5='null'}, date='2020-12-15 06:00', league='Daily Aqua Tour', courtType='null'}
+org.hibernate.PropertyValueException: not-null property references a null or transient value : bigtennis.entity.dbEntity.CourtTypeEntity.name
+	at org.hibernate.engine.internal.Nullability.checkNullability(Nullability.java:111)
+	at org.hibernate.engine.internal.Nullability.checkNullability(Nullability.java:55)
+	at org.hibernate.action.internal.AbstractEntityInsertAction.nullifyTransientReferencesIfNotAlready(AbstractEntityInsertAction.java:116)
+	at org.hibernate.action.internal.AbstractEntityInsertAction.makeEntityManaged(AbstractEntityInsertAction.java:125)
+	at org.hibernate.engine.spi.ActionQueue.addResolvedEntityInsertAction(ActionQueue.java:289)
+	at org.hibernate.engine.spi.ActionQueue.addInsertAction(ActionQueue.java:263)
+	at org.hibernate.engine.spi.ActionQueue.addAction(ActionQueue.java:250)
+	at org.hibernate.event.internal.AbstractSaveEventListener.addInsertAction(AbstractSaveEventListener.java:338)
+	at org.hibernate.event.internal.AbstractSaveEventListener.performSaveOrReplicate(AbstractSaveEventListener.java:287)
+	at org.hibernate.event.internal.AbstractSaveEventListener.performSave(AbstractSaveEventListener.java:193)
+	at org.hibernate.event.internal.AbstractSaveEventListener.saveWithGeneratedId(AbstractSaveEventListener.java:135)
+	at org.hibernate.event.internal.DefaultSaveOrUpdateEventListener.saveWithGeneratedOrRequestedId(DefaultSaveOrUpdateEventListener.java:194)
+	at org.hibernate.event.internal.DefaultSaveEventListener.saveWithGeneratedOrRequestedId(DefaultSaveEventListener.java:38)
+	at org.hibernate.event.internal.DefaultSaveOrUpdateEventListener.entityIsTransient(DefaultSaveOrUpdateEventListener.java:179)
+	at org.hibernate.event.internal.DefaultSaveEventListener.performSaveOrUpdate(DefaultSaveEventListener.java:32)
+	at org.hibernate.event.internal.DefaultSaveOrUpdateEventListener.onSaveOrUpdate(DefaultSaveOrUpdateEventListener.java:75)
+	at org.hibernate.internal.SessionImpl$$Lambda$338/0000000000000000.accept(Unknown Source)
+	at org.hibernate.event.service.internal.EventListenerGroupImpl.fireEventOnEachListener(EventListenerGroupImpl.java:102)
+	at org.hibernate.internal.SessionImpl.fireSave(SessionImpl.java:634)
+	at org.hibernate.internal.SessionImpl.save(SessionImpl.java:627)
+	at org.hibernate.internal.SessionImpl.save(SessionImpl.java:622)
+	at bigtennis.dao.CourtTypeDAO.save(CourtTypeDAO.java:19)
+	at bigtennis.service.CourtTypeService.save(CourtTypeService.java:24)
+	at bigtennis.service.CourtTypeService.getOrNewByName(CourtTypeService.java:58)
+	at bigtennis.controller.BigTennisDataController.insertMatches(BigTennisDataController.java:122)
+	at bigtennis.dao.BigTennisSeleniumDataProvider.getMatchesByDate(BigTennisSeleniumDataProvider.java:95)
+	at server.controller.CollectingController$SeleniumTask.loadBigTableTennisFor(CollectingController.java:72)
+	at server.controller.CollectingController$SeleniumTask.run(CollectingController.java:80)
+	at java.util.TimerThread.mainLoop(Timer.java:555)
+	at java.util.TimerThread.run(Timer.java:505)
+2020-12-21 22:16:52 INFO  ServerStarter:main 19 - Сервер запущен. v0.15
+2020-12-21 22:16:52 INFO  ServerStarter:main 20 - 21065@pop-os
+2020-12-21 22:16:54 INFO  MLog:run 191 - MLog clients using log4j logging.
+2020-12-21 22:16:54 INFO  C3P0Registry:banner 248 - Initializing c3p0-0.9.5.5 [built 11-December-2019 22:18:33 -0800; debug? true; trace: 10]
+2020-12-21 22:16:54 INFO  AbstractPoolBackedDataSource:getPoolManager 527 - Initializing c3p0 pool... com.mchange.v2.c3p0.PoolBackedDataSource@88a39141 [ connectionPoolDataSource -> com.mchange.v2.c3p0.WrapperConnectionPoolDataSource@616d449f [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, contextClassLoaderSource -> caller, debugUnreturnedConnectionStackTraces -> false, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, forceSynchronousCheckins -> false, identityToken -> z8kfsxae11dt7aoysvfui|-621e4e63, idleConnectionTestPeriod -> 0, initialPoolSize -> 3, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 0, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 15, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 3, nestedDataSource -> com.mchange.v2.c3p0.DriverManagerDataSource@23bb760a [ description -> null, driverClass -> null, factoryClassLocation -> null, forceUseNamedDriverClass -> false, identityToken -> z8kfsxae11dt7aoysvfui|-555f3346, jdbcUrl -> jdbc:mysql://178.154.224.83:3306/bigtennis, properties -> {user=******, password=******} ], preferredTestQuery -> null, privilegeSpawnedThreads -> false, propertyCycle -> 0, statementCacheNumDeferredCloseThreads -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false; userOverrides: {} ], dataSourceName -> null, extensions -> {}, factoryClassLocation -> null, identityToken -> z8kfsxae11dt7aoysvfui|-583ab250, numHelperThreads -> 3 ]
+2020-12-21 22:20:24 ERROR BigTennisDataController:insertMatches 125 - Неверные данные пришли в insertMatch 
+ Данные:
+SeleniumMatch{player1='Дарья Михайлова', player2='Мария Мамонтова', result=StringResult{score='null', set1='null', set2='null', set3='null', set4='null', set5='null'}, date='2020-12-15 00:04', league='Tie break TENS. Women', courtType='null'}
+org.hibernate.PropertyValueException: not-null property references a null or transient value : bigtennis.entity.dbEntity.ResultEntity.score
+	at org.hibernate.engine.internal.Nullability.checkNullability(Nullability.java:111)
+	at org.hibernate.engine.internal.Nullability.checkNullability(Nullability.java:55)
+	at org.hibernate.action.internal.AbstractEntityInsertAction.nullifyTransientReferencesIfNotAlready(AbstractEntityInsertAction.java:116)
+	at org.hibernate.action.internal.AbstractEntityInsertAction.makeEntityManaged(AbstractEntityInsertAction.java:125)
+	at org.hibernate.engine.spi.ActionQueue.addResolvedEntityInsertAction(ActionQueue.java:289)
+	at org.hibernate.engine.spi.ActionQueue.addInsertAction(ActionQueue.java:263)
+	at org.hibernate.engine.spi.ActionQueue.addAction(ActionQueue.java:250)
+	at org.hibernate.event.internal.AbstractSaveEventListener.addInsertAction(AbstractSaveEventListener.java:338)
+	at org.hibernate.event.internal.AbstractSaveEventListener.performSaveOrReplicate(AbstractSaveEventListener.java:287)
+	at org.hibernate.event.internal.AbstractSaveEventListener.performSave(AbstractSaveEventListener.java:193)
+	at org.hibernate.event.internal.AbstractSaveEventListener.saveWithGeneratedId(AbstractSaveEventListener.java:135)
+	at org.hibernate.event.internal.DefaultSaveOrUpdateEventListener.saveWithGeneratedOrRequestedId(DefaultSaveOrUpdateEventListener.java:194)
+	at org.hibernate.event.internal.DefaultSaveEventListener.saveWithGeneratedOrRequestedId(DefaultSaveEventListener.java:38)
+	at org.hibernate.event.internal.DefaultSaveOrUpdateEventListener.entityIsTransient(DefaultSaveOrUpdateEventListener.java:179)
+	at org.hibernate.event.internal.DefaultSaveEventListener.performSaveOrUpdate(DefaultSaveEventListener.java:32)
+	at org.hibernate.event.internal.DefaultSaveOrUpdateEventListener.onSaveOrUpdate(DefaultSaveOrUpdateEventListener.java:75)
+	at org.hibernate.internal.SessionImpl$$Lambda$338/0000000000000000.accept(Unknown Source)
+	at org.hibernate.event.service.internal.EventListenerGroupImpl.fireEventOnEachListener(EventListenerGroupImpl.java:102)
+	at org.hibernate.internal.SessionImpl.fireSave(SessionImpl.java:634)
+	at org.hibernate.internal.SessionImpl.save(SessionImpl.java:627)
+	at org.hibernate.internal.SessionImpl.save(SessionImpl.java:622)
+	at bigtennis.dao.ResultDAO.save(ResultDAO.java:26)
+	at bigtennis.service.ResultService.save(ResultService.java:21)
+	at bigtennis.service.ResultService.getOrNewByParams(ResultService.java:52)
+	at bigtennis.controller.BigTennisDataController.insertMatches(BigTennisDataController.java:120)
+	at bigtennis.dao.BigTennisSeleniumDataProvider.getMatchesByDate(BigTennisSeleniumDataProvider.java:95)
+	at server.controller.CollectingController$SeleniumTask.loadBigTableTennisFor(CollectingController.java:72)
+	at server.controller.CollectingController$SeleniumTask.run(CollectingController.java:80)
+	at java.util.TimerThread.mainLoop(Timer.java:555)
+	at java.util.TimerThread.run(Timer.java:505)
+2020-12-21 22:20:34 ERROR BigTennisDataController:insertMatches 125 - Неверные данные пришли в insertMatch 
+ Данные:
+SeleniumMatch{player1='Елизавета Гурьянова', player2='Мария Мамонтова', result=StringResult{score='null', set1='null', set2='null', set3='null', set4='null', set5='null'}, date='2020-12-15 00:08', league='Tie break TENS. Women', courtType='null'}
+org.hibernate.PropertyValueException: not-null property references a null or transient value : bigtennis.entity.dbEntity.ResultEntity.score
+	at org.hibernate.engine.internal.Nullability.checkNullability(Nullability.java:111)
+	at org.hibernate.engine.internal.Nullability.checkNullability(Nullability.java:55)
+	at org.hibernate.action.internal.AbstractEntityInsertAction.nullifyTransientReferencesIfNotAlready(AbstractEntityInsertAction.java:116)
+	at org.hibernate.action.internal.AbstractEntityInsertAction.makeEntityManaged(AbstractEntityInsertAction.java:125)
+	at org.hibernate.engine.spi.ActionQueue.addResolvedEntityInsertAction(ActionQueue.java:289)
+	at org.hibernate.engine.spi.ActionQueue.addInsertAction(ActionQueue.java:263)
+	at org.hibernate.engine.spi.ActionQueue.addAction(ActionQueue.java:250)
+	at org.hibernate.event.internal.AbstractSaveEventListener.addInsertAction(AbstractSaveEventListener.java:338)
+	at org.hibernate.event.internal.AbstractSaveEventListener.performSaveOrReplicate(AbstractSaveEventListener.java:287)
+	at org.hibernate.event.internal.AbstractSaveEventListener.performSave(AbstractSaveEventListener.java:193)
+	at org.hibernate.event.internal.AbstractSaveEventListener.saveWithGeneratedId(AbstractSaveEventListener.java:135)
+	at org.hibernate.event.internal.DefaultSaveOrUpdateEventListener.saveWithGeneratedOrRequestedId(DefaultSaveOrUpdateEventListener.java:194)
+	at org.hibernate.event.internal.DefaultSaveEventListener.saveWithGeneratedOrRequestedId(DefaultSaveEventListener.java:38)
+	at org.hibernate.event.internal.DefaultSaveOrUpdateEventListener.entityIsTransient(DefaultSaveOrUpdateEventListener.java:179)
+	at org.hibernate.event.internal.DefaultSaveEventListener.performSaveOrUpdate(DefaultSaveEventListener.java:32)
+	at org.hibernate.event.internal.DefaultSaveOrUpdateEventListener.onSaveOrUpdate(DefaultSaveOrUpdateEventListener.java:75)
+	at org.hibernate.internal.SessionImpl$$Lambda$338/0000000000000000.accept(Unknown Source)
+	at org.hibernate.event.service.internal.EventListenerGroupImpl.fireEventOnEachListener(EventListenerGroupImpl.java:102)
+	at org.hibernate.internal.SessionImpl.fireSave(SessionImpl.java:634)
+	at org.hibernate.internal.SessionImpl.save(SessionImpl.java:627)
+	at org.hibernate.internal.SessionImpl.save(SessionImpl.java:622)
+	at bigtennis.dao.ResultDAO.save(ResultDAO.java:26)
+	at bigtennis.service.ResultService.save(ResultService.java:21)
+	at bigtennis.service.ResultService.getOrNewByParams(ResultService.java:52)
+	at bigtennis.controller.BigTennisDataController.insertMatches(BigTennisDataController.java:120)
+	at bigtennis.dao.BigTennisSeleniumDataProvider.getMatchesByDate(BigTennisSeleniumDataProvider.java:95)
+	at server.controller.CollectingController$SeleniumTask.loadBigTableTennisFor(CollectingController.java:72)
+	at server.controller.CollectingController$SeleniumTask.run(CollectingController.java:80)
+	at java.util.TimerThread.mainLoop(Timer.java:555)
+	at java.util.TimerThread.run(Timer.java:505)
+2020-12-21 22:20:36 ERROR BigTennisDataController:insertMatches 125 - Неверные данные пришли в insertMatch 
+ Данные:
+SeleniumMatch{player1='Дарья Михайлова', player2='Алина Трынкина', result=StringResult{score='null', set1='null', set2='null', set3='null', set4='null', set5='null'}, date='2020-12-15 00:16', league='Tie break TENS. Women', courtType='null'}
+org.hibernate.PropertyValueException: not-null property references a null or transient value : bigtennis.entity.dbEntity.ResultEntity.score
+	at org.hibernate.engine.internal.Nullability.checkNullability(Nullability.java:111)
+	at org.hibernate.engine.internal.Nullability.checkNullability(Nullability.java:55)
+	at org.hibernate.action.internal.AbstractEntityInsertAction.nullifyTransientReferencesIfNotAlready(AbstractEntityInsertAction.java:116)
+	at org.hibernate.action.internal.AbstractEntityInsertAction.makeEntityManaged(AbstractEntityInsertAction.java:125)
+	at org.hibernate.engine.spi.ActionQueue.addResolvedEntityInsertAction(ActionQueue.java:289)
+	at org.hibernate.engine.spi.ActionQueue.addInsertAction(ActionQueue.java:263)
+	at org.hibernate.engine.spi.ActionQueue.addAction(ActionQueue.java:250)
+	at org.hibernate.event.internal.AbstractSaveEventListener.addInsertAction(AbstractSaveEventListener.java:338)
+	at org.hibernate.event.internal.AbstractSaveEventListener.performSaveOrReplicate(AbstractSaveEventListener.java:287)
+	at org.hibernate.event.internal.AbstractSaveEventListener.performSave(AbstractSaveEventListener.java:193)
+	at org.hibernate.event.internal.AbstractSaveEventListener.saveWithGeneratedId(AbstractSaveEventListener.java:135)
+	at org.hibernate.event.internal.DefaultSaveOrUpdateEventListener.saveWithGeneratedOrRequestedId(DefaultSaveOrUpdateEventListener.java:194)
+	at org.hibernate.event.internal.DefaultSaveEventListener.saveWithGeneratedOrRequestedId(DefaultSaveEventListener.java:38)
+	at org.hibernate.event.internal.DefaultSaveOrUpdateEventListener.entityIsTransient(DefaultSaveOrUpdateEventListener.java:179)
+	at org.hibernate.event.internal.DefaultSaveEventListener.performSaveOrUpdate(DefaultSaveEventListener.java:32)
+	at org.hibernate.event.internal.DefaultSaveOrUpdateEventListener.onSaveOrUpdate(DefaultSaveOrUpdateEventListener.java:75)
+	at org.hibernate.internal.SessionImpl$$Lambda$338/0000000000000000.accept(Unknown Source)
+	at org.hibernate.event.service.internal.EventListenerGroupImpl.fireEventOnEachListener(EventListenerGroupImpl.java:102)
+	at org.hibernate.internal.SessionImpl.fireSave(SessionImpl.java:634)
+	at org.hibernate.internal.SessionImpl.save(SessionImpl.java:627)
+	at org.hibernate.internal.SessionImpl.save(SessionImpl.java:622)
+	at bigtennis.dao.ResultDAO.save(ResultDAO.java:26)
+	at bigtennis.service.ResultService.save(ResultService.java:21)
+	at bigtennis.service.ResultService.getOrNewByParams(ResultService.java:52)
+	at bigtennis.controller.BigTennisDataController.insertMatches(BigTennisDataController.java:120)
+	at bigtennis.dao.BigTennisSeleniumDataProvider.getMatchesByDate(BigTennisSeleniumDataProvider.java:95)
+	at server.controller.CollectingController$SeleniumTask.loadBigTableTennisFor(CollectingController.java:72)
+	at server.controller.CollectingController$SeleniumTask.run(CollectingController.java:80)
+	at java.util.TimerThread.mainLoop(Timer.java:555)
+	at java.util.TimerThread.run(Timer.java:505)
+2020-12-21 22:20:38 ERROR BigTennisDataController:insertMatches 125 - Неверные данные пришли в insertMatch 
+ Данные:
+SeleniumMatch{player1='Мария Мамонтова', player2='Алина Трынкина', result=StringResult{score='null', set1='null', set2='null', set3='null', set4='null', set5='null'}, date='2020-12-15 00:28', league='Tie break TENS. Women', courtType='null'}
+org.hibernate.PropertyValueException: not-null property references a null or transient value : bigtennis.entity.dbEntity.ResultEntity.score
+	at org.hibernate.engine.internal.Nullability.checkNullability(Nullability.java:111)
+	at org.hibernate.engine.internal.Nullability.checkNullability(Nullability.java:55)
+	at org.hibernate.action.internal.AbstractEntityInsertAction.nullifyTransientReferencesIfNotAlready(AbstractEntityInsertAction.java:116)
+	at org.hibernate.action.internal.AbstractEntityInsertAction.makeEntityManaged(AbstractEntityInsertAction.java:125)
+	at org.hibernate.engine.spi.ActionQueue.addResolvedEntityInsertAction(ActionQueue.java:289)
+	at org.hibernate.engine.spi.ActionQueue.addInsertAction(ActionQueue.java:263)
+	at org.hibernate.engine.spi.ActionQueue.addAction(ActionQueue.java:250)
+	at org.hibernate.event.internal.AbstractSaveEventListener.addInsertAction(AbstractSaveEventListener.java:338)
+	at org.hibernate.event.internal.AbstractSaveEventListener.performSaveOrReplicate(AbstractSaveEventListener.java:287)
+	at org.hibernate.event.internal.AbstractSaveEventListener.performSave(AbstractSaveEventListener.java:193)
+	at org.hibernate.event.internal.AbstractSaveEventListener.saveWithGeneratedId(AbstractSaveEventListener.java:135)
+	at org.hibernate.event.internal.DefaultSaveOrUpdateEventListener.saveWithGeneratedOrRequestedId(DefaultSaveOrUpdateEventListener.java:194)
+	at org.hibernate.event.internal.DefaultSaveEventListener.saveWithGeneratedOrRequestedId(DefaultSaveEventListener.java:38)
+	at org.hibernate.event.internal.DefaultSaveOrUpdateEventListener.entityIsTransient(DefaultSaveOrUpdateEventListener.java:179)
+	at org.hibernate.event.internal.DefaultSaveEventListener.performSaveOrUpdate(DefaultSaveEventListener.java:32)
+	at org.hibernate.event.internal.DefaultSaveOrUpdateEventListener.onSaveOrUpdate(DefaultSaveOrUpdateEventListener.java:75)
+	at org.hibernate.internal.SessionImpl$$Lambda$338/0000000000000000.accept(Unknown Source)
+	at org.hibernate.event.service.internal.EventListenerGroupImpl.fireEventOnEachListener(EventListenerGroupImpl.java:102)
+	at org.hibernate.internal.SessionImpl.fireSave(SessionImpl.java:634)
+	at org.hibernate.internal.SessionImpl.save(SessionImpl.java:627)
+	at org.hibernate.internal.SessionImpl.save(SessionImpl.java:622)
+	at bigtennis.dao.ResultDAO.save(ResultDAO.java:26)
+	at bigtennis.service.ResultService.save(ResultService.java:21)
+	at bigtennis.service.ResultService.getOrNewByParams(ResultService.java:52)
+	at bigtennis.controller.BigTennisDataController.insertMatches(BigTennisDataController.java:120)
+	at bigtennis.dao.BigTennisSeleniumDataProvider.getMatchesByDate(BigTennisSeleniumDataProvider.java:95)
+	at server.controller.CollectingController$SeleniumTask.loadBigTableTennisFor(CollectingController.java:72)
+	at server.controller.CollectingController$SeleniumTask.run(CollectingController.java:80)
+	at java.util.TimerThread.mainLoop(Timer.java:555)
+	at java.util.TimerThread.run(Timer.java:505)
+2020-12-21 22:20:38 ERROR BigTennisDataController:insertMatches 125 - Неверные данные пришли в insertMatch 
+ Данные:
+SeleniumMatch{player1='Дарья Михайлова', player2='Елизавета Гурьянова', result=StringResult{score='null', set1='null', set2='null', set3='null', set4='null', set5='null'}, date='2020-12-15 00:42', league='Tie break TENS. Women', courtType='null'}
+org.hibernate.PropertyValueException: not-null property references a null or transient value : bigtennis.entity.dbEntity.ResultEntity.score
+	at org.hibernate.engine.internal.Nullability.checkNullability(Nullability.java:111)
+	at org.hibernate.engine.internal.Nullability.checkNullability(Nullability.java:55)
+	at org.hibernate.action.internal.AbstractEntityInsertAction.nullifyTransientReferencesIfNotAlready(AbstractEntityInsertAction.java:116)
+	at org.hibernate.action.internal.AbstractEntityInsertAction.makeEntityManaged(AbstractEntityInsertAction.java:125)
+	at org.hibernate.engine.spi.ActionQueue.addResolvedEntityInsertAction(ActionQueue.java:289)
+	at org.hibernate.engine.spi.ActionQueue.addInsertAction(ActionQueue.java:263)
+	at org.hibernate.engine.spi.ActionQueue.addAction(ActionQueue.java:250)
+	at org.hibernate.event.internal.AbstractSaveEventListener.addInsertAction(AbstractSaveEventListener.java:338)
+	at org.hibernate.event.internal.AbstractSaveEventListener.performSaveOrReplicate(AbstractSaveEventListener.java:287)
+	at org.hibernate.event.internal.AbstractSaveEventListener.performSave(AbstractSaveEventListener.java:193)
+	at org.hibernate.event.internal.AbstractSaveEventListener.saveWithGeneratedId(AbstractSaveEventListener.java:135)
+	at org.hibernate.event.internal.DefaultSaveOrUpdateEventListener.saveWithGeneratedOrRequestedId(DefaultSaveOrUpdateEventListener.java:194)
+	at org.hibernate.event.internal.DefaultSaveEventListener.saveWithGeneratedOrRequestedId(DefaultSaveEventListener.java:38)
+	at org.hibernate.event.internal.DefaultSaveOrUpdateEventListener.entityIsTransient(DefaultSaveOrUpdateEventListener.java:179)
+	at org.hibernate.event.internal.DefaultSaveEventListener.performSaveOrUpdate(DefaultSaveEventListener.java:32)
+	at org.hibernate.event.internal.DefaultSaveOrUpdateEventListener.onSaveOrUpdate(DefaultSaveOrUpdateEventListener.java:75)
+	at org.hibernate.internal.SessionImpl$$Lambda$338/0000000000000000.accept(Unknown Source)
+	at org.hibernate.event.service.internal.EventListenerGroupImpl.fireEventOnEachListener(EventListenerGroupImpl.java:102)
+	at org.hibernate.internal.SessionImpl.fireSave(SessionImpl.java:634)
+	at org.hibernate.internal.SessionImpl.save(SessionImpl.java:627)
+	at org.hibernate.internal.SessionImpl.save(SessionImpl.java:622)
+	at bigtennis.dao.ResultDAO.save(ResultDAO.java:26)
+	at bigtennis.service.ResultService.save(ResultService.java:21)
+	at bigtennis.service.ResultService.getOrNewByParams(ResultService.java:52)
+	at bigtennis.controller.BigTennisDataController.insertMatches(BigTennisDataController.java:120)
+	at bigtennis.dao.BigTennisSeleniumDataProvider.getMatchesByDate(BigTennisSeleniumDataProvider.java:95)
+	at server.controller.CollectingController$SeleniumTask.loadBigTableTennisFor(CollectingController.java:72)
+	at server.controller.CollectingController$SeleniumTask.run(CollectingController.java:80)
+	at java.util.TimerThread.mainLoop(Timer.java:555)
+	at java.util.TimerThread.run(Timer.java:505)
+2020-12-21 22:21:40 INFO  BigTennisSeleniumDataProvider:getMatchesByDate 96 - Вставлено 182 матчей
+2020-12-21 22:23:06 ERROR BigTennisDataController:insertMatches 125 - Неверные данные пришли в insertMatch 
+ Данные:
+SeleniumMatch{player1='Алина Трынкина', player2='Мария Мамонтова', result=StringResult{score='null', set1='null', set2='null', set3='null', set4='null', set5='null'}, date='2020-12-14 20:06', league='Tie break TENS. Women', courtType='null'}
+org.hibernate.PropertyValueException: not-null property references a null or transient value : bigtennis.entity.dbEntity.ResultEntity.score
+	at org.hibernate.engine.internal.Nullability.checkNullability(Nullability.java:111)
+	at org.hibernate.engine.internal.Nullability.checkNullability(Nullability.java:55)
+	at org.hibernate.action.internal.AbstractEntityInsertAction.nullifyTransientReferencesIfNotAlready(AbstractEntityInsertAction.java:116)
+	at org.hibernate.action.internal.AbstractEntityInsertAction.makeEntityManaged(AbstractEntityInsertAction.java:125)
+	at org.hibernate.engine.spi.ActionQueue.addResolvedEntityInsertAction(ActionQueue.java:289)
+	at org.hibernate.engine.spi.ActionQueue.addInsertAction(ActionQueue.java:263)
+	at org.hibernate.engine.spi.ActionQueue.addAction(ActionQueue.java:250)
+	at org.hibernate.event.internal.AbstractSaveEventListener.addInsertAction(AbstractSaveEventListener.java:338)
+	at org.hibernate.event.internal.AbstractSaveEventListener.performSaveOrReplicate(AbstractSaveEventListener.java:287)
+	at org.hibernate.event.internal.AbstractSaveEventListener.performSave(AbstractSaveEventListener.java:193)
+	at org.hibernate.event.internal.AbstractSaveEventListener.saveWithGeneratedId(AbstractSaveEventListener.java:135)
+	at org.hibernate.event.internal.DefaultSaveOrUpdateEventListener.saveWithGeneratedOrRequestedId(DefaultSaveOrUpdateEventListener.java:194)
+	at org.hibernate.event.internal.DefaultSaveEventListener.saveWithGeneratedOrRequestedId(DefaultSaveEventListener.java:38)
+	at org.hibernate.event.internal.DefaultSaveOrUpdateEventListener.entityIsTransient(DefaultSaveOrUpdateEventListener.java:179)
+	at org.hibernate.event.internal.DefaultSaveEventListener.performSaveOrUpdate(DefaultSaveEventListener.java:32)
+	at org.hibernate.event.internal.DefaultSaveOrUpdateEventListener.onSaveOrUpdate(DefaultSaveOrUpdateEventListener.java:75)
+	at org.hibernate.internal.SessionImpl$$Lambda$338/0000000000000000.accept(Unknown Source)
+	at org.hibernate.event.service.internal.EventListenerGroupImpl.fireEventOnEachListener(EventListenerGroupImpl.java:102)
+	at org.hibernate.internal.SessionImpl.fireSave(SessionImpl.java:634)
+	at org.hibernate.internal.SessionImpl.save(SessionImpl.java:627)
+	at org.hibernate.internal.SessionImpl.save(SessionImpl.java:622)
+	at bigtennis.dao.ResultDAO.save(ResultDAO.java:26)
+	at bigtennis.service.ResultService.save(ResultService.java:21)
+	at bigtennis.service.ResultService.getOrNewByParams(ResultService.java:52)
+	at bigtennis.controller.BigTennisDataController.insertMatches(BigTennisDataController.java:120)
+	at bigtennis.dao.BigTennisSeleniumDataProvider.getMatchesByDate(BigTennisSeleniumDataProvider.java:95)
+	at server.controller.CollectingController$SeleniumTask.loadBigTableTennisFor(CollectingController.java:72)
+	at server.controller.CollectingController$SeleniumTask.run(CollectingController.java:80)
+	at java.util.TimerThread.mainLoop(Timer.java:555)
+	at java.util.TimerThread.run(Timer.java:505)
+2020-12-21 23:29:33 INFO  ServerStarter:main 19 - Сервер запущен. v0.15
+2020-12-21 23:29:33 INFO  ServerStarter:main 20 - 26286@pop-os
+2020-12-21 23:29:34 INFO  MLog:run 191 - MLog clients using log4j logging.
+2020-12-21 23:29:34 INFO  C3P0Registry:banner 248 - Initializing c3p0-0.9.5.5 [built 11-December-2019 22:18:33 -0800; debug? true; trace: 10]
+2020-12-21 23:29:34 INFO  AbstractPoolBackedDataSource:getPoolManager 527 - Initializing c3p0 pool... com.mchange.v2.c3p0.PoolBackedDataSource@c0fb813b [ connectionPoolDataSource -> com.mchange.v2.c3p0.WrapperConnectionPoolDataSource@264251d7 [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, contextClassLoaderSource -> caller, debugUnreturnedConnectionStackTraces -> false, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, forceSynchronousCheckins -> false, identityToken -> z8kfsxae11genik1rzvgo2|2ee21a7, idleConnectionTestPeriod -> 0, initialPoolSize -> 3, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 0, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 15, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 3, nestedDataSource -> com.mchange.v2.c3p0.DriverManagerDataSource@b3eb7271 [ description -> null, driverClass -> null, factoryClassLocation -> null, forceUseNamedDriverClass -> false, identityToken -> z8kfsxae11genik1rzvgo2|-642e3c43, jdbcUrl -> jdbc:mysql://178.154.224.83:3306/bigtennis, properties -> {user=******, password=******} ], preferredTestQuery -> null, privilegeSpawnedThreads -> false, propertyCycle -> 0, statementCacheNumDeferredCloseThreads -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false; userOverrides: {} ], dataSourceName -> null, extensions -> {}, factoryClassLocation -> null, identityToken -> z8kfsxae11genik1rzvgo2|a76e20f, numHelperThreads -> 3 ]
+2020-12-21 23:31:24 INFO  ServerStarter:main 19 - Сервер запущен. v0.15
+2020-12-21 23:31:24 INFO  ServerStarter:main 20 - 26410@pop-os
+2020-12-21 23:31:25 INFO  MLog:run 191 - MLog clients using log4j logging.
+2020-12-21 23:31:25 INFO  C3P0Registry:banner 248 - Initializing c3p0-0.9.5.5 [built 11-December-2019 22:18:33 -0800; debug? true; trace: 10]
+2020-12-21 23:31:25 INFO  AbstractPoolBackedDataSource:getPoolManager 527 - Initializing c3p0 pool... com.mchange.v2.c3p0.PoolBackedDataSource@b53f936f [ connectionPoolDataSource -> com.mchange.v2.c3p0.WrapperConnectionPoolDataSource@da969a9b [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, contextClassLoaderSource -> caller, debugUnreturnedConnectionStackTraces -> false, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, forceSynchronousCheckins -> false, identityToken -> z8kfsxae11gh15y5uzxmf|4cdd7e1e, idleConnectionTestPeriod -> 0, initialPoolSize -> 3, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 0, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 15, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 3, nestedDataSource -> com.mchange.v2.c3p0.DriverManagerDataSource@220f189b [ description -> null, driverClass -> null, factoryClassLocation -> null, forceUseNamedDriverClass -> false, identityToken -> z8kfsxae11gh15y5uzxmf|3e9d16b1, jdbcUrl -> jdbc:mysql://178.154.224.83:3306/bigtennis, properties -> {user=******, password=******} ], preferredTestQuery -> null, privilegeSpawnedThreads -> false, propertyCycle -> 0, statementCacheNumDeferredCloseThreads -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false; userOverrides: {} ], dataSourceName -> null, extensions -> {}, factoryClassLocation -> null, identityToken -> z8kfsxae11gh15y5uzxmf|69fc6245, numHelperThreads -> 3 ]
+2020-12-21 23:31:57 INFO  ServerStarter:main 19 - Сервер запущен. v0.15
+2020-12-21 23:31:57 INFO  ServerStarter:main 20 - 26618@pop-os
+2020-12-21 23:31:58 INFO  MLog:run 191 - MLog clients using log4j logging.
+2020-12-21 23:31:58 INFO  C3P0Registry:banner 248 - Initializing c3p0-0.9.5.5 [built 11-December-2019 22:18:33 -0800; debug? true; trace: 10]
+2020-12-21 23:31:58 INFO  AbstractPoolBackedDataSource:getPoolManager 527 - Initializing c3p0 pool... com.mchange.v2.c3p0.PoolBackedDataSource@90d866dc [ connectionPoolDataSource -> com.mchange.v2.c3p0.WrapperConnectionPoolDataSource@996f849d [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, contextClassLoaderSource -> caller, debugUnreturnedConnectionStackTraces -> false, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, forceSynchronousCheckins -> false, identityToken -> z8kfsxae11ghqmjixwhla|595bb5ce, idleConnectionTestPeriod -> 0, initialPoolSize -> 3, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 0, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 15, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 3, nestedDataSource -> com.mchange.v2.c3p0.DriverManagerDataSource@ad537ae6 [ description -> null, driverClass -> null, factoryClassLocation -> null, forceUseNamedDriverClass -> false, identityToken -> z8kfsxae11ghqmjixwhla|78f7c383, jdbcUrl -> jdbc:mysql://178.154.224.83:3306/bigtennis, properties -> {user=******, password=******} ], preferredTestQuery -> null, privilegeSpawnedThreads -> false, propertyCycle -> 0, statementCacheNumDeferredCloseThreads -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false; userOverrides: {} ], dataSourceName -> null, extensions -> {}, factoryClassLocation -> null, identityToken -> z8kfsxae11ghqmjixwhla|-40829434, numHelperThreads -> 3 ]
+2020-12-21 23:33:18 INFO  ServerStarter:main 19 - Сервер запущен. v0.15
+2020-12-21 23:33:18 INFO  ServerStarter:main 20 - 27191@pop-os
+2020-12-21 23:33:20 INFO  MLog:run 191 - MLog clients using log4j logging.
+2020-12-21 23:33:20 INFO  C3P0Registry:banner 248 - Initializing c3p0-0.9.5.5 [built 11-December-2019 22:18:33 -0800; debug? true; trace: 10]
+2020-12-21 23:33:20 INFO  AbstractPoolBackedDataSource:getPoolManager 527 - Initializing c3p0 pool... com.mchange.v2.c3p0.PoolBackedDataSource@6dcbc1a1 [ connectionPoolDataSource -> com.mchange.v2.c3p0.WrapperConnectionPoolDataSource@5ecdd19f [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, contextClassLoaderSource -> caller, debugUnreturnedConnectionStackTraces -> false, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, forceSynchronousCheckins -> false, identityToken -> z8kfsxae11gjht1sxmjlh|30b4ff1d, idleConnectionTestPeriod -> 0, initialPoolSize -> 3, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 0, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 15, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 3, nestedDataSource -> com.mchange.v2.c3p0.DriverManagerDataSource@ad815940 [ description -> null, driverClass -> null, factoryClassLocation -> null, forceUseNamedDriverClass -> false, identityToken -> z8kfsxae11gjht1sxmjlh|-6f871a4e, jdbcUrl -> jdbc:mysql://178.154.224.83:3306/bigtennis, properties -> {user=******, password=******} ], preferredTestQuery -> null, privilegeSpawnedThreads -> false, propertyCycle -> 0, statementCacheNumDeferredCloseThreads -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false; userOverrides: {} ], dataSourceName -> null, extensions -> {}, factoryClassLocation -> null, identityToken -> z8kfsxae11gjht1sxmjlh|607fd28a, numHelperThreads -> 3 ]
+2020-12-21 23:35:03 INFO  ServerStarter:main 19 - Сервер запущен. v0.15
+2020-12-21 23:35:03 INFO  ServerStarter:main 20 - 27726@pop-os
+2020-12-21 23:35:04 INFO  MLog:run 191 - MLog clients using log4j logging.
+2020-12-21 23:35:04 INFO  C3P0Registry:banner 248 - Initializing c3p0-0.9.5.5 [built 11-December-2019 22:18:33 -0800; debug? true; trace: 10]
+2020-12-21 23:35:04 INFO  AbstractPoolBackedDataSource:getPoolManager 527 - Initializing c3p0 pool... com.mchange.v2.c3p0.PoolBackedDataSource@4e0d80af [ connectionPoolDataSource -> com.mchange.v2.c3p0.WrapperConnectionPoolDataSource@ab2665af [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, contextClassLoaderSource -> caller, debugUnreturnedConnectionStackTraces -> false, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, forceSynchronousCheckins -> false, identityToken -> z8kfsxae11glppvv9ttet|-fe4cc4a, idleConnectionTestPeriod -> 0, initialPoolSize -> 3, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 0, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 15, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 3, nestedDataSource -> com.mchange.v2.c3p0.DriverManagerDataSource@586242f2 [ description -> null, driverClass -> null, factoryClassLocation -> null, forceUseNamedDriverClass -> false, identityToken -> z8kfsxae11glppvv9ttet|-308d034c, jdbcUrl -> jdbc:mysql://178.154.224.83:3306/bigtennis, properties -> {user=******, password=******} ], preferredTestQuery -> null, privilegeSpawnedThreads -> false, propertyCycle -> 0, statementCacheNumDeferredCloseThreads -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false; userOverrides: {} ], dataSourceName -> null, extensions -> {}, factoryClassLocation -> null, identityToken -> z8kfsxae11glppvv9ttet|-cae8cc3, numHelperThreads -> 3 ]
+2020-12-21 23:36:18 INFO  ServerStarter:main 19 - Сервер запущен. v0.15
+2020-12-21 23:36:18 INFO  ServerStarter:main 20 - 28197@pop-os
+2020-12-21 23:36:20 INFO  MLog:run 191 - MLog clients using log4j logging.
+2020-12-21 23:36:20 INFO  C3P0Registry:banner 248 - Initializing c3p0-0.9.5.5 [built 11-December-2019 22:18:33 -0800; debug? true; trace: 10]
+2020-12-21 23:36:20 INFO  AbstractPoolBackedDataSource:getPoolManager 527 - Initializing c3p0 pool... com.mchange.v2.c3p0.PoolBackedDataSource@af52529b [ connectionPoolDataSource -> com.mchange.v2.c3p0.WrapperConnectionPoolDataSource@db1ffdc8 [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, contextClassLoaderSource -> caller, debugUnreturnedConnectionStackTraces -> false, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, forceSynchronousCheckins -> false, identityToken -> z8kfsxae11gncmq1ls9des|2d8d6d68, idleConnectionTestPeriod -> 0, initialPoolSize -> 3, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 0, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 15, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 3, nestedDataSource -> com.mchange.v2.c3p0.DriverManagerDataSource@9cd23ae0 [ description -> null, driverClass -> null, factoryClassLocation -> null, forceUseNamedDriverClass -> false, identityToken -> z8kfsxae11gncmq1ls9des|-7db47f7d, jdbcUrl -> jdbc:mysql://178.154.224.83:3306/bigtennis, properties -> {user=******, password=******} ], preferredTestQuery -> null, privilegeSpawnedThreads -> false, propertyCycle -> 0, statementCacheNumDeferredCloseThreads -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false; userOverrides: {} ], dataSourceName -> null, extensions -> {}, factoryClassLocation -> null, identityToken -> z8kfsxae11gncmq1ls9des|60dbba26, numHelperThreads -> 3 ]
+2020-12-21 23:38:12 INFO  ServerStarter:main 19 - Сервер запущен. v0.15
+2020-12-21 23:38:12 INFO  ServerStarter:main 20 - 28764@pop-os
+2020-12-21 23:38:13 INFO  MLog:run 191 - MLog clients using log4j logging.
+2020-12-21 23:38:14 INFO  C3P0Registry:banner 248 - Initializing c3p0-0.9.5.5 [built 11-December-2019 22:18:33 -0800; debug? true; trace: 10]
+2020-12-21 23:38:14 INFO  AbstractPoolBackedDataSource:getPoolManager 527 - Initializing c3p0 pool... com.mchange.v2.c3p0.PoolBackedDataSource@dfa1c87b [ connectionPoolDataSource -> com.mchange.v2.c3p0.WrapperConnectionPoolDataSource@770ca662 [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, contextClassLoaderSource -> caller, debugUnreturnedConnectionStackTraces -> false, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, forceSynchronousCheckins -> false, identityToken -> z8kfsxae11gps4ylx3yop|-29076aa4, idleConnectionTestPeriod -> 0, initialPoolSize -> 3, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 0, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 15, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 3, nestedDataSource -> com.mchange.v2.c3p0.DriverManagerDataSource@26a8c86b [ description -> null, driverClass -> null, factoryClassLocation -> null, forceUseNamedDriverClass -> false, identityToken -> z8kfsxae11gps4ylx3yop|-53ae6da4, jdbcUrl -> jdbc:mysql://178.154.224.83:3306/bigtennis, properties -> {user=******, password=******} ], preferredTestQuery -> null, privilegeSpawnedThreads -> false, propertyCycle -> 0, statementCacheNumDeferredCloseThreads -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false; userOverrides: {} ], dataSourceName -> null, extensions -> {}, factoryClassLocation -> null, identityToken -> z8kfsxae11gps4ylx3yop|-720a9918, numHelperThreads -> 3 ]

@@ -1,8 +1,11 @@
 package tabletennis.controller;
 
 import server.controller.TransferObjectIO;
+import server.entity.LiveMatch;
+import server.entity.LiveMatchList;
 import tabletennis.command.CommandBuilder;
 import server.entity.TransferObject;
+import tabletennis.entity.TableTennisLiveMatchList;
 
 import java.io.IOException;
 

@@ -1,14 +1,16 @@
 package server.controller;
 
 import org.apache.log4j.Logger;
+import server.entity.StatusName;
 
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-public class SocketConnectionPool implements Runnable {
+public class SocketConnectionPool implements Callable<StatusName> {
 
     private static final Logger logger = Logger.getLogger(SocketConnectionPool.class);
     private ServerSocket serverSocket;
@@ -41,7 +43,8 @@ public class SocketConnectionPool implements Runnable {
     }
 
     @Override
-    public void run() {
-            turnOn();
+    public StatusName call() {
+        turnOn();
+        return StatusName.STATUS_STOPPED;
     }
 }

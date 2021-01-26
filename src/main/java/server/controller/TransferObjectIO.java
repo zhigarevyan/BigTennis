@@ -10,7 +10,7 @@ import java.net.Socket;
 public class TransferObjectIO {
 
     //private static final String host = "localhost";
-    private static final String host = "178.154.224.83";
+    private static final String host = "185.135.80.244";
     private static final int port = 8030;
 
     private Socket socket;

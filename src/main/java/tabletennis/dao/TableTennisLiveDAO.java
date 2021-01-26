@@ -6,7 +6,7 @@ import tabletennis.entity.TableTennisLiveMatchList;
 
 public class TableTennisLiveDAO extends LiveDAO {
 
-        private static final String URL = "https://1xstavka.ru/live/Tennis/";
+        private static final String URL = "https://1xbet.com/live/Table-Tennis/";
 
         TableTennisLiveMatchList tableTennisLiveMatchList;
 

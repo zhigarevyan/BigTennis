@@ -1,0 +1,10 @@
+2021-01-27 00:37:05 ERROR LiveDAO:run 96 - UpdateException: Supplied function might have stalled
+Build info: version: '4.0.0-alpha-5', revision: 'b3a0d621cc'
+System info: host: 'pop-os', ip: '127.0.1.1', os.name: 'Linux', os.arch: 'amd64', os.version: '5.8.0-7630-generic', java.version: '1.8.0_252'
+Driver info: driver.version: unknown|null
+2021-01-27 00:37:57 ERROR LiveDAO:run 116 - CollectException: Error communicating with the remote browser. It may have died.
+Build info: version: '4.0.0-alpha-5', revision: 'b3a0d621cc'
+System info: host: 'pop-os', ip: '127.0.1.1', os.name: 'Linux', os.arch: 'amd64', os.version: '5.8.0-7630-generic', java.version: '1.8.0_252'
+Driver info: driver.version: RemoteWebDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 87.0.4280.88, chrome: {chromedriverVersion: 87.0.4280.88 (89e2380a3e36c..., userDataDir: /tmp/.com.google.Chrome.WMCKlj}, goog:chromeOptions: {debuggerAddress: localhost:40135}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: LINUX, platformName: LINUX, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:virtualAuthenticators: true}
+Session ID: 45b9cddbef934b98e9aa0dc6842b281a|java.net.ConnectException: В соединении отказано: localhost/0:0:0:0:0:0:0:1:11529

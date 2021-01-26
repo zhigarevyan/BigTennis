@@ -2,7 +2,6 @@ package bigtennis.dao;
 
 import bigtennis.entity.BigTennisLiveMatchList;
 import server.dao.LiveDAO;
-import server.entity.LiveMatchList;
 
 public class BigTennisLiveDAO extends LiveDAO {
 

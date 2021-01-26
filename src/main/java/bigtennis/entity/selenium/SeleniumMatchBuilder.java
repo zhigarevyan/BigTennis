@@ -91,7 +91,7 @@ public class SeleniumMatchBuilder {
     private String dateToDB(String string) {
         String[] result = string.split(" ");
         String[] tempString = result[0].split("\\.");
-        return "2020-" + tempString[1] + '-' + tempString[0] + " " + result[1];
+        return "2021-" + tempString[1] + '-' + tempString[0] + " " + result[1];
     }
 
     private String[] playersToDBForm(String textFromPlayersCell) {

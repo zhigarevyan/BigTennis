@@ -2,9 +2,14 @@ package bigtennis.entity;
 
 import bigtennis.entity.dbEntity.ResultEntity;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.io.Serializable;
+import java.util.Set;
 
 public class Result implements Serializable {
+
+    private static final long serialVersionUID = 1L;
 
     private int p1Score;
     private int p2Score;
@@ -14,6 +19,9 @@ public class Result implements Serializable {
 
     private int p1Total = 0;
     private int p2Total = 0;
+
+    private List<Integer> p1SetList = new ArrayList<>();
+    private List<Integer> p2SetList = new ArrayList<>();
 
     private int total = 0;
 
@@ -54,6 +62,12 @@ public class Result implements Serializable {
         tempNum = p1Fora;
         p1Fora = p2Fora;
         p2Fora = tempNum;
+
+        List<Integer> tempArrayList;
+
+        tempArrayList = p1SetList;
+        p1SetList = p2SetList;
+        p2SetList = p1SetList;
     }
 
     //region GSC
@@ -74,7 +88,6 @@ public class Result implements Serializable {
         p2Fora = p2Total - p1Total;
     }
 
-
     private void setTotals(String[] sets) {
         for (String set : sets) {
 
@@ -83,8 +96,17 @@ public class Result implements Serializable {
             }
 
             int[] splitedSet = splitString(set);
-            p1Total += splitedSet[0];
-            p2Total += splitedSet[1];
+
+            int p1SetScore = splitedSet[0];
+
+            p1Total += p1SetScore;
+            p1SetList.add(p1SetScore);
+
+            int p2SetScore = splitedSet[1];
+
+            p2Total += p2SetScore;
+            p2SetList.add(p2SetScore);
+
             total = p1Total + p2Total;
         }
     }
@@ -116,5 +138,22 @@ public class Result implements Serializable {
     public int getTotal() {
         return total;
     }
+
+    public List<Integer> getP1SetList() {
+        return p1SetList;
+    }
+
+    public void setP1SetList(List<Integer> p1SetList) {
+        this.p1SetList = p1SetList;
+    }
+
+    public List<Integer> getP2SetList() {
+        return p2SetList;
+    }
+
+    public void setP2SetList(List<Integer> p2SetList) {
+        this.p2SetList = p2SetList;
+    }
+
     //endregion
 }

@@ -18,15 +18,20 @@ public class WebElementProvider {
     private static final String SEARCHBOX_CLASS = "//*[@id=\"searchGames\"]";
     private static final String MATCHBOX_CLASS = "c-games__row_light";
     private static final String LEAGUES_CLASS = "c-games__name";
-    private static final String TENNIS_BUTTON_XPATH = "//*[@id=\"router_app\"]/div/div[2]/div/div/div[1]/div/section/ul/li[5]/a";
-    private static final String CALENDAR_XPATH = "//*[@id=\"router_app\"]/div/div[2]/div/div/div[2]/div[2]/div/div/div[2]/div/div[1]/div[1]";
-    private static final String BUTTON_PREV_MONTH_XPATH = "//*[@id=\"router_app\"]/div/div[2]/div/div/div[2]/div[2]/div/div/div[2]/div/div[1]/div[2]/header/span[1]";
-    private static final String APPLY_DATE_BUTTON_XPATH = "//*[@id=\"router_app\"]/div/div[2]/div/div/div[2]/div[2]/div/div/div[5]/div";
+    private static final String TENNIS_BUTTON_XPATH = "//*[@id=\"router_app\"]/div/div[3]/div/div/div[1]/div/section/ul/li[5]/a";
+    private static final String CALENDAR_XPATH = "//*[@id=\"router_app\"]/div/div[3]/div/div/div[2]/div[2]/div/div" +
+            "/div[2]/div/div[1]/div[1]";
+    private static final String BUTTON_PREV_MONTH_XPATH = "//*[@id=\"router_app\"]/div/div[3]/div/div/div[2]/div[2" +
+            "]/div/div/div[2]/div/div[1]/div[2]/header/span[1]";
+    private static final String APPLY_DATE_BUTTON_XPATH = "//*[@id=\"router_app\"]/div/div[3]/div/div/div[2]/div[2" +
+            "]/div/div/div[5]/div";
     private static final String FREE_SPACE_XPATH = "//*[@id=\"router_app\"]/div/div[1]";
-    private static final String LEFT_DATES_XPATH = "//*[@id='router_app']/div/div[2]/div/div/div[2]/div[2]/div/div/div[2]/div/div[1]/div[2]/div/*[.!='' and not(starts-with(@class,'cell day-header')) and not(starts-with(@class,'cell day disabled'))]";
+    private static final String LEFT_DATES_XPATH = "//*[@id='router_app']/div/div[3]/div/div/div[2]/div[2]/div/div" +
+            "/div[2]/div/div[1]/div[2]/div/*[.!='' and not(starts-with(@class,'cell day-header')) and not(starts-with(@class,'cell day disabled'))]";
     private static final String RAW_LEAGUE_DATA_CLASS = "c-games__col";
     private static final String RAW_LEAGUE_IDENTIFY_ATTRIBUTE = "sportid";
-    private static final String EXPAND_ALL_MATCHES_BUTTON_XPATH = "//*[@id=\"router_app\"]/div/div[2]/div/div/div[2]/div[2]/div/div/div[9]/div" ;
+    private static final String EXPAND_ALL_MATCHES_BUTTON_XPATH = "//*[@id=\"router_app\"]/div/div[3]/div/div/div[2" +
+            "]/div[2]/div/div/div[9]/div" ;
     private static final String LEAGUE_NAME_CLASS = "c-games__row c-games__row_can-toggle active";
     private static final String BIG_TENNIS_MATCH_ELEMENT_CLASS = "c-games__col";
     private static final String PARENT_XPATH = "./..";

@@ -35,8 +35,8 @@ public class ServerStarter {
 
         LiveDAOProvider liveDAOProvider = LiveDAOProvider.getInstance();
 
-        serverTaskList.add(getServerTask(liveDAOProvider.getTableTennisDAO()));
-        serverTaskList.add(getServerTask(liveDAOProvider.getBigTennisDAO()));
+        //serverTaskList.add(getServerTask(liveDAOProvider.getTableTennisDAO()));
+        //serverTaskList.add(getServerTask(liveDAOProvider.getBigTennisDAO()));
 
         updateTimer.schedule(rerunTask, 1000*20, 1000 * 20);
     }

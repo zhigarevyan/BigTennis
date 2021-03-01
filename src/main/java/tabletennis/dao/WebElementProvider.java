@@ -13,14 +13,19 @@ public class WebElementProvider {
 
     private final ChromeDriver driver;
 
-    private final String NASTOLKA_BUTTON_XPATH = "//*[@id=\"router_app\"]/div/div[2]/div/div/div[1]/div/section/ul/li[7]/a";
+    private final String NASTOLKA_BUTTON_XPATH = "//*[@id=\"router_app\"]/div/div[3]/div/div/div[1]/div/section/ul/li" +
+            "[7]/a";
     private final String SEARCHBOX_CLASS = "//*[@id=\"searchGames\"]";
     private final String MATCHBOX_CLASS = "c-games__row_light";
-    private final String CALENDAR_XPATH = "//*[@id=\"router_app\"]/div/div[2]/div/div/div[2]/div[2]/div/div/div[2]/div/div[1]/div[1]";
-    private final String BUTTON_PREV_MONTH_XPATH = "//*[@id=\"router_app\"]/div/div[2]/div/div/div[2]/div[2]/div/div/div[2]/div/div[1]/div[2]/header/span[1]";
-    private final String APPLY_DATE_BUTTON_XPATH = "//*[@id=\"router_app\"]/div/div[2]/div/div/div[2]/div[2]/div/div/div[5]/div";
+    private final String CALENDAR_XPATH = "//*[@id=\"router_app\"]/div/div[3]/div/div/div[2]/div[2]/div/div/div[2" +
+            "]/div/div[1]/div[1]";
+    private final String BUTTON_PREV_MONTH_XPATH = "//*[@id=\"router_app\"]/div/div[3]/div/div/div[2]/div[2]/div/div" +
+            "/div[2]/div/div[1]/div[2]/header/span[1]";
+    private final String APPLY_DATE_BUTTON_XPATH = "//*[@id=\"router_app\"]/div/div[3]/div/div/div[2]/div[2]/div/div" +
+            "/div[5]/div";
     private final String FREE_SPACE_XPATH = "//*[@id=\"router_app\"]/div/div[1]";
-    private final String LEFT_DATES_XPATH = "//*[@id='router_app']/div/div[2]/div/div/div[2]/div[2]/div/div/div[2]/div/div[1]/div[2]/div/*[.!='' and not(starts-with(@class,'cell day-header')) and not(starts-with(@class,'cell day disabled'))]";
+    private final String LEFT_DATES_XPATH = "//*[@id='router_app']/div/div[3]/div/div/div[2]/div[2]/div/div/div[2" +
+            "]/div/div[1]/div[2]/div/*[.!='' and not(starts-with(@class,'cell day-header')) and not(starts-with(@class,'cell day disabled'))]";
     private final String MATCHBOX_LIVE_CLASS = "c-events-scoreboard";
     private final String LIVE_LEAGUE_CONTENT_ELEMENT_XPATH = "//*[@id='games_content']/div/div[1]/div/div";
     private final String LIVE_LEAGUE_NAME_ELEMENT_CLASS = "c-events__liga";

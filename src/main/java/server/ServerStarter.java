@@ -30,12 +30,12 @@ public class ServerStarter {
         logger.info("Сервер запущен. v0.15");
         logger.info(ManagementFactory.getRuntimeMXBean().getName());
 
-        //pool.submit(new SocketConnectionPool());
-        //pool.execute(CollectingController.getInstance());
+        pool.submit(new SocketConnectionPool());
+        pool.execute(CollectingController.getInstance());
 
-        LiveDAOProvider liveDAOProvider = LiveDAOProvider.getInstance();
+        //LiveDAOProvider liveDAOProvider = LiveDAOProvider.getInstance();
 
-        serverTaskList.add(getServerTask(liveDAOProvider.getTableTennisDAO()));
+        //serverTaskList.add(getServerTask(liveDAOProvider.getTableTennisDAO()));
         //serverTaskList.add(getServerTask(liveDAOProvider.getBigTennisDAO()));
 
         updateTimer.schedule(rerunTask, 1000*20, 1000 * 20);

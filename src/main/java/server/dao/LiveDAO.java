@@ -37,7 +37,6 @@ public class LiveDAO implements Runnable {
     @Override
     public void run() {
         isOkay = true;
-
         try {
             liveChromeDriver = new ChromeDriver(options);
             webElementProvider = new WebElementProvider(liveChromeDriver);
@@ -47,6 +46,7 @@ public class LiveDAO implements Runnable {
             collectExecutor = Executors.newSingleThreadScheduledExecutor();
 
             updateExecutor.scheduleWithFixedDelay(updateThread, 0, 5, TimeUnit.MINUTES);
+            System.out.println("UPDATE");
             while (isOkay);
 
         } catch (RuntimeException e) {
@@ -69,7 +69,7 @@ public class LiveDAO implements Runnable {
     private static ChromeOptions initOptions() {
         System.setProperty("webdriver.chrome.driver", "chromedriver");
         ChromeOptions options = new ChromeOptions();
-        //options.addArguments("--headless");
+        options.addArguments("--headless");
         options.addArguments("--no-sandbox");
         options.addArguments("--lang=ru");
         return options;
@@ -90,7 +90,7 @@ public class LiveDAO implements Runnable {
 
                 webElementProvider.waitUntilLiveLoaded();
 
-                collectExecutor.scheduleWithFixedDelay(collectThread, 0, 5, TimeUnit.SECONDS);
+                collectExecutor.scheduleWithFixedDelay(collectThread, 0, 20, TimeUnit.SECONDS);
             } catch (Exception e) {
                 isOkay = false;
                 logger.error("UpdateException: "+e.getMessage()+"|"+e.getCause().getMessage());

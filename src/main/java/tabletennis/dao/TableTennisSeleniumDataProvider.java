@@ -67,6 +67,7 @@ public class TableTennisSeleniumDataProvider {
 
                 WebElement lastDay = daysToGet.remove(index - 1);
                 performClick(calendar, driver);
+                sleep(100);
                 performClick(lastDay, driver);
                 //try-catch в случае, если произойдет ошибка иксбета. Рефреш страницы-возврат к текущему дню. Дописать на другие месяцы. Сработает только на 1 ошибку подряд.
                 try {

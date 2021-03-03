@@ -21,5 +21,6 @@ public class TableTennisLiveDAO extends LiveDAO {
         @Override
         public void updateLiveList() {
             tableTennisLiveMatchList = liveMatchBuilder.getTableTennisLiveMatchList(webElementProvider);
+            System.out.println(tableTennisLiveMatchList);
         }
 }

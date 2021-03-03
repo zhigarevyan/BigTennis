@@ -1,0 +1,240 @@
+2021-03-01 19:27:22 INFO  ServerStarter:main 30 - Сервер запущен. v0.15
+2021-03-01 19:27:22 INFO  ServerStarter:main 31 - 16850@pop-os
+2021-03-01 19:27:23 INFO  MLog:run 191 - MLog clients using log4j logging.
+2021-03-01 19:27:23 INFO  C3P0Registry:banner 248 - Initializing c3p0-0.9.5.5 [built 11-December-2019 22:18:33 -0800; debug? true; trace: 10]
+2021-03-01 19:27:23 INFO  AbstractPoolBackedDataSource:getPoolManager 527 - Initializing c3p0 pool... com.mchange.v2.c3p0.PoolBackedDataSource@bcc9fe9d [ connectionPoolDataSource -> com.mchange.v2.c3p0.WrapperConnectionPoolDataSource@b531f6d [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, contextClassLoaderSource -> caller, debugUnreturnedConnectionStackTraces -> false, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, forceSynchronousCheckins -> false, identityToken -> z8kfsxaf1u7grksk5it5|-34757529, idleConnectionTestPeriod -> 0, initialPoolSize -> 3, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 0, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 15, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 3, nestedDataSource -> com.mchange.v2.c3p0.DriverManagerDataSource@1ab10961 [ description -> null, driverClass -> null, factoryClassLocation -> null, forceUseNamedDriverClass -> false, identityToken -> z8kfsxaf1u7grksk5it5|3d0a7752, jdbcUrl -> jdbc:mysql://185.135.80.244:3306/bigtennis, properties -> {user=******, password=******} ], preferredTestQuery -> null, privilegeSpawnedThreads -> false, propertyCycle -> 0, statementCacheNumDeferredCloseThreads -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false; userOverrides: {} ], dataSourceName -> null, extensions -> {}, factoryClassLocation -> null, identityToken -> z8kfsxaf1u7grksk5it5|569d0b38, numHelperThreads -> 3 ]
+2021-03-01 19:27:30 ERROR CollectingController:run 85 - Хром не был запущен. Ожидание следующей итерации
+server.exception.SeleniumInitException: Error init chrome
+	at bigtennis.dao.BigTennisSeleniumDataProvider.init(BigTennisSeleniumDataProvider.java:148)
+	at bigtennis.dao.BigTennisSeleniumDataProvider.getNewMatches(BigTennisSeleniumDataProvider.java:29)
+	at server.controller.CollectingController$SeleniumTask.loadBigTennis(CollectingController.java:69)
+	at server.controller.CollectingController$SeleniumTask.run(CollectingController.java:81)
+	at java.util.TimerThread.mainLoop(Timer.java:555)
+	at java.util.TimerThread.run(Timer.java:505)
+Caused by: org.openqa.selenium.SessionNotCreatedException: session not created: This version of ChromeDriver only supports Chrome version 89
+Current browser version is 87.0.4280.88 with binary path /usr/bin/google-chrome
+Build info: version: '4.0.0-alpha-5', revision: 'b3a0d621cc'
+System info: host: 'pop-os', ip: '127.0.1.1', os.name: 'Linux', os.arch: 'amd64', os.version: '5.8.0-7630-generic', java.version: '1.8.0_252'
+Driver info: driver.version: ChromeDriver
+remote stacktrace: #0 0x563f9d9b92b9 <unknown>
+
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at org.openqa.selenium.remote.W3CHandshakeResponse.lambda$errorHandler$0(W3CHandshakeResponse.java:62)
+	at org.openqa.selenium.remote.W3CHandshakeResponse$$Lambda$406/0000000000000000.apply(Unknown Source)
+	at org.openqa.selenium.remote.HandshakeResponse.lambda$getResponseFunction$0(HandshakeResponse.java:30)
+	at org.openqa.selenium.remote.HandshakeResponse$$Lambda$399/0000000000000000.apply(Unknown Source)
+	at org.openqa.selenium.remote.ProtocolHandshake.lambda$createSession$1(ProtocolHandshake.java:126)
+	at org.openqa.selenium.remote.ProtocolHandshake$$Lambda$401/0000000000000000.apply(Unknown Source)
+	at java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:193)
+	at java.util.Spliterators$ArraySpliterator.tryAdvance(Spliterators.java:958)
+	at java.util.stream.ReferencePipeline.forEachWithCancel(ReferencePipeline.java:126)
+	at java.util.stream.AbstractPipeline.copyIntoWithCancel(AbstractPipeline.java:514)
+	at java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:501)
+	at java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:487)
+	at java.util.stream.FindOps$FindOp.evaluateSequential(FindOps.java:152)
+	at java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:241)
+	at java.util.stream.ReferencePipeline.findFirst(ReferencePipeline.java:531)
+	at org.openqa.selenium.remote.ProtocolHandshake.createSession(ProtocolHandshake.java:128)
+	at org.openqa.selenium.remote.ProtocolHandshake.createSession(ProtocolHandshake.java:75)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:139)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:582)
+	at org.openqa.selenium.remote.RemoteWebDriver.startSession(RemoteWebDriver.java:216)
+	at org.openqa.selenium.remote.RemoteWebDriver.<init>(RemoteWebDriver.java:136)
+	at org.openqa.selenium.chromium.ChromiumDriver.<init>(ChromiumDriver.java:75)
+	at org.openqa.selenium.chrome.ChromeDriver.<init>(ChromeDriver.java:163)
+	at org.openqa.selenium.chrome.ChromeDriver.<init>(ChromeDriver.java:150)
+	at org.openqa.selenium.chrome.ChromeDriver.<init>(ChromeDriver.java:139)
+	at bigtennis.dao.BigTennisSeleniumDataProvider.init(BigTennisSeleniumDataProvider.java:146)
+	... 5 more
+2021-03-01 19:29:40 INFO  ServerStarter:main 30 - Сервер запущен. v0.15
+2021-03-01 19:29:40 INFO  ServerStarter:main 31 - 17297@pop-os
+2021-03-01 19:29:41 INFO  MLog:run 191 - MLog clients using log4j logging.
+2021-03-01 19:29:41 INFO  C3P0Registry:banner 248 - Initializing c3p0-0.9.5.5 [built 11-December-2019 22:18:33 -0800; debug? true; trace: 10]
+2021-03-01 19:29:41 INFO  AbstractPoolBackedDataSource:getPoolManager 527 - Initializing c3p0 pool... com.mchange.v2.c3p0.PoolBackedDataSource@5cf269f7 [ connectionPoolDataSource -> com.mchange.v2.c3p0.WrapperConnectionPoolDataSource@55edd7f5 [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, contextClassLoaderSource -> caller, debugUnreturnedConnectionStackTraces -> false, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, forceSynchronousCheckins -> false, identityToken -> z8kfsxaf1u7jqfo1tnax8m|-492c5f72, idleConnectionTestPeriod -> 0, initialPoolSize -> 3, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 0, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 15, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 3, nestedDataSource -> com.mchange.v2.c3p0.DriverManagerDataSource@111da2fe [ description -> null, driverClass -> null, factoryClassLocation -> null, forceUseNamedDriverClass -> false, identityToken -> z8kfsxaf1u7jqfo1tnax8m|1810382c, jdbcUrl -> jdbc:mysql://185.135.80.244:3306/bigtennis, properties -> {user=******, password=******} ], preferredTestQuery -> null, privilegeSpawnedThreads -> false, propertyCycle -> 0, statementCacheNumDeferredCloseThreads -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false; userOverrides: {} ], dataSourceName -> null, extensions -> {}, factoryClassLocation -> null, identityToken -> z8kfsxaf1u7jqfo1tnax8m|-2376e31c, numHelperThreads -> 3 ]
+2021-03-01 19:29:48 ERROR CollectingController:run 85 - Хром не был запущен. Ожидание следующей итерации
+server.exception.SeleniumInitException: Error init chrome
+	at bigtennis.dao.BigTennisSeleniumDataProvider.init(BigTennisSeleniumDataProvider.java:148)
+	at bigtennis.dao.BigTennisSeleniumDataProvider.getNewMatches(BigTennisSeleniumDataProvider.java:29)
+	at server.controller.CollectingController$SeleniumTask.loadBigTennis(CollectingController.java:69)
+	at server.controller.CollectingController$SeleniumTask.run(CollectingController.java:81)
+	at java.util.TimerThread.mainLoop(Timer.java:555)
+	at java.util.TimerThread.run(Timer.java:505)
+Caused by: org.openqa.selenium.SessionNotCreatedException: session not created: This version of ChromeDriver only supports Chrome version 89
+Current browser version is 87.0.4280.88 with binary path /usr/bin/google-chrome
+Build info: version: '4.0.0-alpha-5', revision: 'b3a0d621cc'
+System info: host: 'pop-os', ip: '127.0.1.1', os.name: 'Linux', os.arch: 'amd64', os.version: '5.8.0-7630-generic', java.version: '1.8.0_252'
+Driver info: driver.version: ChromeDriver
+remote stacktrace: #0 0x559c477582b9 <unknown>
+
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at org.openqa.selenium.remote.W3CHandshakeResponse.lambda$errorHandler$0(W3CHandshakeResponse.java:62)
+	at org.openqa.selenium.remote.W3CHandshakeResponse$$Lambda$406/0000000000000000.apply(Unknown Source)
+	at org.openqa.selenium.remote.HandshakeResponse.lambda$getResponseFunction$0(HandshakeResponse.java:30)
+	at org.openqa.selenium.remote.HandshakeResponse$$Lambda$399/0000000000000000.apply(Unknown Source)
+	at org.openqa.selenium.remote.ProtocolHandshake.lambda$createSession$1(ProtocolHandshake.java:126)
+	at org.openqa.selenium.remote.ProtocolHandshake$$Lambda$401/0000000000000000.apply(Unknown Source)
+	at java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:193)
+	at java.util.Spliterators$ArraySpliterator.tryAdvance(Spliterators.java:958)
+	at java.util.stream.ReferencePipeline.forEachWithCancel(ReferencePipeline.java:126)
+	at java.util.stream.AbstractPipeline.copyIntoWithCancel(AbstractPipeline.java:514)
+	at java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:501)
+	at java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:487)
+	at java.util.stream.FindOps$FindOp.evaluateSequential(FindOps.java:152)
+	at java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:241)
+	at java.util.stream.ReferencePipeline.findFirst(ReferencePipeline.java:531)
+	at org.openqa.selenium.remote.ProtocolHandshake.createSession(ProtocolHandshake.java:128)
+	at org.openqa.selenium.remote.ProtocolHandshake.createSession(ProtocolHandshake.java:75)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:139)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:582)
+	at org.openqa.selenium.remote.RemoteWebDriver.startSession(RemoteWebDriver.java:216)
+	at org.openqa.selenium.remote.RemoteWebDriver.<init>(RemoteWebDriver.java:136)
+	at org.openqa.selenium.chromium.ChromiumDriver.<init>(ChromiumDriver.java:75)
+	at org.openqa.selenium.chrome.ChromeDriver.<init>(ChromeDriver.java:163)
+	at org.openqa.selenium.chrome.ChromeDriver.<init>(ChromeDriver.java:150)
+	at org.openqa.selenium.chrome.ChromeDriver.<init>(ChromeDriver.java:139)
+	at bigtennis.dao.BigTennisSeleniumDataProvider.init(BigTennisSeleniumDataProvider.java:146)
+	... 5 more
+2021-03-01 19:30:46 INFO  ServerStarter:main 30 - Сервер запущен. v0.15
+2021-03-01 19:30:46 INFO  ServerStarter:main 31 - 17541@pop-os
+2021-03-01 19:30:47 INFO  MLog:run 191 - MLog clients using log4j logging.
+2021-03-01 19:30:48 INFO  C3P0Registry:banner 248 - Initializing c3p0-0.9.5.5 [built 11-December-2019 22:18:33 -0800; debug? true; trace: 10]
+2021-03-01 19:30:48 INFO  AbstractPoolBackedDataSource:getPoolManager 527 - Initializing c3p0 pool... com.mchange.v2.c3p0.PoolBackedDataSource@920dceb8 [ connectionPoolDataSource -> com.mchange.v2.c3p0.WrapperConnectionPoolDataSource@d94e56d4 [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, contextClassLoaderSource -> caller, debugUnreturnedConnectionStackTraces -> false, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, forceSynchronousCheckins -> false, identityToken -> z8kfsxaf1u7l5ml5w9h0s|-70de5b18, idleConnectionTestPeriod -> 0, initialPoolSize -> 3, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 0, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 15, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 3, nestedDataSource -> com.mchange.v2.c3p0.DriverManagerDataSource@9a7ace8c [ description -> null, driverClass -> null, factoryClassLocation -> null, forceUseNamedDriverClass -> false, identityToken -> z8kfsxaf1u7l5ml5w9h0s|23133f8e, jdbcUrl -> jdbc:mysql://185.135.80.244:3306/bigtennis, properties -> {user=******, password=******} ], preferredTestQuery -> null, privilegeSpawnedThreads -> false, propertyCycle -> 0, statementCacheNumDeferredCloseThreads -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false; userOverrides: {} ], dataSourceName -> null, extensions -> {}, factoryClassLocation -> null, identityToken -> z8kfsxaf1u7l5ml5w9h0s|-154d3e04, numHelperThreads -> 3 ]
+2021-03-01 19:30:54 ERROR CollectingController:run 85 - Хром не был запущен. Ожидание следующей итерации
+server.exception.SeleniumInitException: Error init chrome
+	at bigtennis.dao.BigTennisSeleniumDataProvider.init(BigTennisSeleniumDataProvider.java:148)
+	at bigtennis.dao.BigTennisSeleniumDataProvider.getNewMatches(BigTennisSeleniumDataProvider.java:29)
+	at server.controller.CollectingController$SeleniumTask.loadBigTennis(CollectingController.java:69)
+	at server.controller.CollectingController$SeleniumTask.run(CollectingController.java:81)
+	at java.util.TimerThread.mainLoop(Timer.java:555)
+	at java.util.TimerThread.run(Timer.java:505)
+Caused by: org.openqa.selenium.SessionNotCreatedException: session not created: This version of ChromeDriver only supports Chrome version 89
+Current browser version is 87.0.4280.88 with binary path /usr/bin/google-chrome
+Build info: version: '4.0.0-alpha-5', revision: 'b3a0d621cc'
+System info: host: 'pop-os', ip: '127.0.1.1', os.name: 'Linux', os.arch: 'amd64', os.version: '5.8.0-7630-generic', java.version: '1.8.0_252'
+Driver info: driver.version: ChromeDriver
+remote stacktrace: #0 0x56353a8682b9 <unknown>
+
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at org.openqa.selenium.remote.W3CHandshakeResponse.lambda$errorHandler$0(W3CHandshakeResponse.java:62)
+	at org.openqa.selenium.remote.W3CHandshakeResponse$$Lambda$406/0000000000000000.apply(Unknown Source)
+	at org.openqa.selenium.remote.HandshakeResponse.lambda$getResponseFunction$0(HandshakeResponse.java:30)
+	at org.openqa.selenium.remote.HandshakeResponse$$Lambda$399/0000000000000000.apply(Unknown Source)
+	at org.openqa.selenium.remote.ProtocolHandshake.lambda$createSession$1(ProtocolHandshake.java:126)
+	at org.openqa.selenium.remote.ProtocolHandshake$$Lambda$401/0000000000000000.apply(Unknown Source)
+	at java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:193)
+	at java.util.Spliterators$ArraySpliterator.tryAdvance(Spliterators.java:958)
+	at java.util.stream.ReferencePipeline.forEachWithCancel(ReferencePipeline.java:126)
+	at java.util.stream.AbstractPipeline.copyIntoWithCancel(AbstractPipeline.java:514)
+	at java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:501)
+	at java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:487)
+	at java.util.stream.FindOps$FindOp.evaluateSequential(FindOps.java:152)
+	at java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:241)
+	at java.util.stream.ReferencePipeline.findFirst(ReferencePipeline.java:531)
+	at org.openqa.selenium.remote.ProtocolHandshake.createSession(ProtocolHandshake.java:128)
+	at org.openqa.selenium.remote.ProtocolHandshake.createSession(ProtocolHandshake.java:75)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:139)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:582)
+	at org.openqa.selenium.remote.RemoteWebDriver.startSession(RemoteWebDriver.java:216)
+	at org.openqa.selenium.remote.RemoteWebDriver.<init>(RemoteWebDriver.java:136)
+	at org.openqa.selenium.chromium.ChromiumDriver.<init>(ChromiumDriver.java:75)
+	at org.openqa.selenium.chrome.ChromeDriver.<init>(ChromeDriver.java:163)
+	at org.openqa.selenium.chrome.ChromeDriver.<init>(ChromeDriver.java:150)
+	at org.openqa.selenium.chrome.ChromeDriver.<init>(ChromeDriver.java:139)
+	at bigtennis.dao.BigTennisSeleniumDataProvider.init(BigTennisSeleniumDataProvider.java:146)
+	... 5 more
+2021-03-01 19:31:30 INFO  ServerStarter:main 30 - Сервер запущен. v0.15
+2021-03-01 19:31:30 INFO  ServerStarter:main 31 - 17740@pop-os
+2021-03-01 19:31:31 INFO  MLog:run 191 - MLog clients using log4j logging.
+2021-03-01 19:31:32 INFO  C3P0Registry:banner 248 - Initializing c3p0-0.9.5.5 [built 11-December-2019 22:18:33 -0800; debug? true; trace: 10]
+2021-03-01 19:31:32 INFO  AbstractPoolBackedDataSource:getPoolManager 527 - Initializing c3p0 pool... com.mchange.v2.c3p0.PoolBackedDataSource@827f91c9 [ connectionPoolDataSource -> com.mchange.v2.c3p0.WrapperConnectionPoolDataSource@634f1fb2 [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, contextClassLoaderSource -> caller, debugUnreturnedConnectionStackTraces -> false, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, forceSynchronousCheckins -> false, identityToken -> z8kfsxaf1u7m3ju9dvwee|74bba6d0, idleConnectionTestPeriod -> 0, initialPoolSize -> 3, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 0, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 15, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 3, nestedDataSource -> com.mchange.v2.c3p0.DriverManagerDataSource@8d06ae08 [ description -> null, driverClass -> null, factoryClassLocation -> null, forceUseNamedDriverClass -> false, identityToken -> z8kfsxaf1u7m3ju9dvwee|6202704e, jdbcUrl -> jdbc:mysql://185.135.80.244:3306/bigtennis, properties -> {user=******, password=******} ], preferredTestQuery -> null, privilegeSpawnedThreads -> false, propertyCycle -> 0, statementCacheNumDeferredCloseThreads -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false; userOverrides: {} ], dataSourceName -> null, extensions -> {}, factoryClassLocation -> null, identityToken -> z8kfsxaf1u7m3ju9dvwee|5452b382, numHelperThreads -> 3 ]
+2021-03-01 19:40:56 ERROR CollectingController:run 85 - Хром не был запущен. Ожидание следующей итерации
+server.exception.SeleniumInitException: Error init chrome
+	at bigtennis.dao.BigTennisSeleniumDataProvider.init(BigTennisSeleniumDataProvider.java:148)
+	at bigtennis.dao.BigTennisSeleniumDataProvider.getNewMatches(BigTennisSeleniumDataProvider.java:29)
+	at server.controller.CollectingController$SeleniumTask.loadBigTennis(CollectingController.java:69)
+	at server.controller.CollectingController$SeleniumTask.run(CollectingController.java:81)
+	at java.util.TimerThread.mainLoop(Timer.java:555)
+	at java.util.TimerThread.run(Timer.java:505)
+Caused by: org.openqa.selenium.SessionNotCreatedException: session not created: This version of ChromeDriver only supports Chrome version 89
+Current browser version is 87.0.4280.88 with binary path /usr/bin/google-chrome
+Build info: version: '4.0.0-alpha-5', revision: 'b3a0d621cc'
+System info: host: 'pop-os', ip: '127.0.1.1', os.name: 'Linux', os.arch: 'amd64', os.version: '5.8.0-7630-generic', java.version: '1.8.0_252'
+Driver info: driver.version: ChromeDriver
+remote stacktrace: #0 0x5569d9b892b9 <unknown>
+
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at org.openqa.selenium.remote.W3CHandshakeResponse.lambda$errorHandler$0(W3CHandshakeResponse.java:62)
+	at org.openqa.selenium.remote.W3CHandshakeResponse$$Lambda$406/0000000000000000.apply(Unknown Source)
+	at org.openqa.selenium.remote.HandshakeResponse.lambda$getResponseFunction$0(HandshakeResponse.java:30)
+	at org.openqa.selenium.remote.HandshakeResponse$$Lambda$399/0000000000000000.apply(Unknown Source)
+	at org.openqa.selenium.remote.ProtocolHandshake.lambda$createSession$1(ProtocolHandshake.java:126)
+	at org.openqa.selenium.remote.ProtocolHandshake$$Lambda$401/0000000000000000.apply(Unknown Source)
+	at java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:193)
+	at java.util.Spliterators$ArraySpliterator.tryAdvance(Spliterators.java:958)
+	at java.util.stream.ReferencePipeline.forEachWithCancel(ReferencePipeline.java:126)
+	at java.util.stream.AbstractPipeline.copyIntoWithCancel(AbstractPipeline.java:514)
+	at java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:501)
+	at java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:487)
+	at java.util.stream.FindOps$FindOp.evaluateSequential(FindOps.java:152)
+	at java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:241)
+	at java.util.stream.ReferencePipeline.findFirst(ReferencePipeline.java:531)
+	at org.openqa.selenium.remote.ProtocolHandshake.createSession(ProtocolHandshake.java:128)
+	at org.openqa.selenium.remote.ProtocolHandshake.createSession(ProtocolHandshake.java:75)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:139)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:582)
+	at org.openqa.selenium.remote.RemoteWebDriver.startSession(RemoteWebDriver.java:216)
+	at org.openqa.selenium.remote.RemoteWebDriver.<init>(RemoteWebDriver.java:136)
+	at org.openqa.selenium.chromium.ChromiumDriver.<init>(ChromiumDriver.java:75)
+	at org.openqa.selenium.chrome.ChromeDriver.<init>(ChromeDriver.java:163)
+	at org.openqa.selenium.chrome.ChromeDriver.<init>(ChromeDriver.java:150)
+	at org.openqa.selenium.chrome.ChromeDriver.<init>(ChromeDriver.java:139)
+	at bigtennis.dao.BigTennisSeleniumDataProvider.init(BigTennisSeleniumDataProvider.java:146)
+	... 5 more
+2021-03-01 19:40:58 INFO  ServerStarter:main 30 - Сервер запущен. v0.15
+2021-03-01 19:40:58 INFO  ServerStarter:main 31 - 21723@pop-os
+2021-03-01 19:40:59 INFO  MLog:run 191 - MLog clients using log4j logging.
+2021-03-01 19:40:59 INFO  C3P0Registry:banner 248 - Initializing c3p0-0.9.5.5 [built 11-December-2019 22:18:33 -0800; debug? true; trace: 10]
+2021-03-01 19:40:59 INFO  AbstractPoolBackedDataSource:getPoolManager 527 - Initializing c3p0 pool... com.mchange.v2.c3p0.PoolBackedDataSource@7187159b [ connectionPoolDataSource -> com.mchange.v2.c3p0.WrapperConnectionPoolDataSource@b726a5a3 [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, contextClassLoaderSource -> caller, debugUnreturnedConnectionStackTraces -> false, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, forceSynchronousCheckins -> false, identityToken -> z8kfsxaf1u7y9k81awgxx0|68f4a87c, idleConnectionTestPeriod -> 0, initialPoolSize -> 3, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 0, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 15, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 3, nestedDataSource -> com.mchange.v2.c3p0.DriverManagerDataSource@6a964a2e [ description -> null, driverClass -> null, factoryClassLocation -> null, forceUseNamedDriverClass -> false, identityToken -> z8kfsxaf1u7y9k81awgxx0|f0bfa18, jdbcUrl -> jdbc:mysql://185.135.80.244:3306/bigtennis, properties -> {user=******, password=******} ], preferredTestQuery -> null, privilegeSpawnedThreads -> false, propertyCycle -> 0, statementCacheNumDeferredCloseThreads -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false; userOverrides: {} ], dataSourceName -> null, extensions -> {}, factoryClassLocation -> null, identityToken -> z8kfsxaf1u7y9k81awgxx0|-63b7861a, numHelperThreads -> 3 ]
+2021-03-01 19:43:02 INFO  ServerStarter:main 30 - Сервер запущен. v0.15
+2021-03-01 19:43:02 INFO  ServerStarter:main 31 - 22314@pop-os
+2021-03-01 19:43:03 INFO  MLog:run 191 - MLog clients using log4j logging.
+2021-03-01 19:43:03 INFO  C3P0Registry:banner 248 - Initializing c3p0-0.9.5.5 [built 11-December-2019 22:18:33 -0800; debug? true; trace: 10]
+2021-03-01 19:43:03 INFO  AbstractPoolBackedDataSource:getPoolManager 527 - Initializing c3p0 pool... com.mchange.v2.c3p0.PoolBackedDataSource@9cc9a7ab [ connectionPoolDataSource -> com.mchange.v2.c3p0.WrapperConnectionPoolDataSource@b17d2496 [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, contextClassLoaderSource -> caller, debugUnreturnedConnectionStackTraces -> false, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, forceSynchronousCheckins -> false, identityToken -> z8kfsxaf1u80wv1gq7aub|79a3cad3, idleConnectionTestPeriod -> 0, initialPoolSize -> 3, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 0, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 15, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 3, nestedDataSource -> com.mchange.v2.c3p0.DriverManagerDataSource@8c746af4 [ description -> null, driverClass -> null, factoryClassLocation -> null, forceUseNamedDriverClass -> false, identityToken -> z8kfsxaf1u80wv1gq7aub|20f3a779, jdbcUrl -> jdbc:mysql://185.135.80.244:3306/bigtennis, properties -> {user=******, password=******} ], preferredTestQuery -> null, privilegeSpawnedThreads -> false, propertyCycle -> 0, statementCacheNumDeferredCloseThreads -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false; userOverrides: {} ], dataSourceName -> null, extensions -> {}, factoryClassLocation -> null, identityToken -> z8kfsxaf1u80wv1gq7aub|6834813c, numHelperThreads -> 3 ]
+2021-03-01 19:45:52 INFO  ServerStarter:main 30 - Сервер запущен. v0.15
+2021-03-01 19:45:52 INFO  ServerStarter:main 31 - 22892@pop-os
+2021-03-01 19:45:53 INFO  MLog:run 191 - MLog clients using log4j logging.
+2021-03-01 19:45:53 INFO  C3P0Registry:banner 248 - Initializing c3p0-0.9.5.5 [built 11-December-2019 22:18:33 -0800; debug? true; trace: 10]
+2021-03-01 19:45:53 INFO  AbstractPoolBackedDataSource:getPoolManager 527 - Initializing c3p0 pool... com.mchange.v2.c3p0.PoolBackedDataSource@19fd9999 [ connectionPoolDataSource -> com.mchange.v2.c3p0.WrapperConnectionPoolDataSource@304d82e9 [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, contextClassLoaderSource -> caller, debugUnreturnedConnectionStackTraces -> false, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, forceSynchronousCheckins -> false, identityToken -> z8kfsxaf1u84k4gb05ozh|-751a1469, idleConnectionTestPeriod -> 0, initialPoolSize -> 3, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 0, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 15, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 3, nestedDataSource -> com.mchange.v2.c3p0.DriverManagerDataSource@c94feec0 [ description -> null, driverClass -> null, factoryClassLocation -> null, forceUseNamedDriverClass -> false, identityToken -> z8kfsxaf1u84k4gb05ozh|fc35f25, jdbcUrl -> jdbc:mysql://185.135.80.244:3306/bigtennis, properties -> {user=******, password=******} ], preferredTestQuery -> null, privilegeSpawnedThreads -> false, propertyCycle -> 0, statementCacheNumDeferredCloseThreads -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false; userOverrides: {} ], dataSourceName -> null, extensions -> {}, factoryClassLocation -> null, identityToken -> z8kfsxaf1u84k4gb05ozh|79768b4d, numHelperThreads -> 3 ]
+2021-03-01 19:46:35 INFO  ServerStarter:main 30 - Сервер запущен. v0.15
+2021-03-01 19:46:35 INFO  ServerStarter:main 31 - 23306@pop-os
+2021-03-01 19:46:36 INFO  MLog:run 191 - MLog clients using log4j logging.
+2021-03-01 19:46:36 INFO  C3P0Registry:banner 248 - Initializing c3p0-0.9.5.5 [built 11-December-2019 22:18:33 -0800; debug? true; trace: 10]
+2021-03-01 19:46:36 INFO  AbstractPoolBackedDataSource:getPoolManager 527 - Initializing c3p0 pool... com.mchange.v2.c3p0.PoolBackedDataSource@d63a70b [ connectionPoolDataSource -> com.mchange.v2.c3p0.WrapperConnectionPoolDataSource@90768186 [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, contextClassLoaderSource -> caller, debugUnreturnedConnectionStackTraces -> false, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, forceSynchronousCheckins -> false, identityToken -> z8kfsxaf1u85hhllgnk5k|-5a0d6d59, idleConnectionTestPeriod -> 0, initialPoolSize -> 3, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 0, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 15, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 3, nestedDataSource -> com.mchange.v2.c3p0.DriverManagerDataSource@5c51dea9 [ description -> null, driverClass -> null, factoryClassLocation -> null, forceUseNamedDriverClass -> false, identityToken -> z8kfsxaf1u85hhllgnk5k|-4d02c13b, jdbcUrl -> jdbc:mysql://185.135.80.244:3306/bigtennis, properties -> {user=******, password=******} ], preferredTestQuery -> null, privilegeSpawnedThreads -> false, propertyCycle -> 0, statementCacheNumDeferredCloseThreads -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false; userOverrides: {} ], dataSourceName -> null, extensions -> {}, factoryClassLocation -> null, identityToken -> z8kfsxaf1u85hhllgnk5k|-45353827, numHelperThreads -> 3 ]
+2021-03-01 19:47:05 INFO  CollectingController:loadBigTennis 70 - Отобрано 226 матчей
+2021-03-01 19:49:38 INFO  ServerStarter:main 30 - Сервер запущен. v0.15
+2021-03-01 19:49:38 INFO  ServerStarter:main 31 - 23811@pop-os
+2021-03-01 19:49:39 INFO  MLog:run 191 - MLog clients using log4j logging.
+2021-03-01 19:49:39 INFO  C3P0Registry:banner 248 - Initializing c3p0-0.9.5.5 [built 11-December-2019 22:18:33 -0800; debug? true; trace: 10]
+2021-03-01 19:49:39 INFO  AbstractPoolBackedDataSource:getPoolManager 527 - Initializing c3p0 pool... com.mchange.v2.c3p0.PoolBackedDataSource@8b5b049a [ connectionPoolDataSource -> com.mchange.v2.c3p0.WrapperConnectionPoolDataSource@799fe374 [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, contextClassLoaderSource -> caller, debugUnreturnedConnectionStackTraces -> false, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, forceSynchronousCheckins -> false, identityToken -> z8kfsxaf1u89elmjjhbm0|f2d1d78, idleConnectionTestPeriod -> 0, initialPoolSize -> 3, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 0, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 15, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 3, nestedDataSource -> com.mchange.v2.c3p0.DriverManagerDataSource@2c80b876 [ description -> null, driverClass -> null, factoryClassLocation -> null, forceUseNamedDriverClass -> false, identityToken -> z8kfsxaf1u89elmjjhbm0|74bd85f, jdbcUrl -> jdbc:mysql://185.135.80.244:3306/bigtennis, properties -> {user=******, password=******} ], preferredTestQuery -> null, privilegeSpawnedThreads -> false, propertyCycle -> 0, statementCacheNumDeferredCloseThreads -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false; userOverrides: {} ], dataSourceName -> null, extensions -> {}, factoryClassLocation -> null, identityToken -> z8kfsxaf1u89elmjjhbm0|-3b9460b7, numHelperThreads -> 3 ]
+2021-03-01 19:49:57 INFO  ServerStarter:main 30 - Сервер запущен. v0.15
+2021-03-01 19:49:57 INFO  ServerStarter:main 31 - 24180@pop-os
+2021-03-01 19:49:59 INFO  MLog:run 191 - MLog clients using log4j logging.
+2021-03-01 19:49:59 INFO  C3P0Registry:banner 248 - Initializing c3p0-0.9.5.5 [built 11-December-2019 22:18:33 -0800; debug? true; trace: 10]
+2021-03-01 19:49:59 INFO  AbstractPoolBackedDataSource:getPoolManager 527 - Initializing c3p0 pool... com.mchange.v2.c3p0.PoolBackedDataSource@78d03c3a [ connectionPoolDataSource -> com.mchange.v2.c3p0.WrapperConnectionPoolDataSource@8e251740 [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, contextClassLoaderSource -> caller, debugUnreturnedConnectionStackTraces -> false, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, forceSynchronousCheckins -> false, identityToken -> z8kfsxaf1u89ub31bksx14|2ad6e7d8, idleConnectionTestPeriod -> 0, initialPoolSize -> 3, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 0, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 15, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 3, nestedDataSource -> com.mchange.v2.c3p0.DriverManagerDataSource@a3b3f528 [ description -> null, driverClass -> null, factoryClassLocation -> null, forceUseNamedDriverClass -> false, identityToken -> z8kfsxaf1u89ub31bksx14|-68961158, jdbcUrl -> jdbc:mysql://185.135.80.244:3306/bigtennis, properties -> {user=******, password=******} ], preferredTestQuery -> null, privilegeSpawnedThreads -> false, propertyCycle -> 0, statementCacheNumDeferredCloseThreads -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false; userOverrides: {} ], dataSourceName -> null, extensions -> {}, factoryClassLocation -> null, identityToken -> z8kfsxaf1u89ub31bksx14|-c71ac83, numHelperThreads -> 3 ]
+2021-03-01 19:50:44 INFO  CollectingController:loadBigTennis 70 - Отобрано 225 матчей
